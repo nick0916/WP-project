@@ -15,9 +15,9 @@ hr.small {
 	  max-width: 500px;
 }
 
-/*#front{
-	border: 1px solid black;
-}*/
+#front{
+	padding: 5%;
+}
 
 #svg{
 	margin: 1%;
