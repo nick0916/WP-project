@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Taipei');
 $name = $_POST["name"];
-$time =date ("Y.m.d H:i"); 
+$time = date ("Y.m.d H:i"); 
 $message = $_POST["message"];
 echo $message;
 if($name&&$message) 
