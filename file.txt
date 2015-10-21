@@ -1,0 +1,28 @@
+<div id="contact_message" class="col-lg-8 col-lg-offset-2 col-md-10
+col-md-offset-1"><p id="myname">aas</p><p id="message">ss</p><p
+id="time">2015.10.21 20:55</p></div><div id="contact_message" class="col-lg-8
+col-lg-offset-2 col-md-10 col-md-offset-1"><p id="myname">kk</p><p
+id="message">kk</p><p id="time">2015.10.21 20:58</p></div><div
+id="contact_message" class="col-lg-8 col-lg-offset-2 col-md-10
+col-md-offset-1"><p id="myname">kk</p><p id="message">kk</p><p
+id="time">2015.10.21 20:58</p></div><div id="contact_message" class="col-lg-8
+col-lg-offset-2 col-md-10 col-md-offset-1"><p id="myname">qq</p><p
+id="message">qq</p><p id="time">2015.10.21 20:59</p></div><div
+id="contact_message" class="col-lg-8 col-lg-offset-2 col-md-10
+col-md-offset-1"><p id="myname">j</p><p id="message">j</p><p
+id="time">2015.10.21 20:59</p></div><div id="contact_message" class="col-lg-8
+col-lg-offset-2 col-md-10 col-md-offset-1"><p id="myname">gq</p><p
+id="message">gq</p><p id="time">2015.10.21 21:01</p></div><div
+id="contact_message" class="col-lg-8 col-lg-offset-2 col-md-10
+col-md-offset-1"><p id="myname">abc</p><p id="message">abc</p><p
+id="time">2015.10.21 21:04</p></div><div id="contact_message" class="col-lg-8
+col-lg-offset-2 col-md-10 col-md-offset-1"><p id="myname">g8</p><p
+id="message">ss</p><p id="time">2015.10.21 21:22</p></div><div
+id="contact_message" class="col-lg-8 col-lg-offset-2 col-md-10
+col-md-offset-1"><p id="myname">qk</p><p id="message">ss</p><p
+id="time">2015.10.21 21:22</p></div><div id="contact_message" class="col-lg-8
+col-lg-offset-2 col-md-10 col-md-offset-1"><p id="myname">a</p><p
+id="message">ss</p><p id="time">2015.10.21 21:22</p></div><div
+id="contact_message" class="col-lg-8 col-lg-offset-2 col-md-10
+col-md-offset-1"><p id="myname">asd</p><p id="message">ss</p><p
+id="time">2015.10.21 21:23</p></div>
