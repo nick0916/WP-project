@@ -14,7 +14,6 @@ $(document).ready(function(){
             //$('input').val("");
         });
     });
-<<<<<<< HEAD
 	setInterval(function(){
       $.ajax({
             method: "POST",
@@ -36,6 +35,4 @@ $(document).ready(function(){
        }
     });*/
 });
-=======
 });
->>>>>>> d613dc0e7d923f59402822393693f204d22d06ed
