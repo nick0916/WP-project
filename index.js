@@ -25,6 +25,7 @@ $(document).ready(function(){
             method: "POST",
             url: "show.php"
         }).done(function(data){
+			
             $("#board").html(data);
         })
     }, 100);
@@ -40,4 +41,6 @@ $(document).ready(function(){
             });
        }
     });*/
+
 });
+

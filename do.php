@@ -15,7 +15,10 @@ if($name!=""&&$message!="")
 	$text .= htmlspecialchars($time);
 	$text .= "</p></div>";
     file_put_contents("file.txt", $text, FILE_APPEND);
+
     echo "test";
+
+    
 } 
 else
 {
@@ -23,5 +26,6 @@ else
 	echo "gg";
 	echo $name;
 	echo $message;
+
 }
 ?>
