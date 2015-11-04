@@ -1,7 +1,11 @@
+
+#fixed ul{
+	position:fixed;
+    top: 0px;
+	right:0px;
+	left:0px;
+}
 .navigation {
-	//position:fixed; 
-	//top:0px;
-	    overflow: auto;
     list-style: none;
     margin: 0;
     background: deepskyblue;
@@ -12,6 +16,7 @@
 	display: flex;
 	-webkit-flex-flow: row wrap;
 	justify-content: flex-end;
+
 }
 
 .navigation a {
@@ -28,9 +33,11 @@
 @media all and (max-width: 800px) {
     .navigation {
           justify-content: space-around;
+
 	    }
 }
 @media all and (max-width: 600px) {
+
     .navigation {
           -webkit-flex-flow: column wrap;
 	      flex-flow: column wrap;
@@ -48,3 +55,4 @@
 					          border-bottom: none;
 						    }
 }
+

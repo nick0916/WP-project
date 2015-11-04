@@ -24,7 +24,7 @@
 <style type="text/css">
 
 
-@import url(menuTab/menuTab.css); 
+@import url(menuTab.css); 
 @import url(home.css); 
 
 </style>
@@ -32,7 +32,7 @@
 
 <body>
 
-	    <div>
+	    <div id="fixed">
 			<ul class="navigation"> 
 			<li><a href="#">Home</a></li>  
 			<li><a href="#">About</a></li>  
@@ -48,9 +48,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>台灣交通工具資訊彙整平台</h1>
+                        <h1>台灣交通工具<br>資訊彙整平台</h1>
                         <hr class="small">
-                        <span class="subheading">你要的交通資訊～這裡通通有！！</span>
+                        <span class="subheading">Let's Chain Up !</span>
                     </div>
                 </div>
             </div>
@@ -135,10 +135,12 @@
 			</select>
 		</label></h2>		
 		<button onclick="selectitem()">Send</button>
+		
 	</div>
       <div id="S3" style="display:none;">Link 3 內容...</div>
       <div id="S4" style="display:none;">Link 4 內容...</div>
       <div id="S5" style="display:none;">Link 5 內容...</div>
+	  <div id="table"></div>
 </div>
 
 <!-- jQuery -->
@@ -200,7 +202,7 @@ document.getElementById(layer).style.display='inline';
 	}
    }
 	test2 = '<p>' + '-為不停靠或不發車' + '<br>' + test2 + '</p>';
-   //alert(test);
+   alert(test2);
    //$("#table").html('<p>-為不停靠或不發車</p>');
    $("#table").html(test2);
   },  
@@ -239,7 +241,7 @@ document.getElementById(layer).style.display='inline';
 	}
    }
 	test = '<p>' + '-為不停靠或不發車' + '<br>'+ test + '</p>';
-   //alert(test);
+   alert(test);
    //$("#table").html('<p>-為不停靠或不發車</p>');
    $("#table").html(test);
    //alert(temp);
