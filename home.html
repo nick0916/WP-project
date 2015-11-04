@@ -24,7 +24,7 @@
 <style type="text/css">
 
 
-@import url(menuTab.css); 
+@import url(menuTab/menuTab.css); 
 @import url(home.css); 
 
 </style>
@@ -135,35 +135,19 @@
 			</select>
 		</label></h2>		
 		<button onclick="selectitem()">Send</button>
-		
+		<div id="table"></div>
 	</div>
       <div id="S3" style="display:none;">Link 3 內容...</div>
       <div id="S4" style="display:none;">Link 4 內容...</div>
       <div id="S5" style="display:none;">Link 5 內容...</div>
-	  <div id="table"></div>
+	  
 </div>
 
 <!-- jQuery -->
-<script src="js/jquery.js"></script>	
+<script src="js/jquery.js"></script>
+<script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
-function loadTab(obj,n){
-
-var layer;
-eval('layer=\'S'+n+'\'');
-
-//將 Tab 標籤樣式設成 Blur 型態
-var tabsF=document.getElementById('tabsF').getElementsByTagName('li');
-for (var i=0;i<tabsF.length;i++){
-    tabsF[i].setAttribute('id',null);
-     eval('document.getElementById(\'S'+(i+1)+'\').style.display=\'none\'')
-}
-
-//變更分頁標題樣式
-obj.parentNode.setAttribute('id','current');
-document.getElementById(layer).style.display='inline';
-
-}
-
     Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
 	function selectitem(){
 	var check1=$('#boardstation').val();
@@ -202,7 +186,7 @@ document.getElementById(layer).style.display='inline';
 	}
    }
 	test2 = '<p>' + '-為不停靠或不發車' + '<br>' + test2 + '</p>';
-   alert(test2);
+   //alert(test2);
    //$("#table").html('<p>-為不停靠或不發車</p>');
    $("#table").html(test2);
   },  
@@ -241,7 +225,7 @@ document.getElementById(layer).style.display='inline';
 	}
    }
 	test = '<p>' + '-為不停靠或不發車' + '<br>'+ test + '</p>';
-   alert(test);
+   //alert(test);
    //$("#table").html('<p>-為不停靠或不發車</p>');
    $("#table").html(test);
    //alert(temp);
@@ -255,6 +239,25 @@ document.getElementById(layer).style.display='inline';
 	}
 	}
     
+ </script>
+ <script>
+ function loadTab(obj,n){
+
+var layer;
+eval('layer=\'S'+n+'\'');
+
+//將 Tab 標籤樣式設成 Blur 型態
+var tabsF=document.getElementById('tabsF').getElementsByTagName('li');
+for (var i=0;i<tabsF.length;i++){
+    tabsF[i].setAttribute('id',null);
+     eval('document.getElementById(\'S'+(i+1)+'\').style.display=\'none\'')
+}
+
+//變更分頁標題樣式
+obj.parentNode.setAttribute('id','current');
+document.getElementById(layer).style.display='inline';
+
+}
  </script>
 	
 	
