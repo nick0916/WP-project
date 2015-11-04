@@ -1,65 +1,261 @@
 <html>
 
 <head>
-<style>
-.navigation {
-    list-style: none;
-      margin: 0;
-        background: deepskyblue;
-	  display: -webkit-box;
-	    display: -moz-box;
-	      display: -ms-flexbox;
-	        display: -webkit-flex;
-		  display: flex;
-		    -webkit-flex-flow: row wrap;
-		      justify-content: flex-end;
-}
 
-.navigation a {
-    text-decoration: none;
-      display: block;
-        padding: 1em;
-	  color: white;
-}
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-.navigation a:hover {
-    background: #00b7f5;
-}
+    <title>台灣交通工具資訊彙整平台</title>
 
-@media all and (max-width: 800px) {
-    .navigation {
-          justify-content: space-around;
-	    }
-}
-@media all and (max-width: 600px) {
-    .navigation {
-          -webkit-flex-flow: column wrap;
-	      flex-flow: column wrap;
-	          padding: 0;
-		    }
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-		      .navigation a {
-			    text-align: center;
-			        padding: 10px;
-				    border-top: 1px solid rgba(255, 255, 255, 0.3);
-				        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-					  }
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
 
-					    .navigation li:last-of-type a {
-					          border-bottom: none;
-						    }
-}
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	
+<style type="text/css">
+
+
+@import url(menuTab/menuTab.css); 
+@import url(home.css); 
+
 </style>
 </head>
 
 <body>
 
-<ul class="navigation"> 
-<li><a href="#">Home</a></li>  
-<li><a href="#">About</a></li>  
-<li><a href="#">Products</a></li>  
-<li><a href="#">Contact</a></li>
+	    <div>
+			<ul class="navigation"> 
+			<li><a href="#">Home</a></li>  
+			<li><a href="#">About</a></li>  
+			<li><a href="#">Products</a></li>  
+			<li><a href="#">Contact</a></li>
+			</ul>
+	    </div>
+		<div class="row" style="background-image: url('img/home-bg.jpg')"></div>
+
+	<header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>台灣交通工具資訊彙整平台</h1>
+                        <hr class="small">
+                        <span class="subheading">你要的交通資訊～這裡通通有！！</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+<div id="tabsF">
+<ul>
+<li id="current"><a href="javascript://" onclick="loadTab(this,1);" id="F1"><span>火車</span></a></li>
+<li><a href="javascript://" onclick="loadTab(this,2);" id="F2"><span>高鐵</span></a></li>
+<li><a href="javascript://" onclick="loadTab(this,3);" id="F3"><span>客運</span></a></li>
+<li><a href="javascript://" onclick="loadTab(this,4);" id="F4"><span>公車</span></a></li>
+<li><a href="javascript://" onclick="loadTab(this,5);" id="F5"><span>捷運</span></a></li>
 </ul>
+</div>
+
+<div id="tabsC">
+    <div id="S1" style="display:inline;">Link 1 內容...</div>
+    <div id="S2" style="display:none;">	
+		<h2>交通工具：
+		<label>
+			<select id="category">
+				<option selected> 高鐵 </option>
+			</select>
+		</label></h2>
+		<h2>北上/南下：
+		<label>	
+			<select id="direction">
+				<option value="1" selected> 北上 </option>
+				<option value="2"> 南下 </option>
+			</select>
+		</label></h2>
+		<h2>搭車時間：
+		<label>
+			<select id="boardtime">
+				<option value="6"selected> 06:00 </option>
+				<option value="7"> 07:00 </option>
+				<option value="8"> 08:00 </option>
+				<option value="9"> 09:00 </option>
+				<option value="10"> 10:00 </option>
+				<option value="11"> 11:00 </option>
+				<option value="12"> 12:00 </option>
+				<option value="13"> 13:00 </option>
+				<option value="14"> 14:00 </option>
+				<option value="15"> 15:00 </option>
+				<option value="16"> 16:00 </option>
+				<option value="17"> 17:00 </option>
+				<option value="18"> 18:00 </option>
+				<option value="19"> 19:00 </option>
+				<option value="20"> 20:00 </option>
+				<option value="21"> 21:00 </option>
+				<option value="22"> 22:00 </option>
+				<option value="23"> 23:00 </option>
+				<option value="24"> 24:00 </option>
+			</select>
+		</label></h2>
+		<h2>上車車站：
+		<label>
+			<select id="boardstation">
+				<option value="s1"selected> 台北站 </option>
+				<option value="s2">板橋站</option>
+				<option value="s3">桃園站</option>
+				<option value="s4">新竹站</option>
+				<option value="s5">台中站</option>
+				<option value="s6">嘉義站</option>
+				<option value="s7">台南站</option>
+				<option value="s8">左營站</option>
+			</select>
+		</label></h2>
+		<h2>下車車站：
+		<label>
+			<select id="destination">
+				<option value="s1"selected> 台北站 </option>
+				<option value="s2">板橋站</option>
+				<option value="s3">桃園站</option>
+				<option value="s4">新竹站</option>
+				<option value="s5">台中站</option>
+				<option value="s6">嘉義站</option>
+				<option value="s7">台南站</option>
+				<option value="s8">左營站</option>
+			</select>
+		</label></h2>		
+		<button onclick="selectitem()">Send</button>
+	</div>
+      <div id="S3" style="display:none;">Link 3 內容...</div>
+      <div id="S4" style="display:none;">Link 4 內容...</div>
+      <div id="S5" style="display:none;">Link 5 內容...</div>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>	
+<script type="text/javascript">
+function loadTab(obj,n){
+
+var layer;
+eval('layer=\'S'+n+'\'');
+
+//將 Tab 標籤樣式設成 Blur 型態
+var tabsF=document.getElementById('tabsF').getElementsByTagName('li');
+for (var i=0;i<tabsF.length;i++){
+    tabsF[i].setAttribute('id',null);
+     eval('document.getElementById(\'S'+(i+1)+'\').style.display=\'none\'')
+}
+
+//變更分頁標題樣式
+obj.parentNode.setAttribute('id','current');
+document.getElementById(layer).style.display='inline';
+
+}
+
+    Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
+	function selectitem(){
+	var check1=$('#boardstation').val();
+	check1 = check1.substr(1,1);
+	check1 = parseInt(check1);
+	var check2=$('#destination').val();
+	check2 = check2.substr(1,1);
+	check2 = parseInt(check2);
+	
+    if($('#direction').val()==1)
+	{
+	if(check1>check2){
+	var tonorth = Parse.Object.extend("tonorth"); 
+		
+	var query = new Parse.Query(tonorth);  
+	//query.equalTo("$('#direction').val()");  
+	query.find({  
+	success: function(results) {  
+   //alert("Successfully retrieved " + results.length + " scores.");  
+   // Do something with the returned Parse.Object values 
+	var test2="";
+	var test2= '車次' + '	' + '發車時間'+ '	' + '抵達時間' +'<br>';
+	var b = $('#boardstation').val();
+	var d =$('#destination').val();
+	var j =parseInt($('#boardtime').val());
+	var temp2="";
+   for (var i = 0; i < results.length; i++) {  
+    var object = results[i];  
+    //alert(object.get('s1')); 
+	temp2=object.get(b);
+	temp2 = temp2.substr(0,2);
+	temp2 = parseInt(temp2);
+	if(temp2>=j)
+	{
+	test2 =  test2 + '	' + object.get('train') + '		' +object.get(b)+ '		' +object.get(d)+ '		' +'<br>';
+	}
+   }
+	test2 = '<p>' + '-為不停靠或不發車' + '<br>' + test2 + '</p>';
+   //alert(test);
+   //$("#table").html('<p>-為不停靠或不發車</p>');
+   $("#table").html(test2);
+  },  
+  error: function(error) {  
+   alert("Error: " + error.code + " " + error.message);  
+  }  
+ });
+	}
+	else{alert("目前選擇北上，請確認上下車站位置");}
+	}
+	else
+	{
+	if(check2>check1){
+	var tosouth = Parse.Object.extend("tosouth"); 
+		
+	var query = new Parse.Query(tosouth);  
+ //query.equalTo("playerName", "Dan Stemkoski");  
+	query.find({  
+	success: function(results) {  
+   //alert("Successfully retrieved " + results.length + " scores.");  
+   // Do something with the returned Parse.Object values 
+	var test= '車次' + '	' + '發車時間'+ '	' + '抵達時間' +'<br>';
+	var b = $('#boardstation').val();
+	var d =$('#destination').val();
+	var k =parseInt($('#boardtime').val());
+	var temp="";
+   for (var i = 0; i < results.length; i++) {  
+    var object = results[i];  
+    //alert(object.get('s1')); 
+	temp=object.get(b);
+	temp = temp.substr(0,2);
+	temp = parseInt(temp);
+	if(temp>=k)
+	{
+	test =  test + '	' + object.get('train') + '		' +object.get(b)+ '		' +object.get(d)+ '		' +'<br>';
+	}
+   }
+	test = '<p>' + '-為不停靠或不發車' + '<br>'+ test + '</p>';
+   //alert(test);
+   //$("#table").html('<p>-為不停靠或不發車</p>');
+   $("#table").html(test);
+   //alert(temp);
+  },  
+  error: function(error) {  
+   alert("Error: " + error.code + " " + error.message);  
+  }  
+ });
+ }
+ else{alert("目前選擇南下，請確認上下車站位置");}
+	}
+	}
+    
+ </script>
+	
+	
 </body>
 
 </html>	
