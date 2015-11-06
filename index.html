@@ -376,7 +376,108 @@
 	}
     
   </script>
-	
+  <script type="text/javascript">
+
+        var from = "新竹";
+        var to = "台北";
+        var customer_date = ["11","11"];
+        var year = new Date().getFullYear();
+        var date = (year + "-" + customer_date[0] + "-" + customer_date[1]);
+
+        var show_data = [];
+        var tr_type = ["太魯閣號", "新自強", "自強", "莒光", "復興", "區間快", "區間車", "電車", "兩鐵", "單機迴送", "客迴", "普快車", "普通貨車", "普通車", "柴客", "柴快車", "柴油車" ,"柴迴", "特種", "臨時客迴", "行包專車", "試轉運", "調車列車"];
+
+        var tr_diration = ["去程", "返程", "順行", "逆行" ,"南下", "北上"];
+        var tr_line = ["不經山海線", "山線", "海線"];
+
+
+        // var show_info = {
+        //     Train_id : null,
+        //     direction : null,
+        //     Traintype : null,
+        //     Arrival_t : null,
+        //     departure_t : null,
+        //     spent_t : calculate(Arrival_t, departure_t),
+        //     cost : null,
+        //     note : null
+        // } // 資料可能會有的格式
+
+        function get_info(url){
+            var httpRequest;
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+                httpRequest = new XMLHttpRequest();
+            } else if (window.ActiveXObject) { // IE
+                httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            httpRequest.open('GET', url, false);
+            httpRequest.send(null); 
+
+            if (httpRequest.readyState == 4 || httpRequest.status == 4)
+            {
+                var info_json = JSON.parse(httpRequest.responseText);
+            }
+
+            return info_json;
+        }
+        function changeID (id) {
+            for (var i = 0; i < station.length; i++)
+            {
+                if (id == station[i].StationName.Zh_tw)
+                {
+                    return station[i].StationID;
+                }
+            }
+        }
+        function find_train_time(f_id, t_id){
+            for (var i = 0; i < traindate.length; i ++)
+            {
+                var buffer = 0;
+                for (var j = 0; j < traindate[i].StoppingTimeElement.length; j++){
+                    if (f_id == traindate[i].StoppingTimeElement[j].StationID){
+                        var train = new Object();
+                        train.Arrival_t = traindate[i].StoppingTimeElement[j].ArrivalTime;
+
+                        buffer = traindate[i].StoppingTimeElement[j].StopSequence;
+                    }
+                    else if (t_id == traindate[i].StoppingTimeElement[j].StationID && buffer > 0){
+                        train.departure_t = traindate[i].StoppingTimeElement[j].DepartureTime;
+                        train.ID = traindate[i].TrainNo;
+                        show_data.push(train);
+                        break;
+                    }
+                }
+            }
+        }
+        function find_train_type(tr_id, i, date){
+
+            var train_info_api = ("http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + tr_id + "/" + date + "?%24format=json");
+            var train_info = (get_info(train_info_api));
+
+            show_data[i].Type = tr_type[train_info[0].TrainClassification];
+            show_data[i].Diration = tr_diration[train_info[0].TripPattern.Direction];
+            show_data[i].note = train_info[0].Note;
+        }
+
+
+        var station_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/Station?%24format=json";
+        var train_date_api = ("http://210.59.250.227:80/MOTC/v2/Rail/TRA/StopTimes/"+ date + "?%24format=json");
+
+
+        var station = (get_info(station_api));
+        var traindate = (get_info(train_date_api));
+
+        var from_id = changeID(from);
+        var to_id = changeID(to);
+
+        find_train_time(from_id, to_id);
+
+        for (var i = 0; i < show_data.length; i ++){
+            find_train_type(show_data[i].ID, i, date);
+        }
+        
+
+    </script>
 	
 </body>
 
