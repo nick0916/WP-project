@@ -159,6 +159,65 @@
 	</div>
 	<div id="table">
 	</div>
+    <div>
+        <h2>交通工具：</h2>
+        <label>
+            <select id = "category">
+                <option selected> 台鐵 </option>
+            
+        </select>
+        <br>
+        <h2>搭車日期 :</h2>
+        <label>
+            <select id = "cus_year">
+                <option value = "2015" selected> 2015 </option>
+            </select>
+            <select id = "cus_month">
+                <option value = "11" selected> 11 </option>
+                <option value = "12" > 12 </option>
+            </select>
+            <select id = "cus_day">
+                <option value = "22" selected> 22 </option>
+                <option value = "23" > 23 </option>
+                <option value = "24" > 24 </option> 
+                <option value = "25" > 25 </option>                               
+                <option value = "26" > 26 </option>
+                <option value = "27" > 27 </option>
+                <option value = "28" > 28 </option>                
+                <option value = "29" > 29 </option>
+                <option value = "30" > 30 </option>
+            </select>
+        </label>
+        <h2>上車車站：</h2>
+        <label>
+            <select id = "cus_from">
+                <option value="台北"> 台北 </option>
+                <option value="桃園"> 桃園 </option>
+                <option value="新竹"selected> 新竹 </option>
+                <option value="台中"> 台中 </option>
+                <option value="嘉義"> 嘉義 </option>
+                <option value="台南"> 台南 </option>
+                <option value="屏東"> 屏東 </option>
+            </select>
+        </label>
+        <h2>下車車站：</h2>
+        <label>
+            <select id = "cus_to">
+                <option value="台北"> 台北 </option>
+                <option value="桃園"> 桃園 </option>
+                <option value="新竹"> 新竹 </option>
+                <option value="台中"> 台中 </option>
+                <option value="嘉義"> 嘉義 </option>
+                <option value="台南"selected> 台南 </option>
+                <option value="屏東"> 屏東 </option>
+            </select>
+        </label>
+
+        <br><br>
+    
+        <button onclick="search()" >test</button>
+
+    </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="front" >
 	
@@ -376,33 +435,45 @@
 	}
     
   </script>
-  <script type="text/javascript">
+      <script type="text/javascript">
 
         var from = "新竹";
         var to = "台南";
-        var customer_date = ["11","11"];
-        var year = new Date().getFullYear();
-        var date = (year + "-" + customer_date[0] + "-" + customer_date[1]);
 
-        var show_data = [];
+        var year = "2015";
+        var month = "11";
+        var day = "30";
+
+        var date;
+
+        set_date(year, month, day);
+
+        var train_date = [];
+        var train_info = [];
+        var station = [];
+
+
+
         var tr_type = ["太魯閣號", "新自強", "自強", "莒光", "復興", "區間快", "區間車", "電車", "兩鐵", "單機迴送", "客迴", "普快車", "普通貨車", "普通車", "柴客", "柴快車", "柴油車" ,"柴迴", "特種", "臨時客迴", "行包專車", "試轉運", "調車列車"];
 
         var tr_diration = ["去程", "返程", "順行", "逆行" ,"南下", "北上"];
         var tr_line = ["不經山海線", "山線", "海線"];
 
+        var show_data = [];
+        var from_id;
+        var to_id;
 
-        // var show_info = {
-        //     Train_id : null,
-        //     direction : null,
-        //     Traintype : null,
-        //     Arrival_t : null,
-        //     departure_t : null,
-        //     spent_t : calculate(Arrival_t, departure_t),
-        //     cost : null,
-        //     note : null
-        // } // 資料可能會有的格式
 
-        function get_info(url){
+        function set_date(y, m, d){
+            year = y;
+            month = m;
+            day = d;
+
+            date = (y + "-" + m + "-" + d);
+        }
+
+        function get_info(url,index){
+
             var httpRequest;
             if (window.XMLHttpRequest) { // Mozilla, Safari, ...
                 httpRequest = new XMLHttpRequest();
@@ -410,16 +481,58 @@
                 httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
             }
 
-            httpRequest.open('GET', url, false);
+            httpRequest.open('GET', url, true);
             httpRequest.send(null); 
 
-            if (httpRequest.readyState == 4 || httpRequest.status == 4)
-            {
-                var info_json = JSON.parse(httpRequest.responseText);
-            }
+            httpRequest.onreadystatechange = function() { 
+                Contents(httpRequest); 
+            };
 
-            return info_json;
+            function Contents (httpRequest) {
+                if (httpRequest.readyState == 4) {
+                    if (httpRequest.status == 200) {
+                        switch(index){
+                            case 0:
+                                station = JSON.parse(httpRequest.responseText);
+                                get_info(train_date_api, 1);
+                                console.log(index +  ": ok!");
+                                break;
+
+                            case 1:
+                                train_date[day] = JSON.parse(httpRequest.responseText);
+
+                                show_data.length = 0;
+                                from_id = changeID(from);
+                                to_id = changeID(to);
+
+
+
+                                get_info(train_info_api, 2);
+
+                                console.log(index +  ": ok!");
+
+                                break;
+
+                            case 2:
+                                train_info[day] = JSON.parse(httpRequest.responseText);
+                                find_train_time(from_id, to_id, train_date[day], train_info[day]);
+                                show_data.sort(function(a,b){
+                                    return a.order > b.order ? 1 : -1;;
+                                });
+
+                                console.log(index +  ": ok!");
+
+                                break;
+
+                            default:
+                                alert ("伺服器處理錯誤");
+                                break;
+                        }
+                　　}
+                } 
+            }   
         }
+
         function changeID (id) {
             for (var i = 0; i < station.length; i++)
             {
@@ -429,53 +542,103 @@
                 }
             }
         }
-        function find_train_time(f_id, t_id){
+        function find_train_time(f_id, t_id, traindate, trainInfo){
+
             for (var i = 0; i < traindate.length; i ++)
             {
                 var buffer = 0;
                 for (var j = 0; j < traindate[i].StoppingTimeElement.length; j++){
+
                     if (f_id == traindate[i].StoppingTimeElement[j].StationID){
                         var train = new Object();
                         train.Arrival_t = traindate[i].StoppingTimeElement[j].ArrivalTime;
 
                         buffer = traindate[i].StoppingTimeElement[j].StopSequence;
+
                     }
                     else if (t_id == traindate[i].StoppingTimeElement[j].StationID && buffer > 0){
                         train.departure_t = traindate[i].StoppingTimeElement[j].DepartureTime;
                         train.ID = traindate[i].TrainNo;
+                        train.Type = tr_type[trainInfo[i].TrainClassification];
+                        // train.note = trainInfo[i].Note;
+                        train.order = cal_time(train.Arrival_t);
+                        train.during_t = cal_during_t(train);
+
+
                         show_data.push(train);
                         break;
                     }
                 }
             }
         }
-        function find_train_type(tr_id, i, date){
 
-            var train_info_api = ("http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + tr_id + "/" + date + "?%24format=json");
-            var train_info = (get_info(train_info_api));
+        function cal_time(t){
+            var time;
 
-            show_data[i].Type = tr_type[train_info[0].TrainClassification];
-            show_data[i].Diration = tr_diration[train_info[0].TripPattern.Direction];
-            show_data[i].note = train_info[0].Note;
+            time = parseInt(t[0]+t[1]) * 60 + parseInt(t[3]+t[4]);
+
+            return time;
+        }
+
+        function cal_during_t(train){
+            var during = cal_time(train.departure_t) - cal_time(train.Arrival_t);
+            var hour = parseInt(during / 60);
+            var minute = during - hour*60;
+
+            return (hour + "小時" + minute + "分");
+        }
+
+        function search(){
+            var cus_from = $('#cus_from').val();
+            var cus_to = $('#cus_to').val();
+            var cus_year = $('#cus_year').val();
+            var cus_month = $('#cus_month').val();
+            var cus_day = $('#cus_day').val();
+
+
+
+            if (from != cus_from){
+                from = cus_from;
+                from_id = changeID(from);
+            }
+
+            if (to != cus_to){
+                to = cus_to;
+                to_id = changeID(to);
+            }
+
+            if (year != cus_year || month != cus_month || day != cus_day){
+                set_date(cus_year, cus_month, cus_day);
+                get_info(train_date_api, 1);
+
+
+            }else if (from != cus_from || to != cus_to){
+
+                show_data.length = 0;
+                from_id = changeID(from);
+                to_id = changeID(to);
+                find_train_time(from_id, to_id, train_date[day], train_info[day]);
+
+
+
+            }else{
+
+            }
         }
 
 
         var station_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/Station?%24format=json";
-        var train_date_api = ("http://210.59.250.227:80/MOTC/v2/Rail/TRA/StopTimes/"+ date + "?%24format=json");
+        get_info(station_api, 0);
+
+        var train_info_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + date + "?%24format=json";
+
+        var train_date_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/StopTimes/" + date + "?%24format=json";
 
 
-        var station = (get_info(station_api));
-        var traindate = (get_info(train_date_api));
 
-        var from_id = changeID(from);
-        var to_id = changeID(to);
 
-        find_train_time(from_id, to_id);
 
-        for (var i = 0; i < show_data.length; i ++){
-            find_train_type(show_data[i].ID, i, date);
-        }
-        
+
 
     </script>
 	
