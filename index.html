@@ -191,25 +191,25 @@
         <h2>上車車站：</h2>
         <label>
             <select id = "cus_from">
-                <option value="台北"> 台北 </option>
-                <option value="桃園"> 桃園 </option>
-                <option value="新竹"selected> 新竹 </option>
-                <option value="台中"> 台中 </option>
-                <option value="嘉義"> 嘉義 </option>
-                <option value="台南"> 台南 </option>
-                <option value="屏東"> 屏東 </option>
+                <option value = "台北"> 台北 </option>
+                <option value = "桃園"> 桃園 </option>
+                <option value = "新竹"selected> 新竹 </option>
+                <option value = "台中"> 台中 </option>
+                <option value = "嘉義"> 嘉義 </option>
+                <option value = "台南"> 台南 </option>
+                <option value = "屏東"> 屏東 </option>
             </select>
         </label>
         <h2>下車車站：</h2>
         <label>
             <select id = "cus_to">
-                <option value="台北"> 台北 </option>
-                <option value="桃園"> 桃園 </option>
-                <option value="新竹"> 新竹 </option>
-                <option value="台中"> 台中 </option>
-                <option value="嘉義"> 嘉義 </option>
-                <option value="台南"selected> 台南 </option>
-                <option value="屏東"> 屏東 </option>
+                <option value = "台北"> 台北 </option>
+                <option value = "桃園"> 桃園 </option>
+                <option value = "新竹"> 新竹 </option>
+                <option value = "台中"> 台中 </option>
+                <option value = "嘉義"> 嘉義 </option>
+                <option value = "台南"selected> 台南 </option>
+                <option value = "屏東"> 屏東 </option>
             </select>
         </label>
 
@@ -521,6 +521,7 @@
                                 });
 
                                 console.log(index +  ": ok!");
+                                console.log(show_data);
 
                                 break;
 
@@ -596,17 +597,6 @@
             var cus_day = $('#cus_day').val();
 
 
-
-            if (from != cus_from){
-                from = cus_from;
-                from_id = changeID(from);
-            }
-
-            if (to != cus_to){
-                to = cus_to;
-                to_id = changeID(to);
-            }
-
             if (year != cus_year || month != cus_month || day != cus_day){
                 set_date(cus_year, cus_month, cus_day);
                 get_info(train_date_api, 1);
@@ -615,14 +605,18 @@
             }else if (from != cus_from || to != cus_to){
 
                 show_data.length = 0;
-                from_id = changeID(from);
-                to_id = changeID(to);
+                from_id = changeID(cus_from);
+                to_id = changeID(cus_to);
                 find_train_time(from_id, to_id, train_date[day], train_info[day]);
+                show_data.sort(function(a,b){
+                    return a.order > b.order ? 1 : -1;;
+                });
 
 
+                console.log(show_data);
 
             }else{
-
+                console.log(show_data);
             }
         }
 
