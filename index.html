@@ -216,7 +216,7 @@
         <br><br>
     
         <button onclick="search()" >test</button>
-
+		
     </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="front" >
@@ -436,7 +436,7 @@
     
   </script>
       <script type="text/javascript">
-
+		Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
         var from = "新竹";
         var to = "台南";
 
@@ -462,7 +462,7 @@
         var show_data = [];
         var from_id;
         var to_id;
-
+		get_cost(from,to);
 
         function set_date(y, m, d){
             year = y;
@@ -504,8 +504,8 @@
                                 show_data.length = 0;
                                 from_id = changeID(from);
                                 to_id = changeID(to);
-
-
+								
+								
 
                                 get_info(train_info_api, 2);
                                 console.log("from : " + from);
@@ -548,12 +548,13 @@
             }
         }
         function find_train_time(f_id, t_id, traindate, trainInfo){
-
+			
             for (var i = 0; i < traindate.length; i ++)
             {
+				
                 var buffer = 0;
                 for (var j = 0; j < traindate[i].StoppingTimeElement.length; j++){
-
+					
                     if (f_id == traindate[i].StoppingTimeElement[j].StationID){
                         var train = new Object();
                         train.Arrival_t = traindate[i].StoppingTimeElement[j].ArrivalTime;
@@ -562,19 +563,34 @@
 
                     }
                     else if (t_id == traindate[i].StoppingTimeElement[j].StationID && buffer > 0){
+						
+						
                         train.departure_t = traindate[i].StoppingTimeElement[j].DepartureTime;
                         train.ID = traindate[i].TrainNo;
                         train.Type = tr_type[trainInfo[i].TrainClassification];
                         // train.note = trainInfo[i].Note;
                         train.order = cal_time(train.Arrival_t);
                         train.during_t = cal_during_t(train);
-
-
-                        show_data.push(train);
+						if(trainInfo[i].TrainClassification==1||trainInfo[i].TrainClassification==2||trainInfo[i].TrainClassification==3)
+						{
+							train.cost = cost_3;
+						}
+						if(trainInfo[i].TrainClassification==3)
+						{
+							train.cost = cost_2;
+						}
+						if(trainInfo[i].TrainClassification==4||trainInfo[i].TrainClassification==5)
+						{
+							train.cost = cost_1;
+						}
+						show_data.push(train);
+						
                         break;
                     }
                 }
+				
             }
+
         }
 
         function cal_time(t){
@@ -599,11 +615,11 @@
             year = $('#cus_year').val();
             month = $('#cus_month').val();
             day = $('#cus_day').val();
-
+			get_cost(from,to);
             set_date(year, month, day);
             from_id = changeID(from);
             to_id = changeID(to);            
-
+			
             get_info(train_date_api, 1);
 
         }
@@ -615,10 +631,70 @@
         var train_info_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + date + "?%24format=json";
 
         var train_date_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/StopTimes/" + date + "?%24format=json";
-
-
-
-
+		
+		
+		var cost_1;
+		var cost_2;
+		var cost_3;
+		function get_cost(from,to)
+		{
+			var cost;
+			
+			var query = new Parse.Query("cost_west");
+			query.limit(200);
+			query.find({
+				success: function(results) {
+				//console.log("1");
+				//alert("Successfully retrieved " + results.length + " scores.");
+				// Do something with the returned Parse.Object values
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					
+					if(object.get('station')==from)
+					{
+						var from_distance = object.get('distance');
+					}
+					else if(object.get('station')==to)
+					{
+						
+						var to_distance = object.get('distance');
+					}
+					
+					//alert(object.id + ' - ' + object.get('distance'));
+				}
+				sub = Math.abs(to_distance - from_distance);
+				if(sub<10)
+				{
+					cost_1=15;
+					cost_2=18;
+					cost_3=23;
+				}
+				else
+				{
+					cost_1=Math.ceil(1.46*sub);
+					cost_2=Math.ceil(1.75*sub);
+					cost_3=Math.ceil(2.27*sub);
+				}
+				/*console.log(cost_1);
+				console.log(cost_2);
+				console.log(cost_3);*/
+				/*console.log(sub);
+				console.log(type);
+				console.log(dir);
+				console.log(cost);*/
+				//return cost;
+				
+				//alert(to_distance);
+				},
+				error: function(error) {
+					alert("Error: " + error.code + " " + error.message);
+				}
+			});
+		}
+		function show()
+		{
+			console.log(show_data);
+		}
 
 
 
