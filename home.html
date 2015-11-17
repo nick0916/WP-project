@@ -71,6 +71,320 @@
 <div id="tabsC">
     <div id="S1" style="display:inline;">
       日期：<input type="text" name="txt2" onfocus="c.showMoreDay = false;c.show(this);" />
+
+
+      <form name="station">                  
+	<p align="center">                             
+	<select name="major" size="1" onChange="redirect(this.options.selectedIndex)">
+	  <option>台北</option>
+	  <option>桃園</option>
+	  <option>新竹</option>
+	  <option>苗栗</option>
+	  <option>台中</option>
+	  <option>彰化</option>
+	  <option>雲林</option>
+	  <option>嘉義</option>
+	  <option>台南</option>
+	  <option>高雄</option>
+	  <option>屏東</option>
+	  <option>台東</option>
+	  <option>花蓮</option>
+	  <option>宜蘭</option>
+	  <option>平溪線</option>
+	  <option>內灣線</option>
+	  <option>集集線</option>
+	  <option>沙崙線</option>
+	  <option>深奧線</option>
+	</select>
+	<select name="sub" size="1">
+	  <option value="..">福隆</option>
+	  <option value="..">貢寮</option>
+	  <option value="..">雙溪</option>
+	  <option value="..">牡丹</option>
+	  <option value="..">三貂嶺</option>
+	  <option value="..">侯硐</option>       
+	  <option value="..">瑞芳</option>  
+	  <option value="..">四腳亭</option>
+	  <option value="..">暖暖</option>
+	  <option value="..">基隆</option>
+	  <option value="..">八堵</option>
+	  <option value="..">七堵</option>
+	  <option value="..">五堵</option>
+	  <option value="..">汐止</option>
+	  <option value="..">南港</option>
+	  <option value="..">松山</option>
+	  <option value="..">台北</option>
+	  <option value="..">萬華</option>
+	  <option value="..">板橋</option>
+	  <option value="..">浮洲</option>
+	  <option value="..">樹林</option>
+	  <option value="..">山佳</option>
+	  <option value="..">鶯歌</option>
+	</select>						
+	<input type="button" name="test" value="Go!" onClick="go()"></p> 
+      </form>            																												  
+      <script language="JavaScript">
+var groups=document.station.major.options.length  
+var group=new Array(groups)  
+  for (i=0; i<groups; i++) group[i]=new Array();
+  group[0][0]=new Option("福隆","..") 
+  group[0][1]=new Option("貢寮","..") 
+  group[0][2]=new Option("雙溪","..") 
+  group[0][3]=new Option("牡丹","..") 
+  group[0][4]=new Option("三貂嶺","..") 
+  group[0][5]=new Option("猴硐","..") 
+  group[0][6]=new Option("瑞芳","..") 
+  group[0][7]=new Option("四腳亭","..") 
+  group[0][8]=new Option("暖暖","..")  
+  group[0][9]=new Option("基隆","..") 
+  group[0][10]=new Option("三坑","..")  
+  group[0][11]=new Option("八堵","..")  
+  group[0][12]=new Option("七堵","..") 
+  group[0][13]=new Option("百福","..")  
+  group[0][14]=new Option("五堵","..")  
+  group[0][15]=new Option("汐止","..")
+  group[0][16]=new Option("汐科","..")   
+  group[0][17]=new Option("南港","..")  
+  group[0][18]=new Option("松山","..")  
+  group[0][19]=new Option("台北","..") 
+  group[0][20]=new Option("萬華","..")   
+  group[0][21]=new Option("板橋","..")  
+  group[0][22]=new Option("浮洲","..")  
+  group[0][23]=new Option("樹林","..") 
+  group[0][24]=new Option("山佳","..") 
+  group[0][25]=new Option("鶯歌","..") 
+  group[1][0]=new Option("桃園","..")  
+  group[1][1]=new Option("內壢","..")  
+  group[1][2]=new Option("中壢","..")  
+  group[1][3]=new Option("埔心","..")
+  group[1][4]=new Option("楊梅","..")  
+  group[1][6]=new Option("富岡","..")
+  group[2][0]=new Option("湖口","..")  
+  group[2][1]=new Option("新豐","..") 
+  group[2][2]=new Option("竹北","..")  
+  group[2][3]=new Option("北新竹","..")  
+  group[2][4]=new Option("新竹","..")  
+  group[2][5]=new Option("香山","..") 
+  group[3][0]=new Option("崎頂","..") 
+  group[3][1]=new Option("竹南","..") 
+  group[3][2]=new Option("談文","..") 
+  group[3][3]=new Option("大山","..") 
+  group[3][4]=new Option("後龍","..") 
+  group[3][5]=new Option("龍港","..") 
+  group[3][6]=new Option("白沙屯","..") 
+  group[3][7]=new Option("新埔","..") 
+  group[3][8]=new Option("通霄","..") 
+  group[3][9]=new Option("苑裡","..") 
+  group[3][10]=new Option("造橋","..") 
+  group[3][11]=new Option("豐富","..") 
+  group[3][12]=new Option("苗栗","..") 
+  group[3][13]=new Option("南勢","..") 
+  group[3][14]=new Option("銅鑼","..") 
+  group[3][15]=new Option("三義","..") 
+  group[4][0]=new Option("日南","..") 
+  group[4][1]=new Option("大甲","..") 
+  group[4][2]=new Option("台中港","..") 
+  group[4][3]=new Option("清水","..") 
+  group[4][4]=new Option("沙鹿","..") 
+  group[4][5]=new Option("龍井","..") 
+  group[4][6]=new Option("大肚","..") 
+  group[4][7]=new Option("追分","..") 
+  group[4][8]=new Option("泰安","..") 
+  group[4][9]=new Option("后里","..") 
+  group[4][10]=new Option("豐原","..") 
+  group[4][11]=new Option("潭子","..") 
+  group[4][12]=new Option("太原","..") 
+  group[4][13]=new Option("台中","..") 
+  group[4][14]=new Option("大慶","..") 
+  group[4][15]=new Option("烏日","..") 
+  group[4][16]=new Option("新烏日","..") 
+  group[4][17]=new Option("成功","..") 
+  group[5][0]=new Option("彰化","..") 
+  group[5][1]=new Option("花壇","..") 
+  group[5][2]=new Option("大村","..") 
+  group[5][3]=new Option("員林","..") 
+  group[5][4]=new Option("永靖","..") 
+  group[5][5]=new Option("社頭","..") 
+  group[5][6]=new Option("田中","..") 
+  group[5][7]=new Option("二水","..") 
+  group[6][0]=new Option("林內","..") 
+  group[6][1]=new Option("石榴","..") 
+  group[6][2]=new Option("斗六","..") 
+  group[6][3]=new Option("斗南","..") 
+  group[6][4]=new Option("石龜","..")  
+  group[7][0]=new Option("大林","..")  
+  group[7][1]=new Option("民雄","..")  
+  group[7][2]=new Option("嘉北","..")  
+  group[7][3]=new Option("嘉義","..")  
+  group[7][4]=new Option("水上","..")  
+  group[7][5]=new Option("南靖","..")
+  //台南
+  group[8][0]=new Option("後壁","..")
+  group[8][1]=new Option("新營","..")
+  group[8][2]=new Option("柳營","..")
+  group[8][3]=new Option("林鳳營","..")
+  group[8][4]=new Option("隆田","..")
+  group[8][5]=new Option("拔林","..")
+  group[8][6]=new Option("善化","..")
+  group[8][7]=new Option("南科","..")
+  group[8][8]=new Option("新市","..")
+  group[8][9]=new Option("永康","..")
+  group[8][10]=new Option("大橋","..")
+  group[8][11]=new Option("台南","..")
+  group[8][12]=new Option("保安","..")
+  group[8][14]=new Option("仁德","..")
+  group[8][15]=new Option("中洲","..")
+  group[8][16]=new Option("長榮大學","..")
+  group[8][17]=new Option("沙崙","..")
+  //高雄
+  group[9][0]=new Option("大湖","..")
+  group[9][1]=new Option("路竹","..")
+  group[9][2]=new Option("岡山","..")
+  group[9][3]=new Option("橋頭","..")
+  group[9][4]=new Option("楠梓","..")
+  group[9][5]=new Option("新左營","..")
+  group[9][6]=new Option("左營","..")
+  group[9][7]=new Option("高雄","..")
+  group[9][8]=new Option("鳳山","..")
+  group[9][9]=new Option("後庄","..")
+  group[9][10]=new Option("九曲堂","..")
+  //屏東
+  group[10][0]=new Option("六塊厝","..")
+  group[10][1]=new Option("屏東","..")
+  group[10][2]=new Option("歸來","..")
+  group[10][3]=new Option("麟洛","..")
+  group[10][4]=new Option("西勢","..")
+  group[10][5]=new Option("竹田","..")
+  group[10][6]=new Option("潮州","..")
+  group[10][7]=new Option("崁頂","..")
+  group[10][8]=new Option("南州","..")
+  group[10][9]=new Option("鎮安","..")
+  group[10][10]=new Option("林邊","..")
+  group[10][11]=new Option("佳冬","..")
+  group[10][12]=new Option("東海","..")
+  group[10][13]=new Option("枋寮","..")
+  group[10][14]=new Option("加祿","..")
+  group[10][15]=new Option("內獅","..")
+  group[10][16]=new Option("枋山","..")
+  //台東
+  group[11][0]=new Option("古莊","..")
+  group[11][1]=new Option("大武","..")
+  group[11][2]=new Option("瀧溪","..")
+  group[11][3]=new Option("多良","..")
+  group[11][4]=new Option("金崙","..")
+  group[11][5]=new Option("太麻里","..")
+  group[11][6]=new Option("知本","..")
+  group[11][7]=new Option("康樂","..")
+  group[11][16]=new Option("池上","..")
+  group[11][15]=new Option("海端","..")
+  group[11][14]=new Option("關山","..")
+  group[11][13]=new Option("月美","..")
+  group[11][12]=new Option("瑞和","..")
+  group[11][11]=new Option("瑞源","..")
+  group[11][10]=new Option("鹿野","..")
+  group[11][9]=new Option("山里","..")
+  group[11][8]=new Option("台東","..")
+  //花蓮
+  group[12][25]=new Option("和平","..")
+  group[12][24]=new Option("和仁","..")
+  group[12][23]=new Option("崇德","..")
+  group[12][22]=new Option("新城","..")
+  group[12][21]=new Option("景美","..")
+  group[12][20]=new Option("北埔","..")
+  group[12][19]=new Option("花蓮","..")
+  group[12][18]=new Option("吉安","..")
+  group[12][17]=new Option("志學","..")
+  group[12][16]=new Option("平和","..")
+  group[12][15]=new Option("壽豐","..")
+  group[12][14]=new Option("豐田","..")
+  group[12][13]=new Option("溪口","..")
+  group[12][12]=new Option("南平","..")
+  group[12][11]=new Option("鳳林","..")
+  group[12][10]=new Option("萬榮","..")
+  group[12][9]=new Option("光復","..")
+  group[12][8]=new Option("大富","..")
+  group[12][7]=new Option("富源","..")
+  group[12][6]=new Option("瑞穗","..")
+  group[12][5]=new Option("三民","..")
+  group[12][4]=new Option("玉里","..")
+  group[12][3]=new Option("安通","..")
+  group[12][2]=new Option("東里","..")
+  group[12][1]=new Option("東竹","..")
+  group[12][0]=new Option("富里","..")
+  //宜蘭
+  group[13][21]=new Option("石城","..")
+  group[13][20]=new Option("大里","..")
+  group[13][19]=new Option("大溪","..")
+  group[13][18]=new Option("龜山","..")
+  group[13][17]=new Option("外澳","..")
+  group[13][16]=new Option("頭城","..")
+  group[13][15]=new Option("頂埔","..")
+  group[13][14]=new Option("礁溪","..")
+  group[13][13]=new Option("四城","..")
+  group[13][12]=new Option("宜蘭","..")
+  group[13][11]=new Option("二結","..")
+  group[13][10]=new Option("中里","..")
+  group[13][9]=new Option("羅東","..")
+  group[13][8]=new Option("冬山","..")
+  group[13][7]=new Option("新馬","..")
+  group[13][6]=new Option("蘇澳新","..")
+  group[13][5]=new Option("蘇澳","..")
+  group[13][4]=new Option("永樂","..")
+  group[13][3]=new Option("東澳","..")
+  group[13][2]=new Option("南澳","..")
+  group[13][1]=new Option("武塔","..")
+  group[13][0]=new Option("漢本","..")
+  //平溪線
+  group[14][6]=new Option("三貂嶺","..")
+  group[14][5]=new Option("大華","..")
+  group[14][4]=new Option("十分","..")
+  group[14][3]=new Option("望古","..")
+  group[14][2]=new Option("嶺腳","..")
+  group[14][1]=new Option("平溪","..")
+  group[14][0]=new Option("菁桐","..")
+  //內灣線
+  group[15][0]=new Option("新竹","..")
+  group[15][1]=new Option("北新竹","..")
+  group[15][2]=new Option("千甲","..")
+  group[15][3]=new Option("新莊","..")
+  group[15][4]=new Option("竹中","..")
+  group[15][5]=new Option("六家","..")
+  group[15][6]=new Option("上員","..")
+  group[15][7]=new Option("榮華","..")
+  group[15][8]=new Option("竹東","..")
+  group[15][9]=new Option("橫山","..")
+  group[15][10]=new Option("九讚頭","..")
+  group[15][11]=new Option("合興","..")
+  group[15][12]=new Option("富貴","..")
+  group[15][13]=new Option("內灣","..")
+  //集集線
+  group[16][0]=new Option("二水","..") 
+  group[16][1]=new Option("源泉","..")
+  group[16][2]=new Option("濁水","..")
+  group[16][3]=new Option("龍泉","..")
+  group[16][4]=new Option("集集","..")
+  group[16][5]=new Option("水里","..")
+  group[16][6]=new Option("車埕","..")
+  //沙崙線
+  group[17][0]=new Option("長榮大學","..")
+  group[17][1]=new Option("沙崙","..")
+  //深澳線
+  group[18][0]=new Option("海科館","..")
+
+
+  var temp=document.station.sub  
+  function redirect(x){  
+     for (m=temp.options.length-1;m>0;m--)  
+        temp.options[m]=null  
+	   for (i=0;i<group[x].length;i++){  
+	      temp.options[i]=new Option(group[x][i].text,group[x][i].value)  
+	   }  
+     temp.options[0].selected=true  
+  }  
+function go(){  
+  location=temp.options[temp.selectedIndex].value  
+}  		
+ </script>      
     </div>
     <div id="S2" style="display:none;">	
 		<h2>交通工具：
