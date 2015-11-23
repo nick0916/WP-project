@@ -21,51 +21,6 @@
 		</script>
 		
 		<style>
-
-			.hidden {
-				visibility: hidden;
-			}
-			.visible{
-				visibility: visible;
-			}
-			span#show{
-				margin: 0 20% 0 -5%; 
-				background-color: #FFFFFF; 
-				opacity:0.95;
-			}
-			span#plan{
-				margin: 0 20% 0 -5%; 
-				background-color: #FFFFFF; 
-				opacity:1.0;
-			}
-
-table{
-    width:90%;
-	opacity: 1.0;
-	margin:5%;	
-	font-size:20px;
-}
-table, th, td {
-    color:black;
-    font-size:18px;	
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 5px;
-    text-align: left;
-}
-table#t1 th	{
-    background-color: #FF619C;
-    color: white;
-}
-table#t1 tr:nth-child(even) {
-    background-color: #FFDEDE;
-}
-table#t1 tr:nth-child(odd) {
-   background-color:#FFCCCC;
-}
-
 		</style>
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -82,13 +37,13 @@ table#t1 tr:nth-child(odd) {
 				<h1>Transportation.<span>Let's Chain up. </span></h1>	
 			</header>
 			<div class="step">
-				<h2>1.請選擇出發日期：<input type="text" name="txt2" onfocus="c.showMoreDay = false;c.show(this);" /></h2>	
+				<h2>1.請選擇出發日期：<input type="text" id = "date" name="txt2" onfocus="c.showMoreDay = false;c.show(this);" /></h2>	
 			</div>
 			<div class="step">
 				<h2>2.請選擇交通工具：<span></span></h2>	
 			</div>
 			<section id="grid" class="grid clearfix">
-				<a href="#train" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a href="#train" onclick="changeVisibility(0)" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="img/train.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
@@ -99,7 +54,7 @@ table#t1 tr:nth-child(odd) {
 						</figcaption>
 					</figure>
 				</a>
-				<a href="#thsr" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a href="#thsr" onclick="changeVisibility(1)" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="img/thsr.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
@@ -110,7 +65,7 @@ table#t1 tr:nth-child(odd) {
 						</figcaption>
 					</figure>
 				</a>
-				<a href="#bus" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a href="#bus" onclick="changeVisibility(2)" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="img/bus.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
@@ -121,7 +76,7 @@ table#t1 tr:nth-child(odd) {
 						</figcaption>
 					</figure>
 				</a>
-				<a href="#mtr" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a href="#mtr" onclick="changeVisibility(3)" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="img/mtr.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
@@ -132,7 +87,7 @@ table#t1 tr:nth-child(odd) {
 						</figcaption>
 					</figure>
 				</a>
-				<a id="train" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a href="#train" id="train" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="img/train.png" />
 						<figcaption>
@@ -233,7 +188,7 @@ table#t1 tr:nth-child(odd) {
 									<option value="..">鶯歌</option>
 								</select>  
 								<br>At<br>
-								<select name="type" size="1" id = "cus_time">
+								<select name="time" size="1" id = "cus_time">
 									<option>00:00</option>
 									<option>01:00</option>
 									<option>02:00</option>
@@ -270,21 +225,69 @@ table#t1 tr:nth-child(odd) {
 						</figcaption>	
 					</figure>
 				</a>
-				<a href="#" id="thsr" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a href="#thsr" id="thsr" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="img/thsr.png" />
-						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
 						<figcaption>
 							<h2>THSR</h2>
-							<p></p>
-							<button>submit</button>
+							<form name="thsr">                
+								<br>From<br>
+								<select name="from"size="1" id = "thsr_from">
+									<option>台北</option>
+									<option>板橋</option>
+									<option>桃園</option>
+									<option>新竹</option>
+									<option>台中</option>
+									<option>嘉義</option>
+									<option>台南</option>
+									<option>左營</option>
+								</select>
+								<br>To<br>
+								<select name="to" size="1" id = "thsr_to">
+									<option>台北</option>
+									<option>板橋</option>
+									<option>桃園</option>
+									<option>新竹</option>
+									<option>台中</option>
+									<option>嘉義</option>
+									<option>台南</option>
+									<option>左營</option>
+								</select>
+								<br>At<br>
+								<select name="time" size="1" id = "thsr_time">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+								</select>	
+								<button onclick="" >submit</button>               
+							</form>
 						</figcaption>
 					</figure>
 				</a>
-				<a href="#" id="bus" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a href="#bus" id="bus" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
-						<img src="img/bus.png" style="opacity:0.1;"/>
-						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<img src="img/bus.png"/>
 						<figcaption>
 							<h2>bus</h2>
 							<p></p>
@@ -292,10 +295,9 @@ table#t1 tr:nth-child(odd) {
 						</figcaption>
 					</figure>
 				</a>
-				<a href="#" id="mtr" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a href="#mtr" id="mtr" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
-						<img src="img/8.png" />
-						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<img src="img/mtr.png" />
 						<figcaption>
 							<h2>MTR</h2>
 							<p></p>
@@ -306,6 +308,33 @@ table#t1 tr:nth-child(odd) {
 			</section>
 			<div class="step" id="step-three">
 				<h2>3.請勾選想要的行程：<span><br></span>
+				<div style=" margin:1% 18% 1% -5%; background: url(http://child-hz.myweb.hinet.net/c1.files/image002.jpg) repeat;
+   opacity:0.95;">
+				<p style=" margin:1%; color:blue;"><br>
+					<table id="t1">
+						<tr>
+							<th></th>
+							<th>中壢 -> 台南</th>
+							<th>By</th>
+							<th>Spend</th>		
+							<th>Cost</th>
+						</tr>
+						<tr>
+							<td><input type="checkbox" value="Travel" name="Interest"></td>	
+							<td>06:11 -> 10:41</td>		
+							<td>莒光543</td>
+							<td>4hr36min</td>
+							<td>NT500</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" value="Travel" name="Interest"></td>
+							<td>07:11 -> 10:55</td>		
+							<td>自強103</td>
+							<td>3hr44min</td>
+							<td>NT649</td>
+						</tr>
+					</table>
+				<br></p></div>
 				<span id="show" class="grid clearfix">
 					<table id="t1">
 						<tr>
@@ -334,6 +363,8 @@ table#t1 tr:nth-child(odd) {
 			</div>
 			<div class="step" id="step-four">
 				<h2>4.Let's Chain up：<span><br></span>
+				<div style=" margin:1% 18% 1% -5%; background: url(http://child-hz.myweb.hinet.net/c1.files/image002.jpg) repeat;
+   opacity:0.95;"><p style=" margin:1%; color:blue;padding:10px;">畫畫囉</p></div>
 				<span id="plan"  class="grid clearfix"><p>test</p></span>
 			</h2></div>
 		</div><!-- /container -->
