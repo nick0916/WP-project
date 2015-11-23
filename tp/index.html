@@ -157,7 +157,7 @@
 								<option>沙崙線</option>
 								<option>深奧線</option>
 							</select>
-							<select name="sub1" size="1" id = "cus_from">
+							<select name="sub1" size="1" id = "train_from">
 								<option value="..">福隆</option>
 								<option value="..">貢寮</option>
 								<option value="..">雙溪</option>
@@ -810,7 +810,7 @@
 					return (hour + "小時" + minute + "分");
 				} // 計算車程所耗費的時間
 				function search(){
-					from = $('#cus_from').val();
+					from = $('#train_from').val();
 					to = $('#cus_to').val();
 					get_cost(from,to);
 					set_date(c.date.getFullYear(), c.date.getMonth() + 1, c.date.getDate());
