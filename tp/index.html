@@ -78,7 +78,7 @@
 				<h1>Transportation.<span>Let's Chain up. </span></h1>
 			</header>
 			<div class="step">
-				<h2>1.請選擇出發日期：<input type="text" name="txt2" onfocus="c.showMoreDay = false;c.show(this);" /></h2>
+				<h2>1.請選擇出發日期：<input type="text" name="txt2" onfocus="c.showMoreDay = false;c.show(this);"  /></h2>
 			</div>
 			<div class="step">
 				<h2>2.請選擇交通工具：<span></span></h2>
@@ -673,13 +673,13 @@
 		</script>
 		<script type="text/javascript">
 				// Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
-				var from = "新竹";
-				var to = "台南";
-				var year = "2015";
-				var month = "11";
-				var day = "30";
-				var date;
-				set_date(year, month, day);
+				var from;
+				var to;
+				var now = new Date();
+				var y = now.getFullYear();
+				var m = now.getMonth() + 1;
+				var d = now.getDate();
+				set_date(y, m, d);
 
 				var train_date = [];
 				var train_info = [];
@@ -690,13 +690,13 @@
 				var show_data = [];
 				var from_id;
 				var to_id;
-				// get_cost(from,to);
+				get_cost(from,to);
 				function set_date(y, m, d){
 					year = y;
 					month = m;
 					day = d;
 					date = (y + "-" + m + "-" + d);
-				}
+				} // 取得理想格式的時間
 				function get_info(url,index){
 					var httpRequest;
 					if (window.XMLHttpRequest) { // Mozilla, Safari, ...
@@ -745,7 +745,7 @@
 						}
 						}
 					}
-				}
+				} // 連API去取得資訊回來
 				function changeID (id) {
 					for (var i = 0; i < station.length; i++)
 					{
@@ -754,7 +754,7 @@
 							return station[i].StationID;
 						}
 					}
-				}
+				} // 將中文站名換成代碼
 				function find_train_time(f_id, t_id, traindate, trainInfo){
 					
 					for (var i = 0; i < traindate.length; i ++)
@@ -796,31 +796,28 @@
 						}
 						
 					}
-				}
+				} // 從API載下來的資料中去挑選想要車次
 				function cal_time(t){
 					var time;
 					time = parseInt(t[0]+t[1]) * 60 + parseInt(t[3]+t[4]);
 					return time;
-				}
+				} // 計算秒數->幫助排列從早到晚的車次
 				function cal_during_t(train){
 					var during = cal_time(train.departure_t) - cal_time(train.Arrival_t);
 					var hour = parseInt(during / 60);
 					var minute = during - hour*60;
 					return (hour + "小時" + minute + "分");
-				}
+				} // 計算車程所耗費的時間
 				function search(){
 					from = $('#cus_from').val();
 					to = $('#cus_to').val();
-					year = $('#cus_year').val();
-					month = $('#cus_month').val();
-					day = $('#cus_day').val();
 					get_cost(from,to);
-					set_date(year, month, day);
+					set_date(c.date.getFullYear(), c.date.getMonth() + 1, c.date.getDate());
 					from_id = changeID(from);
 					to_id = changeID(to);
 					
 					get_info(train_date_api, 1);
-				}
+				} // 按鈕按下後所跑的程式
 				var station_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/Station?%24format=json";
 				get_info(station_api, 0);
 				var train_info_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + date + "?%24format=json";
@@ -830,61 +827,61 @@
 				var cost_1;
 				var cost_2;
 				var cost_3;
-				// function get_cost(from,to)
-				// {
-				// 	var cost;
+				function get_cost(from,to)
+				{
+					var cost;
 					
-				// 	var query = new Parse.Query("cost_west");
-				// 	query.limit(200);
-				// 	query.find({
-				// 		success: function(results) {
-				// 		//console.log("1");
-				// 		//alert("Successfully retrieved " + results.length + " scores.");
-				// 		// Do something with the returned Parse.Object values
-				// 		for (var i = 0; i < results.length; i++) {
-				// 			var object = results[i];
+					var query = new Parse.Query("cost_west");
+					query.limit(200);
+					query.find({
+						success: function(results) {
+						//console.log("1");
+						//alert("Successfully retrieved " + results.length + " scores.");
+						// Do something with the returned Parse.Object values
+						for (var i = 0; i < results.length; i++) {
+							var object = results[i];
 							
-				// 			if(object.get('station')==from)
-				// 			{
-				// 				var from_distance = object.get('distance');
-				// 			}
-				// 			else if(object.get('station')==to)
-				// 			{
+							if(object.get('station')==from)
+							{
+								var from_distance = object.get('distance');
+							}
+							else if(object.get('station')==to)
+							{
 								
-				// 				var to_distance = object.get('distance');
-				// 			}
+								var to_distance = object.get('distance');
+							}
 							
-				// 			//alert(object.id + ' - ' + object.get('distance'));
-				// 		}
-				// 		sub = Math.abs(to_distance - from_distance);
-				// 		if(sub<10)
-				// 		{
-				// 			cost_1=15;
-				// 			cost_2=18;
-				// 			cost_3=23;
-				// 		}
-				// 		else
-				// 		{
-				// 			cost_1=Math.ceil(1.46*sub);
-				// 			cost_2=Math.ceil(1.75*sub);
-				// 			cost_3=Math.ceil(2.27*sub);
-				// 		}
-				// 		/*console.log(cost_1);
-				// 		console.log(cost_2);
-				// 		console.log(cost_3);*/
-				// 		/*console.log(sub);
-				// 		console.log(type);
-				// 		console.log(dir);
-				// 		console.log(cost);*/
-				// 		//return cost;
+							//alert(object.id + ' - ' + object.get('distance'));
+						}
+						sub = Math.abs(to_distance - from_distance);
+						if(sub<10)
+						{
+							cost_1=15;
+							cost_2=18;
+							cost_3=23;
+						}
+						else
+						{
+							cost_1=Math.ceil(1.46*sub);
+							cost_2=Math.ceil(1.75*sub);
+							cost_3=Math.ceil(2.27*sub);
+						}
+						/*console.log(cost_1);
+						console.log(cost_2);
+						console.log(cost_3);*/
+						/*console.log(sub);
+						console.log(type);
+						console.log(dir);
+						console.log(cost);*/
+						//return cost;
 						
-				// 		//alert(to_distance);
-				// 		},
-				// 		error: function(error) {
-				// 			alert("Error: " + error.code + " " + error.message);
-				// 		}
-				// 	});
-				// }
+						//alert(to_distance);
+						},
+						error: function(error) {
+							alert("Error: " + error.code + " " + error.message);
+						}
+					});
+				}
 				function show()
 				{
 					console.log(show_data);
