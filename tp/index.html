@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Shape Hover Effect with SVG | Demo 1</title>
+		<title>Transportation.</title>
 		<meta name="description" content="Hover Effects with animated SVG Shapes using Snap.svg" />
 		<meta name="keywords" content="animated svg, hover effect, grid, svg shape html, " />
 		<meta name="author" content="Codrops" />
@@ -315,7 +315,7 @@
 								<option value="2">非對號</option>
 								
 							</select>
-							<input type="button" onclick="search();return false" >submit</button>
+							<button onclick="search();return false">Submit</button>
 						</form>
 						</figcaption>
 
@@ -376,8 +376,9 @@
 									<option value="21">21:00</option>
 									<option value="22">22:00</option>
 									<option value="23">23:00</option>
-								</select>	
-								<input type="button" onclick="selectitem();return false" >submit</button>           
+								</select>
+															
+								<button onclick="selectitem();return false">Submit</button>         
 							</form>
 
 						</figcaption>
@@ -388,8 +389,54 @@
 						<img src="img/bus.png"/>
 						<figcaption>
 						<h2>bus</h2>
+						<form name="bus">
+						<br>路線<br>
+						<select name="route"size="1" id = "bus_route">
+									<option value="1">台北→台南(兩排椅)</option>
+									<option value="2">台南→台北(兩排椅)</option>
+									<option value="3">台北→台南(三排椅)</option>
+									<option value="4">台南→台北(三排椅)</option>
+									<option value="5">台北→新營→高雄</option>
+									<option value="6">高雄→新營→台北</option>
+									<option value="7">台南→嘉義</option>
+									<option value="8">嘉義→台南</option>
+									<option value="9">台北→台中</option>
+									<option value="10">台中→台北</option>
+									<option value="11">台南→台中</option>
+									<option value="12">台中→台南</option>
+									
+								</select>
+						<br>At<br>
+							<select name="type" size="1" id = "b_time">
+								<option value="0">00:00</option>
+									<option value="1">01:00</option>
+									<option value="2">02:00</option>
+									<option value="3">03:00</option>
+									<option value="4">04:00</option>
+									<option value="5">05:00</option>
+									<option value="6">06:00</option>
+									<option value="7">07:00</option>
+									<option value="8">08:00</option>
+									<option value="9">09:00</option>
+									<option value="10">10:00</option>
+									<option value="11">11:00</option>
+									<option value="12">12:00</option>
+									<option value="13">13:00</option>
+									<option value="14">14:00</option>
+									<option value="15">15:00</option>
+									<option value="16">16:00</option>
+									<option value="17">17:00</option>
+									<option value="18">18:00</option>
+									<option value="19">19:00</option>
+									<option value="20">20:00</option>
+									<option value="21">21:00</option>
+									<option value="22">22:00</option>
+									<option value="23">23:00</option>
+							</select>
 						<p></p>
-						<button>Submit</button>
+						<button onclick="bus_time();return false">Submit</button>
+						
+						</form>
 						</figcaption>
 					</figure>
 				</a>
@@ -399,7 +446,7 @@
 						<figcaption>
 						<h2>MTR</h2>
 						<p></p>
-						<button>Submit</button>
+						<button >Submit</button>
 						</figcaption>
 					</figure>
 				</a>
@@ -758,6 +805,7 @@
 				}
 		</script>
           <script type="text/javascript">
+		  
                     Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
 
                     var from = "";
@@ -793,6 +841,7 @@
                          month = m;
                          day = d;
                          date = (y + "-" + m + "-" + d);
+						 document.getElementById("date").value = date;
                     } // 取得理想格式的時間
 
                     function get_info(url,index){
@@ -1125,7 +1174,7 @@
 	var j =$('#thsr_time').val();
 	var temp2="";
 	var title="<table id=\"t2\"><tr><th></th><th>" + $('#thsr_from :selected').text() +" -> " + $('#thsr_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
-	var tai="</table>";
+	var tail="</table>";
    for (var i = 0; i < results.length; i++) {  
     var object = results[i];  
     //alert(object.get('s1')); 
@@ -1223,6 +1272,7 @@
    
   // console.log(test);
 	test = title + test + tail;
+	
 	$("#showThsr").html(test);
 	
    //alert(test);
@@ -1252,6 +1302,201 @@
 function checkbox_value(){
 	console.log($('#t1 :selected').text());
 }
+var during_time;
+var bus_cost;
+function bus_time(){
+	var rid = $('#bus_route').val();
+	var b_t = $('#b_time').val();
+	var bus_info;
+	var a_t;
+	var bus = Parse.Object.extend("bus3");
+	var d =new Date(document.getElementById("date").value);
+	var test="";
+	week = new Array("sun","mon","tue","wed","thu","fri","sat");
+	var weekday = week[d.getDay()];
+	var title="<table id=\"t3\"><tr><th></th><th>" + $('#bus_route :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+	var tail="</table>";
+var query = new Parse.Query(bus);
+
+query.limit(1000);
+query.equalTo("routeid", rid);
+query.find({
+  success: function(results) {
+    
+    // Do something with the returned Parse.Object values
+    for (var i = 0; i < results.length; i++) {
+      var object = results[i];
+	  var temp = object.get(weekday);
+	  
+	  if(object.get(weekday)!="-")
+	  {
+	  temp = temp.substr(0,2);
+	  temp = parseInt(temp);
+	  
+	  if(temp>=b_t)
+	  {
+      a_t = arrive_time(rid,object.get(weekday));
+	  test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(weekday) +" -> "+a_t + "</td><td>" + "和欣客運" + "</td><td>" + during_time +"</td><td>" + bus_cost +    "</td></tr>";
+	  /*console.log(object.get(weekday));
+	  console.log(a_t);
+	  console.log(during_time);
+	  console.log(bus_cost);*/
+	  }
+	  }
+    }
+	test = title + test + tail;
+	
+	$("#showBus").html(test);
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
+}
+function arrive_time(a,b){
+var c=cal_time(b);
+
+var a_time;
+
+if(a==1||a==2||a==3||a==4)
+{
+during_time="4小時30分";
+if(a==1||a==2)
+{
+bus_cost="600/499/399";
+}
+else
+{
+bus_cost="400/340/220";
+}
+a_time=c+270;
+if(a_time<1440)
+{
+	var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else
+{
+a_time = a_time-1440;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+
+
+}
+else if(a==5||a==6)
+{
+during_time="5小時30分";
+bus_cost="710/600/600";
+a_time=c+330;
+
+if(a_time<1440)
+{
+	var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else
+{
+a_time = a_time-1440;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+
+}
+else if(a==7||a==8)
+{
+during_time="1小時25分";
+bus_cost="150";
+a_time=c+85;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else if(a==9||a==10)
+{
+during_time="2小時0分";
+bus_cost="230/200/140";
+a_time=c+120;
+
+if(a_time<1440)
+{
+	var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else
+{
+a_time = a_time-1440;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+
+}
+else if(a==11||a==12)
+{
+during_time="2小時30分";
+bus_cost="170/140/140";
+a_time=c+120;
+
+if(a_time<1440)
+{
+	var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else
+{
+a_time = a_time-1440;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+
+}
+}
+
+
 
           </script>
 	</body>
