@@ -1033,7 +1033,9 @@
                          to_id = changeID(to);         // 轉換中文成ID
                          
                          get_info(train_date_api, 1);  // 取得api中的資料（這裡會連鎖開始跑程式去篩選）
-						 
+						 jQuery("html,body").animate({
+													scrollTop:$("#showTrain").offset().top
+													},800);
                     } // 按鈕按下後所跑的程式
 
                     var station_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/Station?%24format=json";
@@ -1191,6 +1193,9 @@
    }
    test2 = title + test2 + tail;
 	$("#showThsr").html(test2);
+	jQuery("html,body").animate({
+            scrollTop:$("#showThsr").offset().top
+        },800);
    //console.log(test2);
 	//test2 = '<p>' + '-為不停靠或不發車' + '<br>' + test2 + '</p>';
    //alert(test);
@@ -1274,7 +1279,9 @@
 	test = title + test + tail;
 	
 	$("#showThsr").html(test);
-	
+	jQuery("html,body").animate({
+            scrollTop:$("#showThsr").offset().top
+        },800);
    //alert(test);
    //$("#table").html('<p>-為不停靠或不發車</p>');
    //$("#table").html(test);
@@ -1310,7 +1317,11 @@ function bus_time(){
 	var bus_info;
 	var a_t;
 	var bus = Parse.Object.extend("bus3");
-	var d =new Date(document.getElementById("date").value);
+	var da = document.getElementById("date").value;
+	da=da.replace(/-/, "\/");
+	da=da.replace(/-/, "\/");
+	//alert(da);
+	var d =new Date(da);
 	var test="";
 	week = new Array("sun","mon","tue","wed","thu","fri","sat");
 	var weekday = week[d.getDay()];
@@ -1347,6 +1358,9 @@ query.find({
 	test = title + test + tail;
 	
 	$("#showBus").html(test);
+	jQuery("html,body").animate({
+            scrollTop:$("#showBus").offset().top
+        },800);
   },
   error: function(error) {
     alert("Error: " + error.code + " " + error.message);
@@ -1494,6 +1508,10 @@ var hour = parseInt(a_time / 60);
 }
 
 }
+
+
+
+
 }
 
 
