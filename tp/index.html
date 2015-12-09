@@ -801,7 +801,18 @@
 					for (i=0;i<group[x].length;i++){
 						temp.options[i]=new Option(group[x][i].text,group[x][i].value)
 					}
-					temp.options[0].selected=true
+					if (x==0)
+					{
+						temp.options[19].selected=true
+					}
+					else if (x==4)
+					{
+						temp.options[13].selected=true
+					}
+					else
+					{
+						temp.options[0].selected=true
+					}
 				}
 		</script>
           <script type="text/javascript">
