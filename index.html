@@ -1,856 +1,1532 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>台灣交通工具資訊彙整平台</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-<!--                 <a class="navbar-brand" href="index.html">Start Bootstrap</a>
- -->            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-<!--                         <a href="post.html">Sample Post</a>
- -->                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>台灣交通工具資訊彙整平台</h1>
-                        <hr class="small">
-                        <span class="subheading">你要的交通資訊～這裡通通有！！</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-	<div id="content1">
-	<h2>交通工具：</h2>
-	<label>
-    <select id="category">
-        <option selected> 高鐵 </option>
-        
-    </select>
-	</label>
-	<h2>北上/南下：</h2>
-	<label>
-	
-    <select id="direction">
-        <option value="1" selected> 北上 </option>
-        <option value="2"> 南下 </option>
-    </select>
-	</label>
-	<h2>搭車時間：</h2>
-	<label>
-    <select id="boardtime">
-        <option value="6"selected> 06:00 </option>
-        <option value="7"> 07:00 </option>
-        <option value="8"> 08:00 </option>
-		<option value="9"> 09:00 </option>
-		<option value="10"> 10:00 </option>
-		<option value="11"> 11:00 </option>
-		<option value="12"> 12:00 </option>
-		<option value="13"> 13:00 </option>
-		<option value="14"> 14:00 </option>
-		<option value="15"> 15:00 </option>
-		<option value="16"> 16:00 </option>
-		<option value="17"> 17:00 </option>
-		<option value="18"> 18:00 </option>
-		<option value="19"> 19:00 </option>
-		<option value="20"> 20:00 </option>
-		<option value="21"> 21:00 </option>
-		<option value="22"> 22:00 </option>
-		<option value="23"> 23:00 </option>
-		<option value="24"> 24:00 </option>
-    </select>
-	</label>
-	<h2>上車車站：</h2>
-	<label>
-    <select id="boardstation">
-        <option value="s1"selected> 台北站 </option>
-        <option value="s2">板橋站</option>
-        <option value="s3">桃園站</option>
-		<option value="s4">新竹站</option>
-		<option value="s5">台中站</option>
-		<option value="s6">嘉義站</option>
-		<option value="s7">台南站</option>
-		<option value="s8">左營站</option>
-    </select>
-	</label>
-	<h2>下車車站：</h2>
-	<label>
-    <select id="destination">
-        <option value="s1"selected> 台北站 </option>
-        <option value="s2">板橋站</option>
-        <option value="s3">桃園站</option>
-		<option value="s4">新竹站</option>
-		<option value="s5">台中站</option>
-		<option value="s6">嘉義站</option>
-		<option value="s7">台南站</option>
-		<option value="s8">左營站</option>
-    </select>
-	</label>
-	<br><br>
-	
-	<button onclick="selectitem()" >Send</button>
-	</div>
-	<div id="table">
-	</div>
-    <div>
-        <h2>交通工具：</h2>
-        <label>
-            <select id = "category">
-                <option selected> 台鐵 </option>
-            
-        </select>
-        <br>
-        <h2>搭車日期 :</h2>
-        <label>
-            <select id = "cus_year">
-                <option value = "2015" selected> 2015 </option>
-            </select>
-            <select id = "cus_month">
-                <option value = "11" selected> 11 </option>
-                <option value = "12" > 12 </option>
-            </select>
-            <select id = "cus_day">
-                <option value = "22" selected> 22 </option>
-                <option value = "23" > 23 </option>
-                <option value = "24" > 24 </option> 
-                <option value = "25" > 25 </option>                               
-                <option value = "26" > 26 </option>
-                <option value = "27" > 27 </option>
-                <option value = "28" > 28 </option>                
-                <option value = "29" > 29 </option>
-                <option value = "30" > 30 </option>
-            </select>
-        </label>
-        <h2>上車車站：</h2>
-        <label>
-            <select id = "cus_from">
-                <option value = "台北"> 台北 </option>
-                <option value = "桃園"> 桃園 </option>
-                <option value = "新竹"selected> 新竹 </option>
-                <option value = "台中"> 台中 </option>
-                <option value = "嘉義"> 嘉義 </option>
-                <option value = "台南"> 台南 </option>
-                <option value = "屏東"> 屏東 </option>
-            </select>
-        </label>
-        <h2>下車車站：</h2>
-        <label>
-            <select id = "cus_to">
-                <option value = "台北"> 台北 </option>
-                <option value = "桃園"> 桃園 </option>
-                <option value = "新竹"> 新竹 </option>
-                <option value = "台中"> 台中 </option>
-                <option value = "嘉義"> 嘉義 </option>
-                <option value = "台南"selected> 台南 </option>
-                <option value = "屏東"> 屏東 </option>
-            </select>
-        </label>
-
-        <br><br>
-    
-        <button onclick="search()" >test</button>
-		
-    </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="front" >
-	
-                <div class="col-md-2" id="svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 96 120" enable-background="new 0 0 96 96" xml:space="preserve"><path d="M38,83.344l4,1.148V70.124h-4V83.344z"/><path d="M56,40.124c0,4.418-3.582,8-8,8s-8-3.582-8-8s3.582-8,8-8S56,35.706,56,40.124z"/><path d="M54,84.492l4-1.148v-13.22h-4V84.492z"/><path d="M76.443,21.728c-11.783-2.54-20.287-3.62-28.436-3.62c-8.148,0-16.656,1.08-28.452,3.62c-0.92,0.192-1.58,1.016-1.58,1.952  L18,66.124h60l0.023-42.436C78.023,22.744,77.368,21.924,76.443,21.728z M48,52.124c-6.616,0-12-5.384-12-12s5.384-12,12-12  s12,5.384,12,12S54.616,52.124,48,52.124z"/><path d="M62,82.204l4-1.14v-10.94h-4V82.204z"/><path d="M46,85.632l1.452,0.416c0.18,0.06,0.364,0.084,0.548,0.084s0.368-0.024,0.548-0.084L50,85.632V70.124h-4V85.632z"/><path d="M30,81.064l4,1.14v-12.08h-4V81.064z"/><path d="M70,79.916l6.548-1.872C77.408,77.8,78,77.012,78,76.124v-6h-8V79.916z"/><path d="M18,76.124c0,0.892,0.592,1.681,1.452,1.92L26,79.916v-9.788h-8V76.124z"/><path d="M74,6c0-0.94-0.656-1.752-1.58-1.952C64.92,2.428,57.729,1.632,50,1.516v12.628c7.057,0.14,14.496,1.076,24,2.992V6z"/><path d="M46,1.484c-8.624,0.124-18.7,1.024-22.752,2.66C22.492,4.448,21.996,5.184,21.996,6v11.136  c9.508-1.924,16.952-2.852,24-2.996L46,1.484z"/><path d="M70,84.08l-0.943,0.271l2,10.164l3.928-0.779l-2.068-10.492L70,84.08z"/><path d="M19.788,93.736l3.924,0.779l2.072-10.5l-3.864-1.1L19.788,93.736z"/><text x="0" y="111" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by iconsmind.com</text><text x="0" y="116" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
-                </div>
-                <div class="col-md-2" id="svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 96 120" enable-background="new 0 0 96 96" xml:space="preserve"><path d="M42.912,53.164h9.355c11.141,0,21.244-17.344,23.324-28.428v-4.212c0-13.376-12.06-19.36-24-19.36h-8  c-11.944,0-24,5.984-24,19.36v4.812C21.724,36.9,32.376,53.164,42.912,53.164z M27.588,19.164c0-7.42,10.044-10.752,20-10.752  c9.232,0,20,2.812,20,10.752v10.624c0,9.056-10.656,19.376-20,19.376c-9.532,0-20-9.928-20-18.968V19.164z"/><path d="M41.588,64.072c0,1.104-0.895,2-2,2s-2-0.896-2-2c0-1.105,0.895-2,2-2S41.588,62.967,41.588,64.072z"/><path d="M47.588,45.164c7.176,0,16-8.476,16-15.376V19.164c0-4.428-8.052-6.752-16-6.752c-7.756,0-16,2.368-16,6.752v11.032  C31.588,36.916,40.416,45.164,47.588,45.164z"/><path d="M57.588,64.072c0,1.104-0.895,2-2,2s-2-0.896-2-2c0-1.105,0.895-2,2-2S57.588,62.967,57.588,64.072z"/><path d="M69.516,67.641c3.344-5.673,5.448-12.152,5.893-17.66c0.107-0.252,0.18-0.524,0.18-0.816V37.016  c-4.952,10.296-13.592,20.148-23.324,20.148h-9.355c-9.732,0-18.364-9.72-23.32-19.868v11.868c0,0.136,0.052,0.256,0.08,0.393  c0.38,5.867,2.796,12.951,6.516,18.943l-8.476,23.656c-0.376,1.048,0.168,2.188,1.208,2.564c0.224,0.084,0.448,0.115,0.672,0.115  c0.82,0,1.588-0.508,1.884-1.324L29,72.5c4.08,5.08,9.148,8.664,14.588,8.664h8c5.688,0,11-3.908,15.164-9.368l7.78,21.72  c0.292,0.813,1.063,1.32,1.884,1.32c0.229,0,0.452-0.04,0.672-0.111c1.04-0.381,1.584-1.517,1.212-2.568L69.516,67.641  L69.516,67.641z M39.588,70.072c-3.308,0-6-2.688-6-6c0-3.305,2.692-6,6-6s6,2.695,6,6C45.588,67.384,42.9,70.072,39.588,70.072z   M55.588,70.072c-3.309,0-6-2.688-6-6c0-3.305,2.691-6,6-6s6,2.695,6,6C61.588,67.384,58.9,70.072,55.588,70.072z"/><text x="0" y="111" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by iconsmind.com</text><text x="0" y="116" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
-                </div>
-                <div class="col-md-2" id="svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 96 120" enable-background="new 0 0 96 96" xml:space="preserve"><path d="M76,72.216c0,1.104-0.895,2-2,2s-2-0.896-2-2s0.895-2,2-2S76,71.111,76,72.216z"/><path d="M94,16.044h-6c-0.04,0-0.072,0.02-0.107,0.024C86.729,2.984,65.924,0.092,48.236,0.044c-0.016,0-0.032,0-0.048,0H48  c-0.048,0-0.096,0-0.148,0c-0.032,0-0.06,0-0.084,0C30.084,0.088,9.276,2.98,8.112,16.068C8.072,16.064,8.04,16.044,8,16.044H2  c-1.104,0-2,0.9-2,2v32c0,1.101,0.896,2,2,2h6v3.008c0,19.148,3.38,27.421,3.524,27.765c0.312,0.744,1.04,1.228,1.844,1.228H16v4  c0,4.368,3.584,7.916,8,7.916c4.412,0,8-3.62,8-8.084v-3.832h32v4c0,4.368,3.584,7.916,8,7.916s8-3.62,8-8.084v-3.832h3.008  c0.836,0,1.584-0.521,1.876-1.3C85.016,82.404,88,74.16,88,55.052v-3.008h6c1.1,0,2-0.899,2-2v-32C96,16.94,95.1,16.044,94,16.044z   M8,48.044H4v-28h4V48.044z M28,87.88c0,2.212-1.832,4.084-4,4.084c-2.244,0-4-1.728-4-3.916v-4h8V87.88z M22,78.216  c-3.308,0-6-2.692-6-6s2.692-6,6-6s6,2.692,6,6S25.308,78.216,22,78.216z M76,87.88c0,2.212-1.832,4.084-4,4.084  c-2.244,0-4-1.728-4-3.916v-4h8V87.88z M74,78.216c-3.309,0-6-2.692-6-6s2.691-6,6-6s6,2.692,6,6S77.309,78.216,74,78.216z   M78.764,60.636c-12.484,4.36-21.672,6.22-30.724,6.22c-9.02,0-18.184-1.848-30.644-6.176c-0.808-0.275-1.344-1.044-1.344-1.896  c0.024-14.616-0.076-37.352-0.076-37.352c0.012-6.96,13.18-11.812,32.028-11.812c18.836,0,32,4.86,32.008,11.812l0.084,37.312  C80.107,59.596,79.572,60.355,78.764,60.636z M92,48.044h-4v-28h4V48.044z"/><path d="M48.008,13.62c-19.556,0-28.024,5.172-28.028,7.812c0,0,0.092,21.304,0.08,35.927c10.568,3.584,18.608,5.244,26.324,5.445  c0.072-0.093,0.112-0.217,0.204-0.305l6.2-6.204l-4.056,1.597c-0.24,0.088-0.492,0.14-0.736,0.14c-0.796,0-1.548-0.476-1.86-1.261  c-0.408-1.031,0.096-2.188,1.124-2.592l20.252-8c1.016-0.408,2.188,0.092,2.588,1.124c0.404,1.024-0.096,2.188-1.119,2.588  L61.8,52.729c-0.092,0.215-0.22,0.416-0.396,0.588l-9.381,9.379c7.041-0.455,14.533-2.131,24.068-5.387l-0.084-35.881  C76.012,18.8,67.557,13.62,48.008,13.62z M22.584,26.628l4-4c0.78-0.78,2.048-0.78,2.828,0c0.78,0.776,0.78,2.048,0,2.828l-4,4  c-0.392,0.392-0.904,0.584-1.416,0.584c-0.512,0-1.024-0.196-1.416-0.584C21.804,28.676,21.804,27.412,22.584,26.628z   M37.456,25.416L26.288,37.252c-0.396,0.416-0.924,0.628-1.456,0.628c-0.492,0-0.988-0.18-1.372-0.548  c-0.804-0.756-0.84-2.024-0.084-2.828l11.168-11.836c0.76-0.804,2.024-0.836,2.828-0.084C38.176,23.348,38.212,24.612,37.456,25.416  z"/><path d="M24,72.216c0,1.104-0.895,2-2,2s-2-0.896-2-2s0.895-2,2-2S24,71.111,24,72.216z"/><text x="0" y="111" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by iconsmind.com</text><text x="0" y="116" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
-                </div>
-                <div class="col-md-2" id="svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 96 120" enable-background="new 0 0 96 96" xml:space="preserve"><path d="M78,72.044c0,1.104-0.895,2-2,2s-2-0.896-2-2s0.895-2,2-2S78,70.939,78,72.044z"/><path d="M80,0.044H16c-8.824,0-16,7.18-16,16v48c0,0.144,0.016,0.288,0.048,0.429l4,18C4.252,83.389,5.064,84.044,6,84.044h2v4  c0,4.368,3.584,7.916,8,7.916c4.412,0,8-3.62,8-8.084v-3.832h48v4c0,4.368,3.584,7.916,8,7.916s8-3.62,8-8.084v-3.832h2  c0.936,0,1.752-0.651,1.952-1.571l4-18.125C95.984,64.208,96,64.068,96,63.916V16.044C96,7.224,88.824,0.044,80,0.044z M20,10.044  c0-1.1,0.896-2,2-2h52c1.1,0,2,0.9,2,2v8c0,1.1-0.9,2-2,2H22c-1.104,0-2-0.9-2-2V10.044z M20,87.88c0,2.212-1.832,4.084-4,4.084  c-2.244,0-4-1.728-4-3.916v-4h8V87.88z M20,78.044c-3.308,0-6-2.692-6-6s2.692-6,6-6s6,2.692,6,6S23.308,78.044,20,78.044z   M60,76.044H36c-1.104,0-2-0.899-2-2s0.896-2,2-2h24c1.1,0,2,0.899,2,2S61.1,76.044,60,76.044z M70,72.044c0-3.308,2.691-6,6-6  s6,2.692,6,6s-2.691,6-6,6S70,75.352,70,72.044z M84,87.88c0,2.212-1.832,4.084-4,4.084c-2.244,0-4-1.728-4-3.916v-4h8V87.88z   M88,62.044c0,1.101-0.9,2-2,2H10c-1.104,0-2-0.899-2-2v-36c0-1.1,0.896-2,2-2h76c1.1,0,2,0.9,2,2V62.044z"/><path d="M22,72.044c0,1.104-0.895,2-2,2s-2-0.896-2-2s0.895-2,2-2S22,70.939,22,72.044z"/><path d="M24,12.044h48v4H24V12.044z"/><path d="M12,28.044v32h32v-32H12z M14.584,34.464l3.916-3.92c0.78-0.78,2.048-0.78,2.832,0c0.784,0.78,0.78,2.048,0,2.828  l-3.916,3.92c-0.388,0.392-0.904,0.584-1.416,0.584s-1.024-0.196-1.416-0.584C13.804,36.512,13.804,35.248,14.584,34.464z   M29.416,33.368l-12,12.084C17.024,45.848,16.512,46.04,16,46.04c-0.508,0-1.02-0.196-1.408-0.584  c-0.784-0.776-0.788-2.048-0.012-2.828l12-12.084c0.784-0.788,2.048-0.788,2.832-0.016C30.192,31.316,30.196,32.584,29.416,33.368z"/><path d="M48,60.044h36v-32H48V60.044z M51.057,34.496l3.752-3.92c0.76-0.8,2.023-0.828,2.828-0.064  c0.795,0.756,0.827,2.032,0.067,2.828l-3.752,3.916c-0.396,0.412-0.916,0.612-1.44,0.612c-0.5,0-1-0.18-1.388-0.556  C50.32,36.564,50.292,35.292,51.057,34.496z"/><text x="0" y="111" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by iconsmind.com</text><text x="0" y="116" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
-                </div>
-                <div class="col-md-2" id="svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 96 120" enable-background="new 0 0 96 96" xml:space="preserve"><path d="M67.744,73c0,1.105-0.895,2-2,2s-2-0.895-2-2s0.895-2,2-2S67.744,71.895,67.744,73z"/><path d="M31.744,73c0,1.105-0.895,2-2,2s-2-0.895-2-2s0.895-2,2-2S31.744,71.895,31.744,73z"/><path d="M83.988,56.813L81.54,31.1C80.561,20.78,72,13,61.632,13h-5.636V5h3.172l3.416,3.416C62.977,8.808,63.488,9,64,9  s1.023-0.196,1.416-0.584c0.779-0.776,0.779-2.048,0-2.828l-4-4C61.04,1.208,60.532,1,60,1H36c-0.532,0-1.04,0.216-1.416,0.584l-4,4  c-0.78,0.78-0.78,2.052,0,2.828c0.78,0.78,2.048,0.78,2.828,0L36.828,5H40v8h-5.64c-10.364,0-18.92,7.78-19.908,18.092L12,56.828  v19.584c0,4.736,3.848,8.584,8.584,8.584H24v8c0,1.1,0.896,2,2,2S28,94.1,28,93v-8h40v8c0,1.1,0.9,2,2,2s2-0.9,2-2v-8h3.416  C80.152,85,84,81.148,84,76.416L83.988,56.813z M43.996,5h8v8h-8V5z M29.744,79c-3.308,0-6-2.695-6-6c0-3.313,2.692-6,6-6  c3.308,0,6,2.688,6,6C35.744,76.305,33.056,79,29.744,79z M55.996,73h-16c-1.104,0-2-0.9-2-2s0.896-2,2-2h16c1.104,0,2,0.9,2,2  S57.1,73,55.996,73z M65.744,79c-3.305,0-6-2.695-6-6c0-3.313,2.695-6,6-6c3.308,0,6,2.688,6,6C71.744,76.305,69.057,79,65.744,79z   M74.16,61c-0.028,0-0.053,0-0.084,0h-52.08c-0.564,0-1.1-0.236-1.48-0.656c-0.38-0.416-0.564-0.968-0.512-1.531l2.408-26.057  C23.032,26.272,28.392,21,34.36,21h27.272c6,0,11.376,5.244,11.984,11.672L76.02,58.26c0.088,0.236,0.141,0.477,0.141,0.744  C76.16,60.1,75.256,61,74.16,61z"/><path d="M61.628,25H34.356c-4.3,0-7.588,4.208-7.964,8.136L24.188,57H71.88l-2.252-23.948C69.216,28.684,65.552,25,61.628,25z   M30.568,31.852l3.916-4c0.776-0.784,2.04-0.804,2.828-0.032c0.788,0.768,0.804,2.04,0.032,2.828l-3.916,4  c-0.392,0.404-0.912,0.6-1.428,0.6c-0.504,0-1.008-0.188-1.4-0.572C29.808,33.912,29.796,32.644,30.568,31.852z M45.232,30.668  L33.404,42.42c-0.392,0.388-0.9,0.584-1.412,0.584c-0.512,0-1.028-0.196-1.42-0.588c-0.776-0.784-0.772-2.056,0.012-2.832  l11.824-11.748c0.784-0.776,2.048-0.776,2.832,0.008C46.02,28.628,46.016,29.896,45.232,30.668z"/><text x="0" y="111" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by iconsmind.com</text><text x="0" y="116" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
-                </div>
-				
-  </div>
-                <!-- <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Man must explore, and this is exploration at its greatest
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                        </h2>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Science has not yet mastered prophecy
-                        </h2>
-                        <h3 class="post-subtitle">
-                            We predict too much for the next year and yet far too little for the next ten.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Failure is not an option
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
-                <hr> -->
-                <!-- Pager -->
-                <!-- <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
-                </ul> -->
-            </div>
-        </div>
-    </div>
-
-    <hr>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-	
-    <!-- jQuery -->
+<html lang="en" class="demo-1 no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Transportation.</title>
+		<meta name="description" content="Hover Effects with animated SVG Shapes using Snap.svg" />
+		<meta name="keywords" content="animated svg, hover effect, grid, svg shape html, " />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/snap.svg-min.js"></script>
+		<script src="js/calendar.js" type="text/javascript"></script>
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+		 <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+   
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/clean-blog.min.js"></script>
-	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+    
+	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript">
-    Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
+	
+		<script type="text/javascript">
+			var c = new Calendar("c");
+			document.write(c);
+		</script>
+		
+		<style>
+
+			.hidden {
+				visibility: hidden;
+			}
+			.visible{
+				visibility: visible;
+			}
+			span#show{
+				margin: 0 20% 0 -5%;
+				background-color: #FFFFFF;
+				opacity:0.95;
+			}
+			span#plan{
+				margin: 0 20% 0 -5%;
+				background-color: #FFFFFF;
+				opacity:1.0;
+			}
+			table{
+			width:90%;
+			opacity: 1.0;
+			margin:5%;
+			font-size:20px;
+			}
+			table, th, td {
+			color:black;
+			font-size:18px;
+			border-collapse: collapse;
+			}
+			th, td {
+			padding: 5px;
+			text-align: left;
+			}
+			table#t3 th	{
+			background-color: #FF619C;
+			color: white;
+			}
+			table#t3 tr:nth-child(even) {
+			background-color: #FFDEDE;
+			}
+			table#t3 tr:nth-child(odd) {
+			background-color:#FFCCCC;
+			}
+			table#t2 th	{
+			background-color: #FF8315;
+			color: white;
+			}
+			table#t2 tr:nth-child(even) {
+			background-color: #FFD3AB;
+			}
+			table#t2 tr:nth-child(odd) {
+			background-color:#FFAC62;
+			}
+			table#t1 th	{
+			background-color: #FF8315;
+			color: white;
+			}
+			table#t1 tr:nth-child(even) {
+			
+			background-color:#FFD3AB;
+			}
+			table#t1 tr:nth-child(odd) {
+			background-color: #FFB67E;
+			}
+			table#t4 th	{
+			background-color: #FF619C;
+			color: white;
+			}
+			table#t4 tr:nth-child(even) {
+			background-color: #FFDEDE;
+			}
+			table#t tr:nth-child(odd) {
+			background-color:#FFCCCC;
+			}
+
+		</style>
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation
+			<div class="codrops-top clearfix">
+							<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/SVGDrawingAnimation/"><span>Previous Demo</span></a>
+							<span class="right"><a href="http://cargocollective.com/isaac317">Artwork by Isaac Montemayor</a><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=18145"><span>Back to the Codrops Article</span></a></span>
+			</div>-->
+			<header class="codrops-header">
+				<h1>Transportation.<span>Let's Chain up. </span></h1>
+			</header>
+			<div class="step">
+
+				<h2>1.請選擇出發日期：<input type="text" id = "date" name="txt2" onfocus="c.showMoreDay = false;c.show(this);" /></h2>	
+
+			</div>
+			<div class="step">
+				<h2>2.請選擇交通工具：<span></span></h2>
+			</div>
+			<section id="grid" class="grid clearfix">
+				<a href="#train" onclick="changeVisibility(0)" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="img/train.png" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+						<h2>火車</h2>
+						<p>Train</p>
+						<button>Click</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="#thsr" onclick="changeVisibility(1)" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="img/thsr.png" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+						<h2>高鐵</h2>
+						<p>Taiwan High Speed Rail(THSR)</p>
+						<button>Click</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="#bus" onclick="changeVisibility(2)" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="img/coach.png" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+						<h2>客運</h2>
+						<p>Coach</p>
+						<button>Click</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="#mtr" onclick="changeVisibility(3)" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="img/bus.png" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+						<h2>公車</h2>
+						<p>Bus</p>
+						<button>Click</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a id="train" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="img/train.png" />
+						<figcaption>
+
+						<h2>train</h2>
+						<form name="train">
+							<br>From<br>
+							<select name="major" size="1" onChange="redirect(this.options.selectedIndex,0)">
+								<option>台北</option>
+								<option>桃園</option>
+								<option>新竹</option>
+								<option>苗栗</option>
+								<option>台中</option>
+								<option>彰化</option>
+								<option>雲林</option>
+								<option>嘉義</option>
+								<option>台南</option>
+								<option>高雄</option>
+								<option>屏東</option>
+								<option>台東</option>
+								<option>花蓮</option>
+								<option>宜蘭</option>
+								<option>平溪線</option>
+								<option>內灣線</option>
+								<option>集集線</option>
+								<option>沙崙線</option>
+								<option>深奧線</option>
+							</select>
+							<select name="sub1" size="1" id = "train_from">
+								<option value="..">福隆</option>
+								<option value="..">貢寮</option>
+								<option value="..">雙溪</option>
+								<option value="..">牡丹</option>
+								<option value="..">三貂嶺</option>
+								<option value="..">侯硐</option>
+								<option value="..">瑞芳</option>
+								<option value="..">四腳亭</option>
+								<option value="..">暖暖</option>
+								<option value="..">基隆</option>
+								<option value="..">八堵</option>
+								<option value="..">七堵</option>
+								<option value="..">五堵</option>
+								<option value="..">汐止</option>
+								<option value="..">南港</option>
+								<option value="..">松山</option>
+								<option value=".." selected>台北</option>
+								<option value="..">萬華</option>
+								<option value="..">板橋</option>
+								<option value="..">浮洲</option>
+								<option value="..">樹林</option>
+								<option value="..">山佳</option>
+								<option value="..">鶯歌</option>
+							</select>
+							<br>To<br>
+							<select name="major2" size="1" onChange="redirect(this.options.selectedIndex,1)">
+								<option>台北</option>
+								<option>桃園</option>
+								<option>新竹</option>
+								<option>苗栗</option>
+								<option>台中</option>
+								<option>彰化</option>
+								<option>雲林</option>
+								<option>嘉義</option>
+								<option>台南</option>
+								<option>高雄</option>
+								<option>屏東</option>
+								<option>台東</option>
+								<option>花蓮</option>
+								<option>宜蘭</option>
+								<option>平溪線</option>
+								<option>內灣線</option>
+								<option>集集線</option>
+								<option>沙崙線</option>
+								<option>深奧線</option>
+							</select>
+							<select name="sub2" size="1" id = "train_to">
+								<option value="..">福隆</option>
+								<option value="..">貢寮</option>
+								<option value="..">雙溪</option>
+								<option value="..">牡丹</option>
+								<option value="..">三貂嶺</option>
+								<option value="..">侯硐</option>
+								<option value="..">瑞芳</option>
+								<option value="..">四腳亭</option>
+								<option value="..">暖暖</option>
+								<option value="..">基隆</option>
+								<option value="..">八堵</option>
+								<option value="..">七堵</option>
+								<option value="..">五堵</option>
+								<option value="..">汐止</option>
+								<option value="..">南港</option>
+								<option value="..">松山</option>
+								<option value=".." selected>台北</option>
+								<option value="..">萬華</option>
+								<option value="..">板橋</option>
+								<option value="..">浮洲</option>
+								<option value="..">樹林</option>
+								<option value="..">山佳</option>
+								<option value="..">鶯歌</option>
+							</select>
+							<br>At<br>
+							<select name="type" size="1" id = "train_time">
+								<option>00:00</option>
+								<option>01:00</option>
+								<option>02:00</option>
+								<option>03:00</option>
+								<option>04:00</option>
+								<option>05:00</option>
+								<option>06:00</option>
+								<option>07:00</option>
+								<option>08:00</option>
+								<option>09:00</option>
+								<option>10:00</option>
+								<option>11:00</option>
+								<option>12:00</option>
+								<option>13:00</option>
+								<option>14:00</option>
+								<option>15:00</option>
+								<option>16:00</option>
+								<option>17:00</option>
+								<option>18:00</option>
+								<option>19:00</option>
+								<option>20:00</option>
+								<option>21:00</option>
+								<option>22:00</option>
+								<option>23:00</option>
+							</select>
+							
+							<select name="time_check" size="1" id = "time_check">
+								<option value="0">出發時間</option>
+								<option value="1">抵達時間</option>
+								
+								
+							</select>
+							<br>Type<br>
+							<select name="type" size="1" id = "train_type">
+								<option value="0">全部</option>
+								<option value="1">對號</option>
+								<option value="2">非對號</option>
+								
+							</select>
+							<button onclick="search();return false">Submit</button>
+						</form>
+						</figcaption>
+
+					</figure>
+				</a>
+				<a  id="thsr" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="img/thsr.png" />
+						<figcaption>
+
+							<h2>THSR</h2>
+							<form name="thsr">                
+								<br>From<br>
+								<select name="from"size="1" id = "thsr_from">
+									<option value="1">台北</option>
+									<option value="2">板橋</option>
+									<option value="3">桃園</option>
+									<option value="4">新竹</option>
+									<option value="5">台中</option>
+									<option value="6">嘉義</option>
+									<option value="7">台南</option>
+									<option value="8">左營</option>
+								</select>
+								<br>To<br>
+								<select name="to" size="1" id = "thsr_to">
+									<option value="1">台北</option>
+									<option value="2">板橋</option>
+									<option value="3">桃園</option>
+									<option value="4">新竹</option>
+									<option value="5">台中</option>
+									<option value="6">嘉義</option>
+									<option value="7">台南</option>
+									<option value="8">左營</option>
+								</select>
+								<br>At<br>
+								<select name="time" size="1" id = "thsr_time">
+									<option value="0">00:00</option>
+									<option value="1">01:00</option>
+									<option value="2">02:00</option>
+									<option value="3">03:00</option>
+									<option value="4">04:00</option>
+									<option value="5">05:00</option>
+									<option value="6">06:00</option>
+									<option value="7">07:00</option>
+									<option value="8">08:00</option>
+									<option value="9">09:00</option>
+									<option value="10">10:00</option>
+									<option value="11">11:00</option>
+									<option value="12">12:00</option>
+									<option value="13">13:00</option>
+									<option value="14">14:00</option>
+									<option value="15">15:00</option>
+									<option value="16">16:00</option>
+									<option value="17">17:00</option>
+									<option value="18">18:00</option>
+									<option value="19">19:00</option>
+									<option value="20">20:00</option>
+									<option value="21">21:00</option>
+									<option value="22">22:00</option>
+									<option value="23">23:00</option>
+								</select>
+															
+								<button onclick="selectitem();return false">Submit</button>         
+							</form>
+
+						</figcaption>
+					</figure>
+				</a>
+				<a  id="bus" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="img/coach.png"/>
+						<figcaption>
+						<h2>bus</h2>
+						<form name="bus">
+						<br>路線<br>
+						<select name="route"size="1" id = "bus_route">
+									<option value="1">台北→台南(兩排椅)</option>
+									<option value="2">台南→台北(兩排椅)</option>
+									<option value="3">台北→台南(三排椅)</option>
+									<option value="4">台南→台北(三排椅)</option>
+									<option value="5">台北→新營→高雄</option>
+									<option value="6">高雄→新營→台北</option>
+									<option value="7">台南→嘉義</option>
+									<option value="8">嘉義→台南</option>
+									<option value="9">台北→台中</option>
+									<option value="10">台中→台北</option>
+									<option value="11">台南→台中</option>
+									<option value="12">台中→台南</option>
+									
+								</select>
+						<br>At<br>
+							<select name="type" size="1" id = "b_time">
+								<option value="0">00:00</option>
+									<option value="1">01:00</option>
+									<option value="2">02:00</option>
+									<option value="3">03:00</option>
+									<option value="4">04:00</option>
+									<option value="5">05:00</option>
+									<option value="6">06:00</option>
+									<option value="7">07:00</option>
+									<option value="8">08:00</option>
+									<option value="9">09:00</option>
+									<option value="10">10:00</option>
+									<option value="11">11:00</option>
+									<option value="12">12:00</option>
+									<option value="13">13:00</option>
+									<option value="14">14:00</option>
+									<option value="15">15:00</option>
+									<option value="16">16:00</option>
+									<option value="17">17:00</option>
+									<option value="18">18:00</option>
+									<option value="19">19:00</option>
+									<option value="20">20:00</option>
+									<option value="21">21:00</option>
+									<option value="22">22:00</option>
+									<option value="23">23:00</option>
+							</select>
+						<p></p>
+						<button onclick="bus_time();return false">Submit</button>
+						
+						</form>
+						</figcaption>
+					</figure>
+				</a>
+				<a  id="mtr" class="hidden" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="img/bus.png" />
+						<figcaption>
+						<h2>MTR</h2>
+						<p></p>
+						<button >Submit</button>
+						</figcaption>
+					</figure>
+				</a>
+			</section>
+			<div class="step" id="step-three">
+				<h2>3.請勾選想要的行程：<span><br></span>
+
+				<div id="showTrain" class="grid clearfix" style=" margin:1% 18% 1% -5%; background: url(http://child-hz.myweb.hinet.net/c1.files/image002.jpg) repeat; opacity:0.95;"></div>
+				<div id="showThsr" class="grid clearfix" style=" margin:1% 18% 1% -5%; background: url(http://child-hz.myweb.hinet.net/c1.files/image002.jpg) repeat; opacity:0.95;"></div>				
+				<div id="showBus" class="grid clearfix" style=" margin:1% 18% 1% -5%; background: url(http://child-hz.myweb.hinet.net/c1.files/image002.jpg) repeat; opacity:0.95;"></div>
+				<div id="showMtr" class="grid clearfix" style=" margin:1% 18% 1% -5%; background: url(http://child-hz.myweb.hinet.net/c1.files/image002.jpg) repeat; opacity:0.95;"></div>				
+				</h2>
+			</div>
+			<div class="step" id="step-four">
+				<h2>4.Let's Chain up：<span><br></span>
+				<div style=" margin:1% 18% 1% -5%; background: url(http://child-hz.myweb.hinet.net/c1.files/image002.jpg) repeat;
+   opacity:0.95;"></div>
+			</h2>
+			</div>
+		</div>
+		<!-- /container -->
+		<script>
+			(function() {
+		
+				function init() {
+					var speed = 250,
+						easing = mina.easeinout;
+					[].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+						var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+							pathConfig = {
+								from : path.attr( 'd' ),
+								to : el.getAttribute( 'data-path-hover' )
+							};
+						el.addEventListener( 'mouseenter', function() {
+							path.animate( { 'path' : pathConfig.to }, speed, easing );
+						} );
+						el.addEventListener( 'mouseleave', function() {
+							path.animate( { 'path' : pathConfig.from }, speed, easing );
+						} );
+					} );
+				}
+				init();
+			})();
+			function changeVisibility(btn){
+				if(btn==0)
+				{
+					if(document.getElementById("train").className == "hidden")
+					{
+						document.getElementById("train").className = "visible";
+					}
+					else if(document.getElementById("train").className == "visible")
+					{
+						document.getElementById("train").className = "hidden";
+					}
+				}
+				else if(btn==1)
+				{
+					if(document.getElementById("thsr").className == "hidden")
+					{
+						document.getElementById("thsr").className = "visible";
+					}
+					else if(document.getElementById("thsr").className == "visible")
+					{
+						document.getElementById("thsr").className = "hidden";
+					}
+				}
+				else if(btn==2)
+				{
+					if(document.getElementById("bus").className == "hidden")
+					{
+						document.getElementById("bus").className = "visible";
+					}
+					else if(document.getElementById("bus").className == "visible")
+					{
+						document.getElementById("bus").className = "hidden";
+					}
+				}
+				else if(btn==3)
+				{
+					if(document.getElementById("mtr").className == "hidden")
+					{
+						document.getElementById("mtr").className = "visible";
+					}
+					else if(document.getElementById("mtr").className == "visible")
+					{
+						document.getElementById("mtr").className = "hidden";
+					}
+				}
+			}
+		</script>
+		<script language="JavaScript">
+			var groups=document.train.major.options.length
+			var group=new Array(groups)
+			for (i=0; i<groups; i++){
+				group[i]=new Array();
+			}
+			group[0][0]=new Option("福隆","..")
+			group[0][1]=new Option("貢寮","..")
+			group[0][2]=new Option("雙溪","..")
+			group[0][3]=new Option("牡丹","..")
+			group[0][4]=new Option("三貂嶺","..")
+			group[0][5]=new Option("猴硐","..")
+			group[0][6]=new Option("瑞芳","..")
+			group[0][7]=new Option("四腳亭","..")
+			group[0][8]=new Option("暖暖","..")
+			group[0][9]=new Option("基隆","..")
+			group[0][10]=new Option("三坑","..")
+			group[0][11]=new Option("八堵","..")
+			group[0][12]=new Option("七堵","..")
+			group[0][13]=new Option("百福","..")
+			group[0][14]=new Option("五堵","..")
+			group[0][15]=new Option("汐止","..")
+			group[0][16]=new Option("汐科","..")
+			group[0][17]=new Option("南港","..")
+			group[0][18]=new Option("松山","..")
+			group[0][19]=new Option("台北","..")
+			group[0][20]=new Option("萬華","..")
+			group[0][21]=new Option("板橋","..")
+			group[0][22]=new Option("浮洲","..")
+			group[0][23]=new Option("樹林","..")
+			group[0][24]=new Option("山佳","..")
+			group[0][25]=new Option("鶯歌","..")
+			group[1][0]=new Option("桃園","..")
+			group[1][1]=new Option("內壢","..")
+			group[1][2]=new Option("中壢","..")
+			group[1][3]=new Option("埔心","..")
+			group[1][4]=new Option("楊梅","..")
+			group[1][6]=new Option("富岡","..")
+			group[2][0]=new Option("湖口","..")
+			group[2][1]=new Option("新豐","..")
+			group[2][2]=new Option("竹北","..")
+			group[2][3]=new Option("北新竹","..")
+			group[2][4]=new Option("新竹","..")
+			group[2][5]=new Option("香山","..")
+			group[3][0]=new Option("崎頂","..")
+			group[3][1]=new Option("竹南","..")
+			group[3][2]=new Option("談文","..")
+			group[3][3]=new Option("大山","..")
+			group[3][4]=new Option("後龍","..")
+			group[3][5]=new Option("龍港","..")
+			group[3][6]=new Option("白沙屯","..")
+			group[3][7]=new Option("新埔","..")
+			group[3][8]=new Option("通霄","..")
+			group[3][9]=new Option("苑裡","..")
+			group[3][10]=new Option("造橋","..")
+			group[3][11]=new Option("豐富","..")
+			group[3][12]=new Option("苗栗","..")
+			group[3][13]=new Option("南勢","..")
+			group[3][14]=new Option("銅鑼","..")
+			group[3][15]=new Option("三義","..")
+			group[4][0]=new Option("日南","..")
+			group[4][1]=new Option("大甲","..")
+			group[4][2]=new Option("台中港","..")
+			group[4][3]=new Option("清水","..")
+			group[4][4]=new Option("沙鹿","..")
+			group[4][5]=new Option("龍井","..")
+			group[4][6]=new Option("大肚","..")
+			group[4][7]=new Option("追分","..")
+			group[4][8]=new Option("泰安","..")
+			group[4][9]=new Option("后里","..")
+			group[4][10]=new Option("豐原","..")
+			group[4][11]=new Option("潭子","..")
+			group[4][12]=new Option("太原","..")
+			group[4][13]=new Option("台中","..")
+			group[4][14]=new Option("大慶","..")
+			group[4][15]=new Option("烏日","..")
+			group[4][16]=new Option("新烏日","..")
+			group[4][17]=new Option("成功","..")
+			group[5][0]=new Option("彰化","..")
+			group[5][1]=new Option("花壇","..")
+			group[5][2]=new Option("大村","..")
+			group[5][3]=new Option("員林","..")
+			group[5][4]=new Option("永靖","..")
+			group[5][5]=new Option("社頭","..")
+			group[5][6]=new Option("田中","..")
+			group[5][7]=new Option("二水","..")
+			group[6][0]=new Option("林內","..")
+			group[6][1]=new Option("石榴","..")
+			group[6][2]=new Option("斗六","..")
+			group[6][3]=new Option("斗南","..")
+			group[6][4]=new Option("石龜","..")
+			group[7][0]=new Option("大林","..")
+			group[7][1]=new Option("民雄","..")
+			group[7][2]=new Option("嘉北","..")
+			group[7][3]=new Option("嘉義","..")
+			group[7][4]=new Option("水上","..")
+			group[7][5]=new Option("南靖","..")
+			//台南
+			group[8][0]=new Option("後壁","..")
+			group[8][1]=new Option("新營","..")
+			group[8][2]=new Option("柳營","..")
+			group[8][3]=new Option("林鳳營","..")
+			group[8][4]=new Option("隆田","..")
+			group[8][5]=new Option("拔林","..")
+			group[8][6]=new Option("善化","..")
+			group[8][7]=new Option("南科","..")
+			group[8][8]=new Option("新市","..")
+			group[8][9]=new Option("永康","..")
+			group[8][10]=new Option("大橋","..")
+			group[8][11]=new Option("台南","..")
+			group[8][12]=new Option("保安","..")
+			group[8][14]=new Option("仁德","..")
+			group[8][15]=new Option("中洲","..")
+			group[8][16]=new Option("長榮大學","..")
+			group[8][17]=new Option("沙崙","..")
+			//高雄
+			group[9][0]=new Option("大湖","..")
+			group[9][1]=new Option("路竹","..")
+			group[9][2]=new Option("岡山","..")
+			group[9][3]=new Option("橋頭","..")
+			group[9][4]=new Option("楠梓","..")
+			group[9][5]=new Option("新左營","..")
+			group[9][6]=new Option("左營","..")
+			group[9][7]=new Option("高雄","..")
+			group[9][8]=new Option("鳳山","..")
+			group[9][9]=new Option("後庄","..")
+			group[9][10]=new Option("九曲堂","..")
+			//屏東
+			group[10][0]=new Option("六塊厝","..")
+			group[10][1]=new Option("屏東","..")
+			group[10][2]=new Option("歸來","..")
+			group[10][3]=new Option("麟洛","..")
+			group[10][4]=new Option("西勢","..")
+			group[10][5]=new Option("竹田","..")
+			group[10][6]=new Option("潮州","..")
+			group[10][7]=new Option("崁頂","..")
+			group[10][8]=new Option("南州","..")
+			group[10][9]=new Option("鎮安","..")
+			group[10][10]=new Option("林邊","..")
+			group[10][11]=new Option("佳冬","..")
+			group[10][12]=new Option("東海","..")
+			group[10][13]=new Option("枋寮","..")
+			group[10][14]=new Option("加祿","..")
+			group[10][15]=new Option("內獅","..")
+			group[10][16]=new Option("枋山","..")
+			//台東
+			group[11][0]=new Option("古莊","..")
+			group[11][1]=new Option("大武","..")
+			group[11][2]=new Option("瀧溪","..")
+			group[11][3]=new Option("多良","..")
+			group[11][4]=new Option("金崙","..")
+			group[11][5]=new Option("太麻里","..")
+			group[11][6]=new Option("知本","..")
+			group[11][7]=new Option("康樂","..")
+			group[11][16]=new Option("池上","..")
+			group[11][15]=new Option("海端","..")
+			group[11][14]=new Option("關山","..")
+			group[11][13]=new Option("月美","..")
+			group[11][12]=new Option("瑞和","..")
+			group[11][11]=new Option("瑞源","..")
+			group[11][10]=new Option("鹿野","..")
+			group[11][9]=new Option("山里","..")
+			group[11][8]=new Option("台東","..")
+			//花蓮
+			group[12][25]=new Option("和平","..")
+			group[12][24]=new Option("和仁","..")
+			group[12][23]=new Option("崇德","..")
+			group[12][22]=new Option("新城","..")
+			group[12][21]=new Option("景美","..")
+			group[12][20]=new Option("北埔","..")
+			group[12][19]=new Option("花蓮","..")
+			group[12][18]=new Option("吉安","..")
+			group[12][17]=new Option("志學","..")
+			group[12][16]=new Option("平和","..")
+			group[12][15]=new Option("壽豐","..")
+			group[12][14]=new Option("豐田","..")
+			group[12][13]=new Option("溪口","..")
+			group[12][12]=new Option("南平","..")
+			group[12][11]=new Option("鳳林","..")
+			group[12][10]=new Option("萬榮","..")
+			group[12][9]=new Option("光復","..")
+			group[12][8]=new Option("大富","..")
+			group[12][7]=new Option("富源","..")
+			group[12][6]=new Option("瑞穗","..")
+			group[12][5]=new Option("三民","..")
+			group[12][4]=new Option("玉里","..")
+			group[12][3]=new Option("安通","..")
+			group[12][2]=new Option("東里","..")
+			group[12][1]=new Option("東竹","..")
+			group[12][0]=new Option("富里","..")
+			//宜蘭
+			group[13][21]=new Option("石城","..")
+			group[13][20]=new Option("大里","..")
+			group[13][19]=new Option("大溪","..")
+			group[13][18]=new Option("龜山","..")
+			group[13][17]=new Option("外澳","..")
+			group[13][16]=new Option("頭城","..")
+			group[13][15]=new Option("頂埔","..")
+			group[13][14]=new Option("礁溪","..")
+			group[13][13]=new Option("四城","..")
+			group[13][12]=new Option("宜蘭","..")
+			group[13][11]=new Option("二結","..")
+			group[13][10]=new Option("中里","..")
+			group[13][9]=new Option("羅東","..")
+			group[13][8]=new Option("冬山","..")
+			group[13][7]=new Option("新馬","..")
+			group[13][6]=new Option("蘇澳新","..")
+			group[13][5]=new Option("蘇澳","..")
+			group[13][4]=new Option("永樂","..")
+			group[13][3]=new Option("東澳","..")
+			group[13][2]=new Option("南澳","..")
+			group[13][1]=new Option("武塔","..")
+			group[13][0]=new Option("漢本","..")
+			//平溪線
+			group[14][6]=new Option("三貂嶺","..")
+			group[14][5]=new Option("大華","..")
+			group[14][4]=new Option("十分","..")
+			group[14][3]=new Option("望古","..")
+			group[14][2]=new Option("嶺腳","..")
+			group[14][1]=new Option("平溪","..")
+			group[14][0]=new Option("菁桐","..")
+			//內灣線
+			group[15][0]=new Option("新竹","..")
+			group[15][1]=new Option("北新竹","..")
+			group[15][2]=new Option("千甲","..")
+			group[15][3]=new Option("新莊","..")
+			group[15][4]=new Option("竹中","..")
+			group[15][5]=new Option("六家","..")
+			group[15][6]=new Option("上員","..")
+			group[15][7]=new Option("榮華","..")
+			group[15][8]=new Option("竹東","..")
+			group[15][9]=new Option("橫山","..")
+			group[15][10]=new Option("九讚頭","..")
+			group[15][11]=new Option("合興","..")
+			group[15][12]=new Option("富貴","..")
+			group[15][13]=new Option("內灣","..")
+			//集集線
+			group[16][0]=new Option("二水","..")
+			group[16][1]=new Option("源泉","..")
+			group[16][2]=new Option("濁水","..")
+			group[16][3]=new Option("龍泉","..")
+			group[16][4]=new Option("集集","..")
+			group[16][5]=new Option("水里","..")
+			group[16][6]=new Option("車埕","..")
+			//沙崙線
+			group[17][0]=new Option("長榮大學","..")
+			group[17][1]=new Option("沙崙","..")
+			//深澳線
+			group[18][0]=new Option("海科館","..")
+
+				var temp;
+				function redirect(x,y){
+					if (y==0){
+						temp=document.train.sub1;
+					}
+					else if(y==1){
+						temp=document.train.sub2;
+					}
+					for (m=temp.options.length-1;m>0;m--){
+						temp.options[m]=null
+					}
+					for (i=0;i<group[x].length;i++){
+						temp.options[i]=new Option(group[x][i].text,group[x][i].value)
+					}
+					if (x==0)
+					{
+						temp.options[19].selected=true
+					}
+					else if (x==4)
+					{
+						temp.options[13].selected=true
+					}
+					else
+					{
+						temp.options[0].selected=true
+					}
+				}
+		</script>
+          <script type="text/javascript">
+		  
+                    Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
+
+                    var from = "";
+                    var to = "";
+                    // 出發地點預設值
+
+                    var now = new Date();
+                    var y = now.getFullYear();
+                    var m = now.getMonth() + 1;
+                    var d = now.getDate();
+                    set_date(y, m, d);
+                    // 時間預設值（當天）
+
+                    var time_choose = 0;
+                    var type_choose = 0;
+                    var time = "00:00";
+                    time = cal_time(time);
+                    // 客人選擇預設為『出發時間』、『全部類型』
+
+                    var train_date = [];
+                    var train_info = [];
+                    var station = [];
+                    var tr_type = ["太魯閣號", "新自強", "自強", "莒光", "復興", "區間快", "區間車", "電車", "兩鐵", "單機迴送", "客迴", "普快車", "普通貨車", "普通車", "柴客", "柴快車", "柴油車" ,"柴迴", "特種", "臨時客迴", "行包專車", "試轉運", "調車列車"];
+                    var tr_diration = ["去程", "返程", "順行", "逆行" ,"南下", "北上"];
+                    var tr_line = ["不經山海線", "山線", "海線"];
+                    var show_data = [];
+                    var from_id;
+                    var to_id;
+                    get_cost(from,to);
+
+                    function set_date(y, m, d){
+                         year = y;
+                         month = m;
+                         day = d;
+                         date = (y + "-" + m + "-" + d);
+						 document.getElementById("date").value = date;
+                    } // 取得理想格式的時間
+
+                    function get_info(url,index){
+                         var httpRequest;
+                         if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+                              httpRequest = new XMLHttpRequest();
+                         } else if (window.ActiveXObject) { // IE
+                              httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                         }
+                         httpRequest.open('GET', url, true);
+                         httpRequest.send(null);
+                         httpRequest.onreadystatechange = function() {
+                              Contents(httpRequest);
+                         };
+                         function Contents (httpRequest) {
+                              if (httpRequest.readyState == 4) {
+                                   if (httpRequest.status == 200) {
+                                        switch(index){
+                                             case 0:
+                                                  station = JSON.parse(httpRequest.responseText);
+                                                  get_info(train_date_api, 1);
+                                                  break;
+                                             case 1:
+                                                  train_date[day] = JSON.parse(httpRequest.responseText);
+                                                  show_data.length = 0;
+                                                  from_id = changeID(from);
+                                                  to_id = changeID(to);
+                                                  
+                                                  
+                                                  get_info(train_info_api, 2);
+                                                  console.log("from : " + from);
+                                                  console.log("To : " + to);
+                                                  console.log("date : " + date);
+                                                  break;
+                                             case 2:
+                                                  train_info[day] = JSON.parse(httpRequest.responseText);
+                                                  find_train_time(from_id, to_id, train_date[day], train_info[day], type_choose, time_choose);
+                                                  show_data.sort(function(a,b){
+                                                       return a.order > b.order ? 1 : -1;;
+                                                  });
+                                                  var test3="";
+													var title="<table id=\"t3\"><tr><th></th><th>" + from +" -> " + to +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+													var tail="</table>";
+													for(var n=0;n<show_data.length;n++){
+													test3 = test3 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + show_data[n].Arrival_t +" -> "+show_data[n].departure_t + "</td><td>" + show_data[n].Type + show_data[n].ID + "</td><td>" + show_data[n].during_t +"</td><td>" + show_data[n].cost +"</td></tr>";
+						 
+													}
+													test3 = title + test3 + tail;
+													if(show_data!="")
+													{
+														$("#showTrain").html(test3);
+													}
+													
+                                                  console.log(show_data);
+                                                  break;
+											
+												    
+                                             default:
+                                                  alert ("伺服器處理錯誤");
+                                                  break;
+                                        }
+                              }
+                              }
+                         }
+                    } // 連API去取得資訊回來
+
+                    function changeID (id) {
+                         for (var i = 0; i < station.length; i++)
+                         {
+                              if (id == station[i].StationName.Zh_tw)
+                              {
+                                   return station[i].StationID;
+                              }
+                         }
+                    } // 將中文站名換成代碼
+
+                    function find_train_time(f_id, t_id, traindate, trainInfo, type_choose, time_choose){
+                         
+                         for (var i = 0; i < traindate.length; i ++)
+                         {
+                              type = tr_type[trainInfo[i].TrainClassification];
+                              if (type_choose == 2 && (type != "區間車" && type != "區間快")){
+                                        continue;
+                              }
+                              else if (type_choose == 1 && (type == "區間車" || type == "區間快")){
+                                        continue;
+                              }    // 篩選車型
+                              
+                              var buffer = 0;
+                              for (var j = 0; j < traindate[i].StoppingTimeElement.length; j++){
+                                   
+                                   if (f_id == traindate[i].StoppingTimeElement[j].StationID){
+                                        var train = new Object();
+                                        train.Arrival_t = traindate[i].StoppingTimeElement[j].ArrivalTime;
+                                        buffer = traindate[i].StoppingTimeElement[j].StopSequence;
+                                   }
+                                   else if (t_id == traindate[i].StoppingTimeElement[j].StationID && buffer > 0){
+                                        
+                                        
+                                        train.departure_t = traindate[i].StoppingTimeElement[j].DepartureTime;
+                                        train.ID = traindate[i].TrainNo;
+                                        train.Type = type;
+                                        train.order = cal_time(train.Arrival_t);
+                                        train.during_t = cal_during_t(train);
+                                             // 將資訊放入名為train的object
+
+                                        if (time_choose == 0 && train.order < time){
+                                             continue;
+                                        }
+                                        else if (time_choose == 1 && cal_time(train.departure_t) > time){
+                                             continue;
+                                        }    // 篩選條件『出發、抵達』時間
+
+                                        if(trainInfo[i].TrainClassification==0||trainInfo[i].TrainClassification==1||trainInfo[i].TrainClassification==2)
+										{
+											train.cost = cost_3;
+										}
+										if(trainInfo[i].TrainClassification==3)
+										{
+											train.cost = cost_2;
+										}
+										if(trainInfo[i].TrainClassification==4||trainInfo[i].TrainClassification==5||trainInfo[i].TrainClassification==6)
+										{
+											train.cost = cost_1;
+										}  // 計算票價
+
+
+                                        show_data.push(train);
+                                        
+                                        break;
+                                   }
+                              }
+                              
+                         }
+                    } // 從API載下來的資料中去挑選想要車次
+
+                    function cal_time(t){
+                         var time;
+                         time = parseInt(t[0]+t[1]) * 60 + parseInt(t[3]+t[4]);
+                         return time;
+                    } // 計算總秒數->幫助排列從早到晚的車次
+
+                    function cal_during_t(train){
+                         var during = cal_time(train.departure_t) - cal_time(train.Arrival_t);
+						 if(during>=0)
+						 {
+						 ;
+						 }
+						 else{
+						 during =  1440 - cal_time(train.Arrival_t) + cal_time(train.departure_t);
+						 }
+						 var hour = parseInt(during / 60);
+                         var minute = during - hour*60;
+                         return (hour + "小時" + minute + "分");
+                    } // 計算車程所耗費的時間
+
+
+                    function search(){
+						
+                         from = $('#train_from :selected').text();
+                         to = $('#train_to :selected').text();
+						console.log(from);
+						console.log(to);
+                         if (from == to){
+                              return alert("上下車地點相同喔～請重新選擇");
+                         }    // 避免相同地點
+
+                         time_choose = $('#time_check').val();
+						 console.log(time_choose);
+                              // 『出發時間』的值會等於 0;
+                              // 『抵達時間』的值會等於 1;
+
+                         time = $('#train_time').val();      // 『出發or抵達』時間值
+                         time = cal_time(time);
+						 
+                         type_choose = $('#train_type').val();
+                              //『全部類型』的值等於 0;
+                              //『對號』的值等於 1;
+                              //『非對號』的值等於 2;
+                              
+                         get_cost(from,to);
+						 //console.log(c.date);
+						 date =document.getElementById("date").value;
+						 
+						 //console.log(d);
+                         //set_date(c.date.getFullYear(), c.date.getMonth() + 1, c.date.getDate());
+					     // 取得固定格式的時間 -> 以利放入api的網址中
+                         from_id = changeID(from);     
+                         to_id = changeID(to);         // 轉換中文成ID
+                         
+                         get_info(train_date_api, 1);  // 取得api中的資料（這裡會連鎖開始跑程式去篩選）
+						 jQuery("html,body").animate({
+													scrollTop:$("#showTrain").offset().top
+													},800);
+                    } // 按鈕按下後所跑的程式
+
+                    var station_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/Station?%24format=json";
+                    get_info(station_api, 0);
+                    var train_info_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + date + "?%24format=json";
+                    var train_date_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/StopTimes/" + date + "?%24format=json";
+                    
+                    
+                    var cost_1;
+                    var cost_2;
+                    var cost_3;
+                    function get_cost(from,to)
+                    {
+                         var cost;
+                         
+                         var query = new Parse.Query("cost_west");
+                         query.limit(200);
+                         query.find({
+                              success: function(results) {
+                              //console.log("1");
+                              //alert("Successfully retrieved " + results.length + " scores.");
+                              // Do something with the returned Parse.Object values
+                              for (var i = 0; i < results.length; i++) {
+                                   var object = results[i];
+                                   
+                                   if(object.get('station')==from)
+                                   {
+                                        var from_distance = object.get('distance');
+                                   }
+                                   else if(object.get('station')==to)
+                                   {
+                                        
+                                        var to_distance = object.get('distance');
+                                   }
+                                   
+                                   //alert(object.id + ' - ' + object.get('distance'));
+                              }
+                              sub = Math.abs(to_distance - from_distance);
+                              if(sub<10)
+                              {
+                                   cost_1=15;
+                                   cost_2=18;
+                                   cost_3=23;
+                              }
+                              else
+                              {
+                                   cost_1=Math.ceil(1.46*sub);
+                                   cost_2=Math.ceil(1.75*sub);
+                                   cost_3=Math.ceil(2.27*sub);
+                              }
+                              /*console.log(cost_1);
+                              console.log(cost_2);
+                              console.log(cost_3);*/
+                              /*console.log(sub);
+                              console.log(type);
+                              console.log(dir);
+                              console.log(cost);*/
+                              //return cost;
+                              
+                              //alert(to_distance);
+                              },
+                              error: function(error) {
+                                   alert("Error: " + error.code + " " + error.message);
+                              }
+                         });
+                    }
+                    
+					
+					
+		
 	function selectitem(){
-	var check1=$('#boardstation').val();
+	/*var check1=$('#boardstation').val();
 	check1 = check1.substr(1,1);
 	check1 = parseInt(check1);
 	var check2=$('#destination').val();
 	check2 = check2.substr(1,1);
-	check2 = parseInt(check2);
+	check2 = parseInt(check2);*/
 	
-    if($('#direction').val()==1)
+	var cost1=[40,160,290,700,1080,1350,1490];
+	var cost2=[130,260,670,1050,1320,1460];
+	var cost3=[130,540,920,1190,1330];
+	var cost4=[410,790,1060,1200];
+	var cost5=[380,650,790];
+	var cost6=[280,410];
+	var cost7=[140];
+	var money;
+	thsr_f = $('#thsr_from').val();
+    thsr_t = $('#thsr_to').val();
+    
+	
+	if(thsr_f>thsr_t){
+	
+	switch(thsr_t)
 	{
-	if(check1>check2){
+		case '1':
+		var tem=thsr_f-2;
+		money=cost1[tem];
+			break;
+		case '2':
+		var tem=thsr_f-3;
+		money=cost2[tem];
+			break;
+		case '3':
+		var tem=thsr_f-4;
+		money=cost3[tem];
+			break;
+		case '4':
+		var tem=thsr_f-5;
+		money=cost4[tem];
+			break;
+		case '5':
+		var tem=thsr_f-6;
+		money=cost5[tem];
+			break;
+		case '6':
+		var tem=thsr_f-7;
+		money=cost6[tem];
+			break;
+		case '7':
+		var tem=thsr_f-8;
+		money=cost7[tem];
+			break;
+	}
+	
 	var tonorth = Parse.Object.extend("tonorth"); 
 		
 	var query = new Parse.Query(tonorth);  
-	//query.equalTo("$('#direction').val()");  
+	//query.equalTo("$('#direction').val()");
+	query.ascending("s1");
 	query.find({  
 	success: function(results) {  
    //alert("Successfully retrieved " + results.length + " scores.");  
    // Do something with the returned Parse.Object values 
 	var test2="";
-	var test2= '車次' + '	' + '發車時間'+ '	' + '抵達時間' +'<br>';
-	var b = $('#boardstation').val();
-	var d =$('#destination').val();
-	var j =parseInt($('#boardtime').val());
+	//var test2= '車次' + '	' + '發車時間'+ '	' + '抵達時間' +'<br>';*/
+	var b = "s"+thsr_f;
+	var d = "s"+thsr_t;
+	var j =$('#thsr_time').val();
 	var temp2="";
+	var title="<table id=\"t2\"><tr><th></th><th>" + $('#thsr_from :selected').text() +" -> " + $('#thsr_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+	var tail="</table>";
    for (var i = 0; i < results.length; i++) {  
     var object = results[i];  
     //alert(object.get('s1')); 
 	temp2=object.get(b);
+	var check_d2 = object.get(d);
+	var take = cal_during(object.get(b),object.get(d));
 	temp2 = temp2.substr(0,2);
 	temp2 = parseInt(temp2);
-	if(temp2>=j)
+	if(temp2>=j&&check_d2!="-")
 	{
-	test2 =  test2 + '	' + object.get('train') + '		' +object.get(b)+ '		' +object.get(d)+ '		' +'<br>';
+	test2 = test2 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +  "</td></tr>";
+	//test2 =  test2 + '	' + object.get('train') + '		' +object.get(b)+ '		' +object.get(d)+ '		' +'<br>';
 	}
    }
-	test2 = '<p>' + '-為不停靠或不發車' + '<br>' + test2 + '</p>';
+   test2 = title + test2 + tail;
+	$("#showThsr").html(test2);
+	jQuery("html,body").animate({
+            scrollTop:$("#showThsr").offset().top
+        },800);
+   //console.log(test2);
+	//test2 = '<p>' + '-為不停靠或不發車' + '<br>' + test2 + '</p>';
    //alert(test);
    //$("#table").html('<p>-為不停靠或不發車</p>');
-   $("#table").html(test2);
+   //$("#table").html(test2);
   },  
   error: function(error) {  
    alert("Error: " + error.code + " " + error.message);  
   }  
  });
 	}
-	else{alert("目前選擇北上，請確認上下車站位置");}
-	}
-	else
+	else if(thsr_f<thsr_t)
 	{
-	if(check2>check1){
+	switch(thsr_f)
+	{
+		case '1':
+		var tem=thsr_t-2;
+		money=cost1[tem];
+			break;
+		case '2':
+		var tem=thsr_t-3;
+		money=cost2[tem];
+			break;
+		case '3':
+		var tem=thsr_t-4;
+		money=cost3[tem];
+			break;
+		case '4':
+		var tem=thsr_t-5;
+		money=cost4[tem];
+			break;
+		case '5':
+		var tem=thsr_t-6;
+		money=cost5[tem];
+			break;
+		case '6':
+		var tem=thsr_t-7;
+		money=cost6[tem];
+			break;
+		case '7':
+		var tem=thsr_t-8;
+		money=cost7[tem];
+			break;
+	}
 	var tosouth = Parse.Object.extend("tosouth"); 
 		
 	var query = new Parse.Query(tosouth);  
+	query.ascending("s1");
  //query.equalTo("playerName", "Dan Stemkoski");  
 	query.find({  
 	success: function(results) {  
    //alert("Successfully retrieved " + results.length + " scores.");  
    // Do something with the returned Parse.Object values 
-	var test= '車次' + '	' + '發車時間'+ '	' + '抵達時間' +'<br>';
-	var b = $('#boardstation').val();
-	var d =$('#destination').val();
-	var k =parseInt($('#boardtime').val());
+	//var test= '車次' + '	' + '發車時間'+ '	' + '抵達時間' +'<br>';
+	var test="";
+	var b = "s"+thsr_f;
+	var d ="s"+thsr_t;
+	var k =parseInt($('#thsr_time').val());
+	
 	var temp="";
+	var title="<table id=\"t2\"><tr><th></th><th>" + $('#thsr_from :selected').text() +" -> " + $('#thsr_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+	var tail="</tail>";
    for (var i = 0; i < results.length; i++) {  
     var object = results[i];  
     //alert(object.get('s1')); 
 	temp=object.get(b);
+	var check_d = object.get(d);
+	//console.log(b);
+	var take = cal_during(object.get(b),object.get(d));
 	temp = temp.substr(0,2);
 	temp = parseInt(temp);
-	if(temp>=k)
+	if(temp>=k&&check_d!="-")
 	{
-	test =  test + '	' + object.get('train') + '		' +object.get(b)+ '		' +object.get(d)+ '		' +'<br>';
+	test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +    "</td></tr>";
+	//test =  test + '	' + object.get('train') + '		' +object.get(b)+ '		' +object.get(d)+ '		' +'<br>';
+	
 	}
    }
-	test = '<p>' + '-為不停靠或不發車' + '<br>'+ test + '</p>';
+   
+  // console.log(test);
+	test = title + test + tail;
+	
+	$("#showThsr").html(test);
+	jQuery("html,body").animate({
+            scrollTop:$("#showThsr").offset().top
+        },800);
    //alert(test);
    //$("#table").html('<p>-為不停靠或不發車</p>');
-   $("#table").html(test);
+   //$("#table").html(test);
    //alert(temp);
   },  
   error: function(error) {  
    alert("Error: " + error.code + " " + error.message);  
   }  
  });
+ 
  }
- else{alert("目前選擇南下，請確認上下車站位置");}
-	}
-	}
+ else{
+ alert("出發與抵達地點相同");
+ }
+ 
+ }
+	
+    function cal_during(a,b){
+                         var during = cal_time(b) - cal_time(a);
+                         var hour = parseInt(during / 60);
+                         var minute = during - hour*60;
+                         return (hour + "小時" + minute + "分");
+                    } 
+					
+function checkbox_value(){
+	console.log($('#t1 :selected').text());
+}
+var during_time;
+var bus_cost;
+function bus_time(){
+	var rid = $('#bus_route').val();
+	var b_t = $('#b_time').val();
+	var bus_info;
+	var a_t;
+	var bus = Parse.Object.extend("bus3");
+	var da = document.getElementById("date").value;
+	da=da.replace(/-/, "\/");
+	da=da.replace(/-/, "\/");
+	//alert(da);
+	var d =new Date(da);
+	var test="";
+	week = new Array("sun","mon","tue","wed","thu","fri","sat");
+	var weekday = week[d.getDay()];
+	var title="<table id=\"t3\"><tr><th></th><th>" + $('#bus_route :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+	var tail="</table>";
+var query = new Parse.Query(bus);
+
+query.limit(1000);
+query.equalTo("routeid", rid);
+query.find({
+  success: function(results) {
     
-  </script>
-      <script type="text/javascript">
-		Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
-        var from = "新竹";
-        var to = "台南";
-
-        var year = "2015";
-        var month = "11";
-        var day = "30";
-
-        var date;
-
-        set_date(year, month, day);
-
-        var train_date = [];
-        var train_info = [];
-        var station = [];
-
-
-
-        var tr_type = ["太魯閣號", "新自強", "自強", "莒光", "復興", "區間快", "區間車", "電車", "兩鐵", "單機迴送", "客迴", "普快車", "普通貨車", "普通車", "柴客", "柴快車", "柴油車" ,"柴迴", "特種", "臨時客迴", "行包專車", "試轉運", "調車列車"];
-
-        var tr_diration = ["去程", "返程", "順行", "逆行" ,"南下", "北上"];
-        var tr_line = ["不經山海線", "山線", "海線"];
-
-        var show_data = [];
-        var from_id;
-        var to_id;
-		get_cost(from,to);
-
-        function set_date(y, m, d){
-            year = y;
-            month = m;
-            day = d;
-
-            date = (y + "-" + m + "-" + d);
-        }
-
-        function get_info(url,index){
-
-            var httpRequest;
-            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-                httpRequest = new XMLHttpRequest();
-            } else if (window.ActiveXObject) { // IE
-                httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-
-            httpRequest.open('GET', url, true);
-            httpRequest.send(null); 
-
-            httpRequest.onreadystatechange = function() { 
-                Contents(httpRequest); 
-            };
-
-            function Contents (httpRequest) {
-                if (httpRequest.readyState == 4) {
-                    if (httpRequest.status == 200) {
-                        switch(index){
-                            case 0:
-                                station = JSON.parse(httpRequest.responseText);
-                                get_info(train_date_api, 1);
-                                console.log(index +  ": ok!");
-                                break;
-
-                            case 1:
-                                train_date[day] = JSON.parse(httpRequest.responseText);
-
-                                show_data.length = 0;
-                                from_id = changeID(from);
-                                to_id = changeID(to);
-								
-								
-
-                                get_info(train_info_api, 2);
-                                console.log("from : " + from);
-                                console.log("To : " + to);
-                                console.log("date : " + date);
-                                console.log(index +  ": ok!");
-
-                                break;
-
-                            case 2:
-                                train_info[day] = JSON.parse(httpRequest.responseText);
-                                find_train_time(from_id, to_id, train_date[day], train_info[day]);
-                                show_data.sort(function(a,b){
-                                    return a.order > b.order ? 1 : -1;;
-                                });
-
-                                console.log(index +  ": ok!");
-
-                                
-                                console.log(show_data);
-
-                                break;
-
-                            default:
-                                alert ("伺服器處理錯誤");
-                                break;
-                        }
-                　　}
-                } 
-            }   
-        }
-
-        function changeID (id) {
-            for (var i = 0; i < station.length; i++)
-            {
-                if (id == station[i].StationName.Zh_tw)
-                {
-                    return station[i].StationID;
-                }
-            }
-        }
-        function find_train_time(f_id, t_id, traindate, trainInfo){
-			
-            for (var i = 0; i < traindate.length; i ++)
-            {
-				
-                var buffer = 0;
-                for (var j = 0; j < traindate[i].StoppingTimeElement.length; j++){
-					
-                    if (f_id == traindate[i].StoppingTimeElement[j].StationID){
-                        var train = new Object();
-                        train.Arrival_t = traindate[i].StoppingTimeElement[j].ArrivalTime;
-
-                        buffer = traindate[i].StoppingTimeElement[j].StopSequence;
-
-                    }
-                    else if (t_id == traindate[i].StoppingTimeElement[j].StationID && buffer > 0){
-						
-						
-                        train.departure_t = traindate[i].StoppingTimeElement[j].DepartureTime;
-                        train.ID = traindate[i].TrainNo;
-                        train.Type = tr_type[trainInfo[i].TrainClassification];
-                        // train.note = trainInfo[i].Note;
-                        train.order = cal_time(train.Arrival_t);
-                        train.during_t = cal_during_t(train);
-						if(trainInfo[i].TrainClassification==1||trainInfo[i].TrainClassification==2||trainInfo[i].TrainClassification==3)
-						{
-							train.cost = cost_3;
-						}
-						if(trainInfo[i].TrainClassification==3)
-						{
-							train.cost = cost_2;
-						}
-						if(trainInfo[i].TrainClassification==4||trainInfo[i].TrainClassification==5)
-						{
-							train.cost = cost_1;
-						}
-						show_data.push(train);
-						
-                        break;
-                    }
-                }
-				
-            }
-
-        }
-
-        function cal_time(t){
-            var time;
-
-            time = parseInt(t[0]+t[1]) * 60 + parseInt(t[3]+t[4]);
-
-            return time;
-        }
-
-        function cal_during_t(train){
-            var during = cal_time(train.departure_t) - cal_time(train.Arrival_t);
-            var hour = parseInt(during / 60);
-            var minute = during - hour*60;
-
-            return (hour + "小時" + minute + "分");
-        }
-
-        function search(){
-            from = $('#cus_from').val();
-            to = $('#cus_to').val();
-            year = $('#cus_year').val();
-            month = $('#cus_month').val();
-            day = $('#cus_day').val();
-			get_cost(from,to);
-            set_date(year, month, day);
-            from_id = changeID(from);
-            to_id = changeID(to);            
-			
-            get_info(train_date_api, 1);
-
-        }
-
-
-        var station_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/Station?%24format=json";
-        get_info(station_api, 0);
-
-        var train_info_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + date + "?%24format=json";
-
-        var train_date_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/StopTimes/" + date + "?%24format=json";
-		
-		
-		var cost_1;
-		var cost_2;
-		var cost_3;
-		function get_cost(from,to)
-		{
-			var cost;
-			
-			var query = new Parse.Query("cost_west");
-			query.limit(200);
-			query.find({
-				success: function(results) {
-				//console.log("1");
-				//alert("Successfully retrieved " + results.length + " scores.");
-				// Do something with the returned Parse.Object values
-				for (var i = 0; i < results.length; i++) {
-					var object = results[i];
-					
-					if(object.get('station')==from)
-					{
-						var from_distance = object.get('distance');
-					}
-					else if(object.get('station')==to)
-					{
-						
-						var to_distance = object.get('distance');
-					}
-					
-					//alert(object.id + ' - ' + object.get('distance'));
-				}
-				sub = Math.abs(to_distance - from_distance);
-				if(sub<10)
-				{
-					cost_1=15;
-					cost_2=18;
-					cost_3=23;
-				}
-				else
-				{
-					cost_1=Math.ceil(1.46*sub);
-					cost_2=Math.ceil(1.75*sub);
-					cost_3=Math.ceil(2.27*sub);
-				}
-				/*console.log(cost_1);
-				console.log(cost_2);
-				console.log(cost_3);*/
-				/*console.log(sub);
-				console.log(type);
-				console.log(dir);
-				console.log(cost);*/
-				//return cost;
-				
-				//alert(to_distance);
-				},
-				error: function(error) {
-					alert("Error: " + error.code + " " + error.message);
-				}
-			});
-		}
-		function show()
-		{
-			console.log(show_data);
-		}
-
-
-
-    </script>
-	<script type="text/javascript">
-	var bus_url="http://210.59.250.227:80/MOTC/v2/Bus/EstimatedTimeOfArrival/Tainan?&%24format=json";
-	var choose = "0右";
-	var b_url="http://210.59.250.227:80/MOTC/v2/Bus/EstimatedTimeOfArrival/Tainan/"+ choose +"?%24orderby=Stop%2FStopSequence&%24format=json";
-	var station_url = "http://210.59.250.227:80/MOTC/v2/Bus/Stop/Tainan/"+ choose + "?%24format=json";
-	var show_bus_data=[];
-	var bus = new Object();
+    // Do something with the returned Parse.Object values
+    for (var i = 0; i < results.length; i++) {
+      var object = results[i];
+	  var temp = object.get(weekday);
+	  
+	  if(object.get(weekday)!="-")
+	  {
+	  temp = temp.substr(0,2);
+	  temp = parseInt(temp);
+	  
+	  if(temp>=b_t)
+	  {
+      a_t = arrive_time(rid,object.get(weekday));
+	  test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(weekday) +" -> "+a_t + "</td><td>" + "和欣客運" + "</td><td>" + during_time +"</td><td>" + bus_cost +    "</td></tr>";
+	  /*console.log(object.get(weekday));
+	  console.log(a_t);
+	  console.log(during_time);
+	  console.log(bus_cost);*/
+	  }
+	  }
+    }
+	test = title + test + tail;
 	
-	var bus_data = [];
-	var station_data = [];
-	var station_count;
-	var station_name = [];
-	var dir=0;
-	show_bus_data.length = 0;
-	
-	function get_count(url)
-	{
-		var httpRequest;
-            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-                httpRequest = new XMLHttpRequest();
-            } else if (window.ActiveXObject) { // IE
-                httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-            }
+	$("#showBus").html(test);
+	jQuery("html,body").animate({
+            scrollTop:$("#showBus").offset().top
+        },800);
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
+}
+function arrive_time(a,b){
+var c=cal_time(b);
 
-            httpRequest.open('GET', url, true);
-            httpRequest.send(null); 
+var a_time;
 
-            httpRequest.onreadystatechange = function() { 
-                if (httpRequest.readyState == 4) {
-                    if (httpRequest.status == 200) {
-						station_data = JSON.parse(httpRequest.responseText);
-						var j=0;
-						station_count = (station_data.length)/2;
-						station_count = Math.floor(station_count-1);
-						
-						for(var k=0;k<station_data.length;k++)
-						{
-							
-							station_name[k]=station_data[k].StopName.Zh_tw;
-							
-						}
-						if(station_data[station_count].StopName.Zh_tw==station_data[station_count+1].StopName.Zh_tw)
-						{
-							dir=1;
-						}
-						else
-						{
-							dir=0;
-						}
-						/*station_count=station_data[station_data.length-1].StopSequence;*/
-						//console.log(station_count);
-						//console.log(station_name);
-					}
-				}
-            };
-	}
-	function get_bus_info(url){
+if(a==1||a==2||a==3||a==4)
+{
+during_time="4小時30分";
+if(a==1||a==2)
+{
+bus_cost="600/499/399";
+}
+else
+{
+bus_cost="400/340/220";
+}
+a_time=c+270;
+if(a_time<1440)
+{
+	var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else
+{
+a_time = a_time-1440;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
 
-            var httpRequest;
-            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-                httpRequest = new XMLHttpRequest();
-            } else if (window.ActiveXObject) { // IE
-                httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-            }
 
-            httpRequest.open('GET', url, true);
-            httpRequest.send(null); 
+}
+else if(a==5||a==6)
+{
+during_time="5小時30分";
+bus_cost="710/600/600";
+a_time=c+330;
 
-            httpRequest.onreadystatechange = function() { 
-                if (httpRequest.readyState == 4) {
-                    if (httpRequest.status == 200) {
-						bus_data = JSON.parse(httpRequest.responseText);
-						
-						var j=0;
-						//console.log(bus_data);
-						if(bus_data=="")
-						{
-						for(var k=0;k<station_data.length;k++)
-						{
-							var bus_detail = new Object();
-							if(k>station_count&&dir==1)
-							{
-							bus_detail.direction = "返程";
-							}
-							else{
-							bus_detail.direction = "去程";
-							}
-							bus_detail.stopname =station_name[k];
-							bus_detail.time ="未發車";
-							show_bus_data.push(bus_detail);
-						}
-						}
-						else{
-						for(var k=0;k<bus_data.length;k++)
-						{
-							var bus_detail = new Object();
-							if(bus_data[k].Route.RouteName.Zh_tw==choose){
-							
-							if(bus_data[k].Stop.StopName.Zh_tw==station_name[j]){
-							//console.log("1");
-							if(j>station_count&&dir==1)
-							{
-							bus_detail.direction = "返程";
-							}
-							else{
-							bus_detail.direction = "去程";
-							}
-						//console.log(bus_data[0].Stop.StopName.Zh_tw);
-							bus_detail.stopname = bus_data[k].Stop.StopName.Zh_tw;
-							//bus_detail.route = bus_data[k].Route.BusRouteType;
-							bus_detail.routename = bus_data[k].Route.RouteName.Zh_tw;
-							if(bus_data[k].EstimateTime>0)
-							{
-							bus_detail.time = (bus_data[k].EstimateTime)/60 + "分鐘";
-							}
-							else if(bus_data[k].EstimateTime==0){
-							bus_detail.time ="已到站"
-							}
-							else{
-							bus_detail.time ="未發車"
-							}
-							bus_detail.stopsequence = bus_data[k].Stop.StopSequence;
-							bus_detail.cost = bus_data[k].Route.TicketPriceDescriptionZh;
-							//console.log("1");
-							show_bus_data.push(bus_detail);
-							}
-							else{
-							bus_detail.stopname = station_name[j];
-							//bus_detail.route = bus_data[k].Route.BusRouteType;
-							bus_detail.routename = bus_data[k].Route.RouteName.Zh_tw;
-							bus_detail.time = "末班已駛離";
-							bus_detail.stopsequence = bus_data[k].Stop.StopSequence;
-							bus_detail.cost = bus_data[k].Route.TicketPriceDescriptionZh;
-							show_bus_data.push(bus_detail);
-							
-							}
-							j++;
-							//console.log(show_bus_data);
-							}
-							
-						}
-						}
-						/*console.log(bus_data[0]);
-						console.log(bus_data[1]);*/
-						console.log(show_bus_data);
-					}
-				}
-            };
-			}
-	get_count(station_url);
-	get_bus_info(b_url);
-	</script>
-</body>
+if(a_time<1440)
+{
+	var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else
+{
+a_time = a_time-1440;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
 
+}
+else if(a==7||a==8)
+{
+during_time="1小時25分";
+bus_cost="150";
+a_time=c+85;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else if(a==9||a==10)
+{
+during_time="2小時0分";
+bus_cost="230/200/140";
+a_time=c+120;
+
+if(a_time<1440)
+{
+	var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else
+{
+a_time = a_time-1440;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+
+}
+else if(a==11||a==12)
+{
+during_time="2小時30分";
+bus_cost="170/140/140";
+a_time=c+120;
+
+if(a_time<1440)
+{
+	var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+else
+{
+a_time = a_time-1440;
+var hour = parseInt(a_time / 60);
+	var minute = a_time - hour*60;
+	if(hour<10)
+	{hour = '0'+hour;}
+	if(minute<10)
+	{minute = '0'+minute;}
+    return (hour + ":" + minute );
+}
+
+}
+
+
+
+
+}
+
+
+
+          </script>
+	</body>
 </html>

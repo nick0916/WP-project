@@ -1,1 +1,0 @@
-<div id="contact_message" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><p id="myname">test</p><p id="message">test</p><p id="time">2015.10.24 12:24</p></div>
