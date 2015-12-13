@@ -378,7 +378,7 @@
 									<option value="23">23:00</option>
 								</select>
 															
-								<button onclick="selectitem();return false">Submit</button>         
+								<button onclick="selectitem($('#thsr_from').val(),$('#thsr_to').val();return false">Submit</button>         
 							</form>
 
 						</figcaption>
@@ -434,7 +434,7 @@
 									<option value="23">23:00</option>
 							</select>
 						<p></p>
-						<button onclick="bus_time();return false">Submit</button>
+						<button onclick="bus_time($('#bus_route').val(),$('#b_time').val());return false">Submit</button>
 						
 						</form>
 						</figcaption>
@@ -1117,7 +1117,7 @@
 					
 					
 		
-	function selectitem(){
+	function selectitem(a,b){
 	/*var check1=$('#boardstation').val();
 	check1 = check1.substr(1,1);
 	check1 = parseInt(check1);
@@ -1133,8 +1133,8 @@
 	var cost6=[280,410];
 	var cost7=[140];
 	var money;
-	thsr_f = $('#thsr_from').val();
-    thsr_t = $('#thsr_to').val();
+	thsr_f = a;
+    thsr_t = b;
     
 	
 	if(thsr_f>thsr_t){
@@ -1322,9 +1322,9 @@ function checkbox_value(){
 }
 var during_time;
 var bus_cost;
-function bus_time(){
-	var rid = $('#bus_route').val();
-	var b_t = $('#b_time').val();
+function bus_time(a,b){
+	var rid = a;
+	var b_t = b;
 	var bus_info;
 	var a_t;
 	var bus = Parse.Object.extend("bus3");
