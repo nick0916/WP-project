@@ -113,9 +113,40 @@
 			table#t tr:nth-child(odd) {
 				background-color:#FFCCCC;
 			}
+			#gotop {
+			  display: none; 
+			  position: fixed;
+			  right: 20px;
+			  bottom: 20px;    
+			  padding: 10px 15px;    
+			  font-size: 20px;
+			  color: white;
+			  cursor: pointer;
+			}
 		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript">
+                $(function(){
+		    $("#gotop").click(function(){       
+		      jQuery("html,body").animate({
+			    		  scrollTop:20
+					  },1000);
+			  		     
+		      });
+	    	   
+		    $(window).scroll(function() {
+		      if ( $(this).scrollTop() > 300){
+		      $('#gotop').fadeIn("fast");
+		      } 
+		      else {
+		      $('#gotop').stop().fadeOut("fast");
+		      }
+		      });
+		});
+		</script>
 	</head>
 	<body>
+	<div id="gotop"><img src="http://1.bp.blogspot.com/-zMfrIkyhlVs/Uh7FePoKU8I/AAAAAAAAHnA/WA0H_vbWAWc/s1600/go-top.png"></div>
 		<div class="container">
 			<header class="codrops-header">
 				<h1>Transportation.<span>Let's Chain up. </span></h1>
@@ -562,6 +593,9 @@
 			</div>
 		</div>
 		<!-- /container -->
+
+
+
 		<script>
 			(function() {
 		
