@@ -12,18 +12,24 @@
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/jquery.js"></script>
+
+		<!-- 火車.js -->
+		<script src="js/train.js" type="text/javascript" charset="utf-8" async defer></script>
+
+		<!-- 高鐵.js -->
+		<script src="js/THSR.js" type="text/javascript" charset="utf-8" async defer></script>
+
+		<!-- 客運.js -->
+		<script src="js/Bus.js" type="text/javascript" charset="utf-8" async defer></script>   	
+
+		
 		<script src="js/snap.svg-min.js"></script>
 		<script src="js/calendar.js" type="text/javascript"></script>
 		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
-		 <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-   
+		
 
-    <!-- Custom Theme JavaScript -->
-    
-	
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	
 		<script type="text/javascript">
 			var c = new Calendar("c");
@@ -31,7 +37,6 @@
 		</script>
 		
 		<style>
-
 			.hidden {
 				visibility: hidden;
 			}
@@ -49,74 +54,65 @@
 				opacity:1.0;
 			}
 			table{
-			width:90%;
-			opacity: 1.0;
-			margin:5%;
-			font-size:20px;
+				width:90%;
+				opacity: 1.0;
+				margin:5%;
+				font-size:20px;
 			}
 			table, th, td {
-			color:black;
-			font-size:18px;
-			border-collapse: collapse;
+				color:black;
+				font-size:18px;
+				border-collapse: collapse;
 			}
 			th, td {
-			padding: 5px;
-			text-align: left;
+				padding: 5px;
+				text-align: left;
 			}
 			table#t3 th	{
-			background-color: #FF619C;
-			color: white;
+				background-color: #FF619C;
+				color: white;
 			}
 			table#t3 tr:nth-child(even) {
-			background-color: #FFDEDE;
+				background-color: #FFDEDE;
 			}
 			table#t3 tr:nth-child(odd) {
-			background-color:#FFCCCC;
+				background-color:#FFCCCC;
 			}
 			table#t2 th	{
-			background-color: #FF8315;
-			color: white;
+				background-color: #FF8315;
+				color: white;
 			}
 			table#t2 tr:nth-child(even) {
-			background-color: #FFD3AB;
+				background-color: #FFD3AB;
 			}
 			table#t2 tr:nth-child(odd) {
-			background-color:#FFAC62;
+				background-color:#FFAC62;
 			}
 			table#t1 th	{
-			background-color: #FF8315;
-			color: white;
+				background-color: #FF8315;
+				color: white;
 			}
 			table#t1 tr:nth-child(even) {
 			
-			background-color:#FFD3AB;
+				background-color:#FFD3AB;
 			}
 			table#t1 tr:nth-child(odd) {
-			background-color: #FFB67E;
+				background-color: #FFB67E;
 			}
 			table#t4 th	{
-			background-color: #FF619C;
-			color: white;
+				background-color: #FF619C;
+				color: white;
 			}
 			table#t4 tr:nth-child(even) {
-			background-color: #FFDEDE;
+				background-color: #FFDEDE;
 			}
 			table#t tr:nth-child(odd) {
-			background-color:#FFCCCC;
+				background-color:#FFCCCC;
 			}
-
 		</style>
-		<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 	</head>
 	<body>
 		<div class="container">
-			<!-- Top Navigation
-			<div class="codrops-top clearfix">
-							<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/SVGDrawingAnimation/"><span>Previous Demo</span></a>
-							<span class="right"><a href="http://cargocollective.com/isaac317">Artwork by Isaac Montemayor</a><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=18145"><span>Back to the Codrops Article</span></a></span>
-			</div>-->
 			<header class="codrops-header">
 				<h1>Transportation.<span>Let's Chain up. </span></h1>
 			</header>
@@ -462,9 +458,8 @@
 			</div>
 			<div class="step" id="step-four">
 				<h2>4.Let's Chain up：<span><br></span>
-				<div style=" margin:1% 18% 1% -5%; background: url(http://child-hz.myweb.hinet.net/c1.files/image002.jpg) repeat;
-   opacity:0.95;"></div>
-			</h2>
+				<div id="showChain" class="grid clearfix" style=" margin:1% 18% 1% -5%; background: url(http://child-hz.myweb.hinet.net/c1.files/image002.jpg) repeat;opacity:0.95;"></div>
+				</h2>
 			</div>
 		</div>
 		<!-- /container -->
@@ -815,6 +810,8 @@
 					}
 				}
 		</script>
+
+		<!-- 火車查詢參數宣告 -->
           <script type="text/javascript">
 		  
                     Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
@@ -847,686 +844,28 @@
                     var to_id;
                     get_cost(from,to);
 
-                    function set_date(y, m, d){
-                         year = y;
-                         month = m;
-                         day = d;
-                         date = (y + "-" + m + "-" + d);
-						 document.getElementById("date").value = date;
-                    } // 取得理想格式的時間
 
-                    function get_info(url,index){
-                         var httpRequest;
-                         if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-                              httpRequest = new XMLHttpRequest();
-                         } else if (window.ActiveXObject) { // IE
-                              httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-                         }
-                         httpRequest.open('GET', url, true);
-                         httpRequest.send(null);
-                         httpRequest.onreadystatechange = function() {
-                              Contents(httpRequest);
-                         };
-                         function Contents (httpRequest) {
-                              if (httpRequest.readyState == 4) {
-                                   if (httpRequest.status == 200) {
-                                        switch(index){
-                                             case 0:
-                                                  station = JSON.parse(httpRequest.responseText);
-                                                  get_info(train_date_api, 1);
-                                                  break;
-                                             case 1:
-                                                  train_date[day] = JSON.parse(httpRequest.responseText);
-                                                  show_data.length = 0;
-                                                  from_id = changeID(from);
-                                                  to_id = changeID(to);
-                                                  
-                                                  
-                                                  get_info(train_info_api, 2);
-                                                  console.log("from : " + from);
-                                                  console.log("To : " + to);
-                                                  console.log("date : " + date);
-                                                  break;
-                                             case 2:
-                                                  train_info[day] = JSON.parse(httpRequest.responseText);
-                                                  find_train_time(from_id, to_id, train_date[day], train_info[day], type_choose, time_choose);
-                                                  show_data.sort(function(a,b){
-                                                       return a.order > b.order ? 1 : -1;;
-                                                  });
-                                                  var test3="";
-													var title="<table id=\"t3\"><tr><th></th><th>" + from +" -> " + to +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
-													var tail="</table>";
-													for(var n=0;n<show_data.length;n++){
-													test3 = test3 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + show_data[n].Arrival_t +" -> "+show_data[n].departure_t + "</td><td>" + show_data[n].Type + show_data[n].ID + "</td><td>" + show_data[n].during_t +"</td><td>" + show_data[n].cost +"</td></tr>";
-						 
-													}
-													test3 = title + test3 + tail;
-													if(show_data!="")
-													{
-														$("#showTrain").html(test3);
-													}
-													
-                                                  console.log(show_data);
-                                                  break;
-											
-												    
-                                             default:
-                                                  alert ("伺服器處理錯誤");
-                                                  break;
-                                        }
-                              }
-                              }
-                         }
-                    } // 連API去取得資訊回來
-
-                    function changeID (id) {
-                         for (var i = 0; i < station.length; i++)
-                         {
-                              if (id == station[i].StationName.Zh_tw)
-                              {
-                                   return station[i].StationID;
-                              }
-                         }
-                    } // 將中文站名換成代碼
-
-                    function find_train_time(f_id, t_id, traindate, trainInfo, type_choose, time_choose){
-                         
-                         for (var i = 0; i < traindate.length; i ++)
-                         {
-                              type = tr_type[trainInfo[i].TrainClassification];
-                              if (type_choose == 2 && (type != "區間車" && type != "區間快")){
-                                        continue;
-                              }
-                              else if (type_choose == 1 && (type == "區間車" || type == "區間快")){
-                                        continue;
-                              }    // 篩選車型
-                              
-                              var buffer = 0;
-                              for (var j = 0; j < traindate[i].StoppingTimeElement.length; j++){
-                                   
-                                   if (f_id == traindate[i].StoppingTimeElement[j].StationID){
-                                        var train = new Object();
-                                        train.Arrival_t = traindate[i].StoppingTimeElement[j].ArrivalTime;
-                                        buffer = traindate[i].StoppingTimeElement[j].StopSequence;
-                                   }
-                                   else if (t_id == traindate[i].StoppingTimeElement[j].StationID && buffer > 0){
-                                        
-                                        
-                                        train.departure_t = traindate[i].StoppingTimeElement[j].DepartureTime;
-                                        train.ID = traindate[i].TrainNo;
-                                        train.Type = type;
-                                        train.order = cal_time(train.Arrival_t);
-                                        train.during_t = cal_during_t(train);
-                                             // 將資訊放入名為train的object
-
-                                        if (time_choose == 0 && train.order < time){
-                                             continue;
-                                        }
-                                        else if (time_choose == 1 && cal_time(train.departure_t) > time){
-                                             continue;
-                                        }    // 篩選條件『出發、抵達』時間
-
-                                        if(trainInfo[i].TrainClassification==0||trainInfo[i].TrainClassification==1||trainInfo[i].TrainClassification==2)
-										{
-											train.cost = cost_3;
-										}
-										if(trainInfo[i].TrainClassification==3)
-										{
-											train.cost = cost_2;
-										}
-										if(trainInfo[i].TrainClassification==4||trainInfo[i].TrainClassification==5||trainInfo[i].TrainClassification==6)
-										{
-											train.cost = cost_1;
-										}  // 計算票價
-
-
-                                        show_data.push(train);
-                                        
-                                        break;
-                                   }
-                              }
-                              
-                         }
-                    } // 從API載下來的資料中去挑選想要車次
-
-                    function cal_time(t){
-                         var time;
-                         time = parseInt(t[0]+t[1]) * 60 + parseInt(t[3]+t[4]);
-                         return time;
-                    } // 計算總秒數->幫助排列從早到晚的車次
-
-                    function cal_during_t(train){
-                         var during = cal_time(train.departure_t) - cal_time(train.Arrival_t);
-						 if(during>=0)
-						 {
-						 ;
-						 }
-						 else{
-						 during =  1440 - cal_time(train.Arrival_t) + cal_time(train.departure_t);
-						 }
-						 var hour = parseInt(during / 60);
-                         var minute = during - hour*60;
-                         return (hour + "小時" + minute + "分");
-                    } // 計算車程所耗費的時間
-
-
-                    function search(){
-						
-                         from = $('#train_from :selected').text();
-                         to = $('#train_to :selected').text();
-						console.log(from);
-						console.log(to);
-                         if (from == to){
-                              return alert("上下車地點相同喔～請重新選擇");
-                         }    // 避免相同地點
-
-                         time_choose = $('#time_check').val();
-						 console.log(time_choose);
-                              // 『出發時間』的值會等於 0;
-                              // 『抵達時間』的值會等於 1;
-
-                         time = $('#train_time').val();      // 『出發or抵達』時間值
-                         time = cal_time(time);
-						 
-                         type_choose = $('#train_type').val();
-                              //『全部類型』的值等於 0;
-                              //『對號』的值等於 1;
-                              //『非對號』的值等於 2;
-                              
-                         get_cost(from,to);
-						 //console.log(c.date);
-						 date =document.getElementById("date").value;
-						 
-						 //console.log(d);
-                         //set_date(c.date.getFullYear(), c.date.getMonth() + 1, c.date.getDate());
-					     // 取得固定格式的時間 -> 以利放入api的網址中
-                         from_id = changeID(from);     
-                         to_id = changeID(to);         // 轉換中文成ID
-                         
-                         get_info(train_date_api, 1);  // 取得api中的資料（這裡會連鎖開始跑程式去篩選）
-						 jQuery("html,body").animate({
-													scrollTop:$("#showTrain").offset().top
-													},800);
-                    } // 按鈕按下後所跑的程式
 
                     var station_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/Station?%24format=json";
                     get_info(station_api, 0);
                     var train_info_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + date + "?%24format=json";
                     var train_date_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/StopTimes/" + date + "?%24format=json";
-                    
-                    
+                                      
                     var cost_1;
                     var cost_2;
                     var cost_3;
-                    function get_cost(from,to)
-                    {
-                         var cost;
-                         
-                         var query = new Parse.Query("cost_west");
-                         query.limit(200);
-                         query.find({
-                              success: function(results) {
-                              //console.log("1");
-                              //alert("Successfully retrieved " + results.length + " scores.");
-                              // Do something with the returned Parse.Object values
-                              for (var i = 0; i < results.length; i++) {
-                                   var object = results[i];
-                                   
-                                   if(object.get('station')==from)
-                                   {
-                                        var from_distance = object.get('distance');
-                                   }
-                                   else if(object.get('station')==to)
-                                   {
-                                        
-                                        var to_distance = object.get('distance');
-                                   }
-                                   
-                                   //alert(object.id + ' - ' + object.get('distance'));
-                              }
-                              sub = Math.abs(to_distance - from_distance);
-                              if(sub<10)
-                              {
-                                   cost_1=15;
-                                   cost_2=18;
-                                   cost_3=23;
-                              }
-                              else
-                              {
-                                   cost_1=Math.ceil(1.46*sub);
-                                   cost_2=Math.ceil(1.75*sub);
-                                   cost_3=Math.ceil(2.27*sub);
-                              }
-                              /*console.log(cost_1);
-                              console.log(cost_2);
-                              console.log(cost_3);*/
-                              /*console.log(sub);
-                              console.log(type);
-                              console.log(dir);
-                              console.log(cost);*/
-                              //return cost;
-                              
-                              //alert(to_distance);
-                              },
-                              error: function(error) {
-                                   alert("Error: " + error.code + " " + error.message);
-                              }
-                         });
-                    }
-                    
-					
-					
-		
-	function selectitem(){
-	/*var check1=$('#boardstation').val();
-	check1 = check1.substr(1,1);
-	check1 = parseInt(check1);
-	var check2=$('#destination').val();
-	check2 = check2.substr(1,1);
-	check2 = parseInt(check2);*/
-	
-	var cost1=[40,160,290,700,1080,1350,1490];
-	var cost2=[130,260,670,1050,1320,1460];
-	var cost3=[130,540,920,1190,1330];
-	var cost4=[410,790,1060,1200];
-	var cost5=[380,650,790];
-	var cost6=[280,410];
-	var cost7=[140];
-	var money;
-	thsr_f = $('#thsr_from').val();
-    thsr_t = $('#thsr_to').val();
-    
-	
-	if(thsr_f>thsr_t){
-	
-	switch(thsr_t)
-	{
-		case '1':
-		var tem=thsr_f-2;
-		money=cost1[tem];
-			break;
-		case '2':
-		var tem=thsr_f-3;
-		money=cost2[tem];
-			break;
-		case '3':
-		var tem=thsr_f-4;
-		money=cost3[tem];
-			break;
-		case '4':
-		var tem=thsr_f-5;
-		money=cost4[tem];
-			break;
-		case '5':
-		var tem=thsr_f-6;
-		money=cost5[tem];
-			break;
-		case '6':
-		var tem=thsr_f-7;
-		money=cost6[tem];
-			break;
-		case '7':
-		var tem=thsr_f-8;
-		money=cost7[tem];
-			break;
-	}
-	
-	var tonorth = Parse.Object.extend("tonorth"); 
-		
-	var query = new Parse.Query(tonorth);  
-	//query.equalTo("$('#direction').val()");
-	query.ascending("s1");
-	query.find({  
-	success: function(results) {  
-   //alert("Successfully retrieved " + results.length + " scores.");  
-   // Do something with the returned Parse.Object values 
-	var test2="";
-	//var test2= '車次' + '	' + '發車時間'+ '	' + '抵達時間' +'<br>';*/
-	var b = "s"+thsr_f;
-	var d = "s"+thsr_t;
-	var j =$('#thsr_time').val();
-	var temp2="";
-	var title="<table id=\"t2\"><tr><th></th><th>" + $('#thsr_from :selected').text() +" -> " + $('#thsr_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
-	var tail="</table>";
-   for (var i = 0; i < results.length; i++) {  
-    var object = results[i];  
-    //alert(object.get('s1')); 
-	temp2=object.get(b);
-	var check_d2 = object.get(d);
-	var take = cal_during(object.get(b),object.get(d));
-	temp2 = temp2.substr(0,2);
-	temp2 = parseInt(temp2);
-	if(temp2>=j&&check_d2!="-")
-	{
-	test2 = test2 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +  "</td></tr>";
-	//test2 =  test2 + '	' + object.get('train') + '		' +object.get(b)+ '		' +object.get(d)+ '		' +'<br>';
-	}
-   }
-   test2 = title + test2 + tail;
-	$("#showThsr").html(test2);
-	jQuery("html,body").animate({
-            scrollTop:$("#showThsr").offset().top
-        },800);
-   //console.log(test2);
-	//test2 = '<p>' + '-為不停靠或不發車' + '<br>' + test2 + '</p>';
-   //alert(test);
-   //$("#table").html('<p>-為不停靠或不發車</p>');
-   //$("#table").html(test2);
-  },  
-  error: function(error) {  
-   alert("Error: " + error.code + " " + error.message);  
-  }  
- });
-	}
-	else if(thsr_f<thsr_t)
-	{
-	switch(thsr_f)
-	{
-		case '1':
-		var tem=thsr_t-2;
-		money=cost1[tem];
-			break;
-		case '2':
-		var tem=thsr_t-3;
-		money=cost2[tem];
-			break;
-		case '3':
-		var tem=thsr_t-4;
-		money=cost3[tem];
-			break;
-		case '4':
-		var tem=thsr_t-5;
-		money=cost4[tem];
-			break;
-		case '5':
-		var tem=thsr_t-6;
-		money=cost5[tem];
-			break;
-		case '6':
-		var tem=thsr_t-7;
-		money=cost6[tem];
-			break;
-		case '7':
-		var tem=thsr_t-8;
-		money=cost7[tem];
-			break;
-	}
-	var tosouth = Parse.Object.extend("tosouth"); 
-		
-	var query = new Parse.Query(tosouth);  
-	query.ascending("s1");
- //query.equalTo("playerName", "Dan Stemkoski");  
-	query.find({  
-	success: function(results) {  
-   //alert("Successfully retrieved " + results.length + " scores.");  
-   // Do something with the returned Parse.Object values 
-	//var test= '車次' + '	' + '發車時間'+ '	' + '抵達時間' +'<br>';
-	var test="";
-	var b = "s"+thsr_f;
-	var d ="s"+thsr_t;
-	var k =parseInt($('#thsr_time').val());
-	
-	var temp="";
-	var title="<table id=\"t2\"><tr><th></th><th>" + $('#thsr_from :selected').text() +" -> " + $('#thsr_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
-	var tail="</tail>";
-   for (var i = 0; i < results.length; i++) {  
-    var object = results[i];  
-    //alert(object.get('s1')); 
-	temp=object.get(b);
-	var check_d = object.get(d);
-	//console.log(b);
-	var take = cal_during(object.get(b),object.get(d));
-	temp = temp.substr(0,2);
-	temp = parseInt(temp);
-	if(temp>=k&&check_d!="-")
-	{
-	test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +    "</td></tr>";
-	//test =  test + '	' + object.get('train') + '		' +object.get(b)+ '		' +object.get(d)+ '		' +'<br>';
-	
-	}
-   }
-   
-  // console.log(test);
-	test = title + test + tail;
-	
-	$("#showThsr").html(test);
-	jQuery("html,body").animate({
-            scrollTop:$("#showThsr").offset().top
-        },800);
-   //alert(test);
-   //$("#table").html('<p>-為不停靠或不發車</p>');
-   //$("#table").html(test);
-   //alert(temp);
-  },  
-  error: function(error) {  
-   alert("Error: " + error.code + " " + error.message);  
-  }  
- });
- 
- }
- else{
- alert("出發與抵達地點相同");
- }
- 
- }
-	
-    function cal_during(a,b){
-                         var during = cal_time(b) - cal_time(a);
-                         var hour = parseInt(during / 60);
-                         var minute = during - hour*60;
-                         return (hour + "小時" + minute + "分");
-                    } 
-					
-function checkbox_value(){
-	console.log($('#t1 :selected').text());
-}
-var during_time;
-var bus_cost;
-function bus_time(){
-	var rid = $('#bus_route').val();
-	var b_t = $('#b_time').val();
-	var bus_info;
-	var a_t;
-	var bus = Parse.Object.extend("bus3");
-	var da = document.getElementById("date").value;
-	da=da.replace(/-/, "\/");
-	da=da.replace(/-/, "\/");
-	//alert(da);
-	var d =new Date(da);
-	var test="";
-	week = new Array("sun","mon","tue","wed","thu","fri","sat");
-	var weekday = week[d.getDay()];
-	var title="<table id=\"t3\"><tr><th></th><th>" + $('#bus_route :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
-	var tail="</table>";
-var query = new Parse.Query(bus);
+          </script>     
 
-query.limit(1000);
-query.equalTo("routeid", rid);
-query.find({
-  success: function(results) {
-    
-    // Do something with the returned Parse.Object values
-    for (var i = 0; i < results.length; i++) {
-      var object = results[i];
-	  var temp = object.get(weekday);
-	  
-	  if(object.get(weekday)!="-")
-	  {
-	  temp = temp.substr(0,2);
-	  temp = parseInt(temp);
-	  
-	  if(temp>=b_t)
-	  {
-      a_t = arrive_time(rid,object.get(weekday));
-	  test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(weekday) +" -> "+a_t + "</td><td>" + "和欣客運" + "</td><td>" + during_time +"</td><td>" + bus_cost +    "</td></tr>";
-	  /*console.log(object.get(weekday));
-	  console.log(a_t);
-	  console.log(during_time);
-	  console.log(bus_cost);*/
-	  }
-	  }
-    }
-	test = title + test + tail;
-	
-	$("#showBus").html(test);
-	jQuery("html,body").animate({
-            scrollTop:$("#showBus").offset().top
-        },800);
-  },
-  error: function(error) {
-    alert("Error: " + error.code + " " + error.message);
-  }
-});
-}
-function arrive_time(a,b){
-var c=cal_time(b);
-
-var a_time;
-
-if(a==1||a==2||a==3||a==4)
-{
-during_time="4小時30分";
-if(a==1||a==2)
-{
-bus_cost="600/499/399";
-}
-else
-{
-bus_cost="400/340/220";
-}
-a_time=c+270;
-if(a_time<1440)
-{
-	var hour = parseInt(a_time / 60);
-	var minute = a_time - hour*60;
-	if(hour<10)
-	{hour = '0'+hour;}
-	if(minute<10)
-	{minute = '0'+minute;}
-    return (hour + ":" + minute );
-}
-else
-{
-a_time = a_time-1440;
-var hour = parseInt(a_time / 60);
-	var minute = a_time - hour*60;
-	if(hour<10)
-	{hour = '0'+hour;}
-	if(minute<10)
-	{minute = '0'+minute;}
-    return (hour + ":" + minute );
-}
+          <!-- 高鐵、客運查詢參數宣告 -->     
+		<script type="text/javascript">               	
+			var during_time;
+			var bus_cost;			
+							
+			function checkbox_value(){
+				console.log($('#t1 :selected').text());
+			}
 
 
-}
-else if(a==5||a==6)
-{
-during_time="5小時30分";
-bus_cost="710/600/600";
-a_time=c+330;
-
-if(a_time<1440)
-{
-	var hour = parseInt(a_time / 60);
-	var minute = a_time - hour*60;
-	if(hour<10)
-	{hour = '0'+hour;}
-	if(minute<10)
-	{minute = '0'+minute;}
-    return (hour + ":" + minute );
-}
-else
-{
-a_time = a_time-1440;
-var hour = parseInt(a_time / 60);
-	var minute = a_time - hour*60;
-	if(hour<10)
-	{hour = '0'+hour;}
-	if(minute<10)
-	{minute = '0'+minute;}
-    return (hour + ":" + minute );
-}
-
-}
-else if(a==7||a==8)
-{
-during_time="1小時25分";
-bus_cost="150";
-a_time=c+85;
-var hour = parseInt(a_time / 60);
-	var minute = a_time - hour*60;
-	if(hour<10)
-	{hour = '0'+hour;}
-	if(minute<10)
-	{minute = '0'+minute;}
-    return (hour + ":" + minute );
-}
-else if(a==9||a==10)
-{
-during_time="2小時0分";
-bus_cost="230/200/140";
-a_time=c+120;
-
-if(a_time<1440)
-{
-	var hour = parseInt(a_time / 60);
-	var minute = a_time - hour*60;
-	if(hour<10)
-	{hour = '0'+hour;}
-	if(minute<10)
-	{minute = '0'+minute;}
-    return (hour + ":" + minute );
-}
-else
-{
-a_time = a_time-1440;
-var hour = parseInt(a_time / 60);
-	var minute = a_time - hour*60;
-	if(hour<10)
-	{hour = '0'+hour;}
-	if(minute<10)
-	{minute = '0'+minute;}
-    return (hour + ":" + minute );
-}
-
-}
-else if(a==11||a==12)
-{
-during_time="2小時30分";
-bus_cost="170/140/140";
-a_time=c+120;
-
-if(a_time<1440)
-{
-	var hour = parseInt(a_time / 60);
-	var minute = a_time - hour*60;
-	if(hour<10)
-	{hour = '0'+hour;}
-	if(minute<10)
-	{minute = '0'+minute;}
-    return (hour + ":" + minute );
-}
-else
-{
-a_time = a_time-1440;
-var hour = parseInt(a_time / 60);
-	var minute = a_time - hour*60;
-	if(hour<10)
-	{hour = '0'+hour;}
-	if(minute<10)
-	{minute = '0'+minute;}
-    return (hour + ":" + minute );
-}
-
-}
-
-
-
-
-}
-
-
-
-          </script>
+		</script>
 	</body>
 </html>
