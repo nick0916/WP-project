@@ -49,7 +49,7 @@ function get_info(url,index){
                               var title="<table id=\"t3\"><tr><th></th><th>" + from +" -> " + to +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
                               var tail="</table>";
                               for(var n=0;n<show_data.length;n++){
-                              test3 = test3 + "<tr><td><input type= checkbox value= Travel name=interest</td><td>" + show_data[n].Arrival_t +" -> "+show_data[n].departure_t + "</td><td>" + show_data[n].Type + show_data[n].ID + "</td><td>" + show_data[n].during_t +"</td><td>" + show_data[n].cost +"</td></tr>";
+                              test3 = test3 + "<tr><td><input type= checkbox value= Travel " + "id = train_" + n + " name=interest onclick=trainCheck(this) ></td><td>" + show_data[n].Arrival_t +" -> "+show_data[n].departure_t + "</td><td>" + show_data[n].Type + show_data[n].ID + "</td><td>" + show_data[n].during_t +"</td><td>" + show_data[n].cost +"</td></tr>";
                               }
                               test3 = title + test3 + tail;
                               if(show_data!="")
@@ -250,3 +250,32 @@ function get_cost(from,to){
           }
      });
 }// 取的票價
+
+function trainCheck(buffer){
+     var cloneNode = buffer.parentNode.parentNode.cloneNode(true); // 複製一個新的node
+     if(buffer.checked == true){
+          if(Choose_Train.children.length == 0){ 
+               Choose_Train.innerHTML = "<table id=\"t4\"><tr><th>台鐵</th><th>" + $('#train_from :selected').text() +" -> " + $('#train_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+               t4.children[0].appendChild(cloneNode);               
+
+          } // 建立首欄＆新增喜好時刻
+          else{
+               t4.children[0].appendChild(cloneNode);               
+          }
+     }
+     else{
+          for (var i = 1; i < t4.childNodes[0].children.length; i++){
+               var node = t4.childNodes[0].childNodes[i];
+               var id = node.childNodes[0].childNodes[0].id;
+               if (id == buffer.id){
+                    console.log(typeof(id));
+                    console.log(id);
+                    document.getElementById(id).checked = false;
+                    t4.childNodes[0].removeChild(t4.childNodes[0].childNodes[i]);
+               } // 刪除喜好時刻 & 取消勾選
+               if(t4.childNodes[0].children.length == 1){
+                    Choose_Train.removeChild(Choose_Train.firstChild);
+               } // 刪除首欄
+          } 
+     }
+}// 選取喜好的火車時段

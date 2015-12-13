@@ -90,7 +90,7 @@ function selectitem(a1,b1,c1,d1,e1){
                          temp2 = temp2.substr(0,2);
                          temp2 = parseInt(temp2);
                          if(temp2>=j&&check_d2!="-"){
-                              test2 = test2 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +  "</td></tr>";
+                              test2 = test2 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\" onclick= \"thsrCheck(this)\" id =THSR_" + i + " ></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +  "</td></tr>";
                               //test2 =  test2 + '     ' + object.get('train') + '        ' +object.get(b)+ '      ' +object.get(d)+ '      ' +'<br>';
                          }
                     }
@@ -171,7 +171,7 @@ function selectitem(a1,b1,c1,d1,e1){
                     temp = temp.substr(0,2);
                     temp = parseInt(temp);
                     if(temp>=k&&check_d!="-"){
-                         test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +    "</td></tr>";
+                         test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\" onclick= \"thsrCheck(this)\" id =THSR_" + i + " ></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +    "</td></tr>";
                          //test =  test + '  ' + object.get('train') + '        ' +object.get(b)+ '      ' +object.get(d)+ '      ' +'<br>';
                     }
                }
@@ -204,3 +204,34 @@ function cal_during(a,b){
      var minute = during - hour*60;
      return (hour + "小時" + minute + "分");
 } 
+
+function thsrCheck(buffer){
+     var cloneNode = buffer.parentNode.parentNode.cloneNode(true);
+     if(buffer.checked == true){
+          console.log("true");
+          if(Choose_Thsr.children.length == 0){
+               Choose_Thsr.innerHTML = "<table id=\"t5\"><tr><th>高鐵</th><th>" + $('#thsr_from :selected').text() +" -> " + $('#thsr_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+               t5.children[0].appendChild(cloneNode);               
+
+          }
+          else{
+               t5.children[0].appendChild(cloneNode);               
+          }
+     }
+     else{
+          console.log("false");
+          for (var i = 1; i < t5.childNodes[0].children.length; i++){
+               var node = t5.childNodes[0].childNodes[i];
+               var id = node.childNodes[0].childNodes[0].id;
+               if (id == buffer.id){
+                    console.log(typeof(id));
+                    console.log(id);
+                    document.getElementById(id).checked = false;
+                    t5.childNodes[0].removeChild(t5.childNodes[0].childNodes[i]);
+               }
+               if(t5.childNodes[0].children.length == 1){
+                    Choose_Thsr.removeChild(Choose_Thsr.firstChild);
+               }
+          } 
+     }
+} // 選取喜好的高鐵時段
