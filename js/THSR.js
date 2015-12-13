@@ -80,7 +80,7 @@ function selectitem(){
                          temp2 = temp2.substr(0,2);
                          temp2 = parseInt(temp2);
                          if(temp2>=j&&check_d2!="-"){
-                              test2 = test2 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +  "</td></tr>";
+                              test2 = test2 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\" onclick= \"thsrCheck(this)\" id =THSR_" + i + " ></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +  "</td></tr>";
                               //test2 =  test2 + '     ' + object.get('train') + '        ' +object.get(b)+ '      ' +object.get(d)+ '      ' +'<br>';
                          }
                     }

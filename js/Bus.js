@@ -32,7 +32,7 @@ function bus_time(){
 
                          if(temp>=b_t){
                               a_t = arrive_time(rid,object.get(weekday));
-                              test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(weekday) +" -> "+a_t + "</td><td>" + "和欣客運" + "</td><td>" + during_time +"</td><td>" + bus_cost +    "</td></tr>";
+                              test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\" onclick= busCheck(this) id = bus_" + i +"></td><td>" + object.get(weekday) +" -> "+a_t + "</td><td>" + "和欣客運" + "</td><td>" + during_time +"</td><td>" + bus_cost +    "</td></tr>";
                               /*console.log(object.get(weekday));
                               console.log(a_t);
                               console.log(during_time);
