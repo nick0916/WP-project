@@ -227,7 +227,7 @@ function thsrCheck(buffer){
                     console.log(typeof(id));
                     console.log(id);
                     document.getElementById(id).checked = false;
-                    t6.childNodes[0].removeChild(t5.childNodes[0].childNodes[i]);
+                    t6.childNodes[0].removeChild(t6.childNodes[0].childNodes[i]);
                }
                if(t6.childNodes[0].children.length == 1){
                     Choose_Thsr.removeChild(Choose_Thsr.firstChild);
