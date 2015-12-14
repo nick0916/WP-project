@@ -271,7 +271,7 @@ function trainCheck(buffer){
                     console.log(typeof(id));
                     console.log(id);
                     document.getElementById(id).checked = false;
-                    t5.childNodes[0].removeChild(t4.childNodes[0].childNodes[i]);
+                    t5.childNodes[0].removeChild(t5.childNodes[0].childNodes[i]);
                } // 刪除喜好時刻 & 取消勾選
                if(t5.childNodes[0].children.length == 1){
                     Choose_Train.removeChild(Choose_Train.firstChild);
