@@ -1,0 +1,83 @@
+
+.hidden {
+     visibility: hidden;
+}
+.visible{
+     visibility: visible;
+}
+span#show{
+     margin: 0 20% 0 -5%;
+     background-color: #FFFFFF;
+     opacity:0.95;
+}
+span#plan{
+     margin: 0 20% 0 -5%;
+     background-color: #FFFFFF;
+     opacity:1.0;
+}
+table{
+     width:90%;
+     opacity: 1.0;
+     margin:5%;
+     font-size:20px;
+}
+table, th, td {
+     color:black;
+     font-size:18px;
+     border-collapse: collapse;
+}
+th, td {
+     padding: 5px;
+     text-align: left;
+}
+table#t3 th    {
+     background-color: #FF619C;
+     color: white;
+}
+table#t3 tr:nth-child(even) {
+     background-color: #FFDEDE;
+}
+table#t3 tr:nth-child(odd) {
+     background-color:#FFCCCC;
+}
+table#t2 th    {
+     background-color: #FF8315;
+     color: white;
+}
+table#t2 tr:nth-child(even) {
+     background-color: #FFD3AB;
+}
+table#t2 tr:nth-child(odd) {
+     background-color:#FFAC62;
+}
+table#t1 th    {
+     background-color: #FF8315;
+     color: white;
+}
+table#t1 tr:nth-child(even) {
+
+     background-color:#FFD3AB;
+}
+table#t1 tr:nth-child(odd) {
+     background-color: #FFB67E;
+}
+table#t4 th    {
+     background-color: #FF619C;
+     color: white;
+}
+table#t4 tr:nth-child(even) {
+     background-color: #FFDEDE;
+}
+table#t tr:nth-child(odd) {
+     background-color:#FFCCCC;
+}
+#gotop {
+  display: none; 
+  position: fixed;
+  right: 20px;
+  bottom: 20px;    
+  padding: 10px 15px;    
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
