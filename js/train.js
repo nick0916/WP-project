@@ -1,10 +1,53 @@
 Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
+
+var from = "";
+var to = "";
+// 出發地點預設值
+
+var now = new Date();
+var y = now.getFullYear();
+var m = now.getMonth() + 1;
+var d = now.getDate();
+set_date(y, m, d);
+// 時間預設值（當天）
+
+var time_choose = 0;
+var type_choose = 0;
+var time = "00:00";
+time = cal_time(time);
+// 客人選擇預設為『出發時間』、『全部類型』
+
+var train_date = [];
+var train_info = [];
+var station = [];
+var tr_type = ["太魯閣號", "新自強", "自強", "莒光", "復興", "區間快", "區間車", "電車", "兩鐵", "單機迴送", "客迴", "普快車", "普通貨車", "普通車", "柴客", "柴快車", "柴油車" ,"柴迴", "特種", "臨時客迴", "行包專車", "試轉運", "調車列車"];
+var tr_diration = ["去程", "返程", "順行", "逆行" ,"南下", "北上"];
+var tr_line = ["不經山海線", "山線", "海線"];
+var show_data = [];
+var from_id;
+var to_id;
+get_cost(from,to);
+document.getElementById("date").value = date;
+
+
+
+var station_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/Station?%24format=json";
+get_info(station_api, 0);
+var train_info_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + date + "?%24format=json";
+var train_date_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/StopTimes/" + date + "?%24format=json";
+                  
+var cost_1;
+var cost_2;
+var cost_3;
+
 function set_date(y, m, d){
      year = y;
      month = m;
      day = d;
      date = (y + "-" + m + "-" + d);
            document.getElementById("date").value = date;
+
+     
 } // 取得理想格式的時間
 
 function get_info(url,index){
@@ -182,7 +225,7 @@ function search(a,b,c,d,e){
           
      get_cost(from,to);
            //console.log(c.date);
-           date =document.getElementById("date").value;
+     date =document.getElementById("date").value;
            
            //console.log(d);
      //set_date(c.date.getFullYear(), c.date.getMonth() + 1, c.date.getDate());
@@ -255,7 +298,7 @@ function trainCheck(buffer){
      var cloneNode = buffer.parentNode.parentNode.cloneNode(true); // 複製一個新的node
      if(buffer.checked == true){
           if(Choose_Train.children.length == 0){ 
-               Choose_Train.innerHTML = "<table id=\"t5\"><tr><th>台鐵</th><th>" + $('#train_from :selected').text() +" -> " + $('#train_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+               Choose_Train.innerHTML = "<table id=\"t5\"><tr><th>台鐵</th><th>" + from +" -> " + to +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
                t5.children[0].appendChild(cloneNode);               
 
           } // 建立首欄＆新增喜好時刻
@@ -268,13 +311,12 @@ function trainCheck(buffer){
                var node = t5.childNodes[0].childNodes[i];
                var id = node.childNodes[0].childNodes[0].id;
                if (id == buffer.id){
-                    console.log(typeof(id));
-                    console.log(id);
                     document.getElementById(id).checked = false;
                     t5.childNodes[0].removeChild(t5.childNodes[0].childNodes[i]);
                } // 刪除喜好時刻 & 取消勾選
                if(t5.childNodes[0].children.length == 1){
                     Choose_Train.removeChild(Choose_Train.firstChild);
+                    break;
                } // 刪除首欄
           } 
      }
