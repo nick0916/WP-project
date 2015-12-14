@@ -209,7 +209,7 @@ function thsrCheck(buffer){
      var cloneNode = buffer.parentNode.parentNode.cloneNode(true);
      if(buffer.checked == true){
           if(Choose_Thsr.children.length == 0){
-               Choose_Thsr.innerHTML = "<table id=\"t6\"><tr><th>高鐵</th><th>" + $('#thsr_from :selected').text() +" -> " + $('#thsr_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+               Choose_Thsr.innerHTML = "<table id=\"t6\"><tr><th>高鐵</th><th>" + t2.childNodes[0].childNodes[0].childNodes[1].textContent +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
                t6.children[0].appendChild(cloneNode);               
 
           }
