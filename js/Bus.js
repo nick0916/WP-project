@@ -194,25 +194,25 @@ function busCheck(buffer){
           console.log("true");
           if(Choose_Bus.children.length == 0){
                Choose_Bus.innerHTML = "<table id=\"t7\"><tr><th>客運</th><th>" + $('#bus_route :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
-               t6.children[0].appendChild(cloneNode);               
+               t7.children[0].appendChild(cloneNode);               
 
           }
           else{
-               t6.children[0].appendChild(cloneNode);               
+               t7.children[0].appendChild(cloneNode);               
           }
      }
      else{
           console.log("false");
           for (var i = 1; i < t6.childNodes[0].children.length; i++){
-               var node = t6.childNodes[0].childNodes[i];
+               var node = t7.childNodes[0].childNodes[i];
                var id = node.childNodes[0].childNodes[0].id;
                if (id == buffer.id){
                     console.log(typeof(id));
                     console.log(id);
                     document.getElementById(id).checked = false;
-                    t6.childNodes[0].removeChild(t6.childNodes[0].childNodes[i]);
+                    t7.childNodes[0].removeChild(t7.childNodes[0].childNodes[i]);
                }
-               if(t6.childNodes[0].children.length == 1){
+               if(t7.childNodes[0].children.length == 1){
                     Choose_Bus.removeChild(Choose_Bus.firstChild);
                }
           } 
