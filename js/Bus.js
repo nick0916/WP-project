@@ -193,7 +193,7 @@ function busCheck(buffer){
      if(buffer.checked == true){
           console.log("true");
           if(Choose_Bus.children.length == 0){
-               Choose_Bus.innerHTML = "<table id=\"t6\"><tr><th>客運</th><th>" + $('#bus_route :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+               Choose_Bus.innerHTML = "<table id=\"t7\"><tr><th>客運</th><th>" + $('#bus_route :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
                t6.children[0].appendChild(cloneNode);               
 
           }
