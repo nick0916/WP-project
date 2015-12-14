@@ -255,7 +255,7 @@ function trainCheck(buffer){
      var cloneNode = buffer.parentNode.parentNode.cloneNode(true); // 複製一個新的node
      if(buffer.checked == true){
           if(Choose_Train.children.length == 0){ 
-               Choose_Train.innerHTML = "<table id=\"t4\"><tr><th>台鐵</th><th>" + $('#train_from :selected').text() +" -> " + $('#train_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+               Choose_Train.innerHTML = "<table id=\"t5\"><tr><th>台鐵</th><th>" + $('#train_from :selected').text() +" -> " + $('#train_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
                t4.children[0].appendChild(cloneNode);               
 
           } // 建立首欄＆新增喜好時刻
