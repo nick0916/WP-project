@@ -210,7 +210,7 @@ function thsrCheck(buffer){
      if(buffer.checked == true){
           console.log("true");
           if(Choose_Thsr.children.length == 0){
-               Choose_Thsr.innerHTML = "<table id=\"t5\"><tr><th>高鐵</th><th>" + $('#thsr_from :selected').text() +" -> " + $('#thsr_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+               Choose_Thsr.innerHTML = "<table id=\"t6\"><tr><th>高鐵</th><th>" + $('#thsr_from :selected').text() +" -> " + $('#thsr_to :selected').text() +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
                t5.children[0].appendChild(cloneNode);               
 
           }
