@@ -8,7 +8,7 @@
         bodyBackColor: "#ffffff", //日历背景色
         bodyFontColor: "#000000", //日历字体色 
         bodyHolidayFontColor: "#ff0000", //假日字体色
-        watermarkColor: "#d4d4d4", //背景水印色
+        //watermarkColor: "#C4E1FF", //背景水印色
         moreDayColor: "#cccccc"
     };
     this.showMoreDay = false; //是否显示上月和下月的日期
@@ -29,7 +29,7 @@ Calendar.prototype.toString = function() {
 };
 Calendar.prototype.getStyle = function() {
     var str = '<style type="text/css">\n';
-    str += '.calendar{position:absolute;width:140px!important;width /**/:142px;height:184px!important;height /**/:174px;background-color:' + this.style.bodyBackColor + ';border:1px solid ' + this.style.borderColor + ';left:0px;top:0px;z-index:9999;}\n';
+    str += '.calendar{position:absolute;width:170px!important;width /**/:142px;height:185px!important;height /**/:174px;background-color:' + this.style.bodyBackColor + ';border:1px solid ' + this.style.borderColor + ';left:0px;top:0px;z-index:9999;}\n';
     str += '.cdrHeader{background-color:' + this.style.headerBackColor + ';width:140px;height:22px;font-size:12px;color:' + this.style.headerFontColor + ';}\n';
     str += '.cdrWatermark{position:absolute;left:0px;top:55px;width:140px;font-family: Arial Black;font-size:50px;color:' + this.style.watermarkColor + ';z-index:1;text-align:center;}\n';
     str += '.cdrBodyBar{background-color:' + this.style.bodyBarBackColor + ';font-size:12px;color:' + this.style.bodyBarFontColor + ';width:140px;height:20px;}\n';

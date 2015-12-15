@@ -1,4 +1,4 @@
-
+table
 .hidden {
      visibility: hidden;
 }
@@ -24,6 +24,12 @@ table{
 table, th, td {
      color:black;
      font-size:18px;
+     border-collapse: collapse;
+}
+
+table.cdrBody, th, td {
+     color:black;
+     font-size:10px;
      border-collapse: collapse;
 }
 th, td {
