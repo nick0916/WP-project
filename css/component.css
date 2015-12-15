@@ -139,6 +139,17 @@
 	background: #3498db;
 }
 
+
+
+/*.step {
+	background-image:url(note.jpg);
+}*/
+
+/*.step {
+	font-family: 'Indie Flower', cursive;
+}*/
+
+
 .demo-1 .grid figure button{
 	top: 50%;
 	left: 50%;
