@@ -696,8 +696,9 @@
 function change()
 {
 var x=document.getElementById("major1_train").selectedIndex;
-document.getElementById("major1_train").selectedIndex=document.getElementById("major2_train").selectedIndex;
-document.getElementById("major2_train").selectedIndex=x;
+var y=document.getElementById("major2_train").selectedIndex
+redirect(x,1);
+redirect(y,0);
 
 }
 
