@@ -302,7 +302,8 @@
 								<option value="2">非對號</option>
 								
 							</select>
-							<div ><input type ="button" id="exchange" onclick="change(); change2();" value="交換"></input></div>
+							<input type ="button" id="exchange" onclick="change(); change2();" value="交換"></input>
+							<br><br>
 							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val());return false">Submit</button>
 						</form>
 						</figcaption>
