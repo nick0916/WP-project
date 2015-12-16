@@ -215,6 +215,7 @@
 								<option value="..">山佳</option>
 								<option value="..">鶯歌</option>
 							</select>
+							<input type ="button" id="exchange" onclick="change(); change2();" value="交換"></input>
 							<br>To<br>
 							<select name="major2" size="1" onChange="redirect(this.options.selectedIndex,1)" id="major2_train">								<option>台北</option>
 								<option>桃園</option>
@@ -302,7 +303,7 @@
 								<option value="2">非對號</option>
 								
 							</select>
-							<div ><input type ="button" id="exchange" onclick="change(); change2();" value="交換"></input></div>
+							
 							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val());return false">Submit</button>
 						</form>
 						</figcaption>
