@@ -302,7 +302,7 @@
 								<option value="2">非對號</option>
 								
 							</select>
-							<button id="exchange" onlick="change()">交換</button>
+							<button id="exchange" onlick="change();change2()">交換</button>
 							<br><br>
 							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val());return false">Submit</button>
 						</form>
@@ -696,12 +696,16 @@
 function change()
 {
 var x=document.getElementById("major1_train").selectedIndex;
-var y=document.getElementById("train_from").selectedIndex;
 document.getElementById("major1_train").selectedIndex=document.getElementById("major2_train").selectedIndex;
-document.getElementById("train_from").selectedIndex=document.getElementById("train_to").selectedIndex;
 document.getElementById("major2_train").selectedIndex=x;
-document.getElementById("train_to").selectedIndex=y;
 
+}
+
+function change2()
+{
+  var y=document.getElementById("train_from").selectedIndex;
+document.getElementById("train_from").selectedIndex=document.getElementById("train_to").selectedIndex;
+document.getElementById("train_to").selectedIndex=y;
 }
 
 
