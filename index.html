@@ -169,7 +169,7 @@
 						<h2>train</h2>
 						<form name="train">
 							<br>From<br>
-							<select name="major" size="1" onChange="redirect(this.options.selectedIndex,0)">
+							<select name="major" size="1" onChange="redirect(this.options.selectedIndex,0)" id="major1_train">
 								<option>台北</option>
 								<option>桃園</option>
 								<option>新竹</option>
@@ -216,8 +216,7 @@
 								<option value="..">鶯歌</option>
 							</select>
 							<br>To<br>
-							<select name="major2" size="1" onChange="redirect(this.options.selectedIndex,1)">
-								<option>台北</option>
+							<select name="major2" size="1" onChange="redirect(this.options.selectedIndex,1)" id="major2_train">								<option>台北</option>
 								<option>桃園</option>
 								<option>新竹</option>
 								<option>苗栗</option>
@@ -303,6 +302,7 @@
 								<option value="2">非對號</option>
 								
 							</select>
+							<button onlick="change()">交換</button>
 							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val());return false">Submit</button>
 						</form>
 						</figcaption>
@@ -691,7 +691,20 @@
 				}		
 			}		
 		</script>
-		
+		<script>
+function change()
+{
+var x=document.getElementById("major1_train").selectedIndex;
+var y=document.getElementById("train_from").selectedIndex;
+document.getElementById("major1_train").selectedIndex=document.getElementById("major2_train").selectedIndex;
+document.getElementById("train_from").selectedIndex=document.getElementById("train_to").selectedIndex;
+document.getElementById("major2_train").selectedIndex=x;
+document.getElementById("train_to").selectedIndex=y;
+
+}
+
+
+		</script>
 		<script language="JavaScript">
 			var groups=document.train.major.options.length
 			var group=new Array(groups)
