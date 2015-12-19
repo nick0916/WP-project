@@ -304,6 +304,7 @@
 								
 							</select>
 							<input type ="button" id="exchange" onclick="change();" value="交換"></input>
+							<br><br>
 							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val());return false">Submit</button>
 						</form>
 						</figcaption>
@@ -1039,9 +1040,13 @@ document.getElementById("train_to").selectedIndex=a;
 					{
 					  temp.options[1].selected=true
 					}
-					else
+					else if(x==1)
 					{
 						temp.options[0].selected=true
+					}
+					else if(x==5)
+					{
+					  temp.options[0].selected=true;
 					}
 				}
 		</script>
