@@ -97,7 +97,7 @@ function get_info(url,index){
                               test3 = title + test3 + tail;
                               if(show_data!="")
                               {
-                                   setTimeout(function(){$("#showTrain").html(test3);},300);
+                                   setTimeout(function(){$("#showTrain").html(test3);},1000);
                               }
                               
                               // console.log(show_data);
