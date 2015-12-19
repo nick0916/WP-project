@@ -701,6 +701,8 @@ var a=document.getElementById("train_from").selectedIndex;
 var b=document.getElementById("train_to").selectedIndex
 redirect(x,1);
 redirect(y,0);
+document.getElementById("major1_train").selectedIndex=y;
+document.getElementById("major2_train").selectedIndex=x;
 document.getElementById("train_from").selectedIndex=b;
 document.getElementById("train_to").selectedIndex=a;
 }
