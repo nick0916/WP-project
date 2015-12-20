@@ -78,7 +78,7 @@ function bus_station(a,b){
 						bus_data = JSON.parse(httpRequest.responseText);
 						var title="<table id=\"t4\"><tr><th></th><th>direction</th><th>Station</th><th>Spend</th><th>Cost</th></tr>";
 						var tail="</table>";
-						var test;
+						var test="";
 						for(var k=0;k<station_name.length;k++){
 						for(var j=0;j<bus_data.length;j++){
 						var l=k+1;
@@ -124,9 +124,10 @@ function bus_station(a,b){
 						
 						test = title + test + tail;
 	
-						$("#showBus").html(test);
+						$("#S4").html(test);
+						loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,4);\"><span>公車</span></a>",4);
 						jQuery("html,body").animate({
-						scrollTop:$("#showBus").offset().top
+						scrollTop:$("#tabsC").offset().top
 						},800);
 						break;
 					}
@@ -145,7 +146,7 @@ function t_busCheck(buffer){
      var cloneNode = buffer.parentNode.parentNode.cloneNode(true); // 複製一個新的node
      if(buffer.checked == true){
           if(Choose_tbus.children.length == 0){ 
-               Choose_tbus.innerHTML = "<table id=\"t8\"><tr><th>公車</th>Direction<th></th><th>Station</th><th>Spend</th><th>Cost</th></tr>";
+               Choose_tbus.innerHTML = "<table id=\"t8\"><tr><th>公車</th><th>Direction</th><th>Station</th><th>Spend</th><th>Cost</th></tr>";
                t8.children[0].appendChild(cloneNode);               
 
           } // 建立首欄＆新增喜好時刻

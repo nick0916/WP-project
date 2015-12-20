@@ -95,9 +95,10 @@ function get_info(url,index){
                               test3 = test3 + "<tr><td><input type= checkbox value= Travel " + "id = train_" + n + " name=interest onclick=trainCheck(this) ></td><td>" + show_data[n].Arrival_t +" -> "+show_data[n].departure_t + "</td><td>" + show_data[n].Type + show_data[n].ID + "</td><td>" + show_data[n].during_t +"</td><td>" + show_data[n].cost +"</td></tr>";
                               }
                               test3 = title + test3 + tail;
-                              if(show_data!="")
-                              {
-                                   setTimeout(function(){$("#showTrain").html(test3);},1000);
+                              
+							  if(show_data!="")
+							  {	
+                              setTimeout(function(){$("#S1").html(test3);},1000);
                               }
                               
                               // console.log(show_data);
@@ -157,7 +158,7 @@ function find_train_time(f_id, t_id, traindate, trainInfo, type_choose, time_cho
                     else if (time_choose == 1 && cal_time(train.departure_t) > time){
                          continue;
                     }    // 篩選條件『出發、抵達』時間
-
+					
                     if(trainInfo[i].TrainClassification==0||trainInfo[i].TrainClassification==1||trainInfo[i].TrainClassification==2)
                               {
                                    train.cost = cost_3;
@@ -171,7 +172,8 @@ function find_train_time(f_id, t_id, traindate, trainInfo, type_choose, time_cho
                                    train.cost = cost_1;
                               }  // 計算票價
 
-
+					//console.log(train.cost);
+					
                     show_data.push(train);
                     
                     break;
@@ -223,10 +225,10 @@ function search(a,b,c,d,e){
           //『對號』的值等於 1;
           //『非對號』的值等於 2;
           
-     get_cost(from,to);
+     
            //console.log(c.date);
      date =document.getElementById("date").value;
-           
+     get_cost(from,to);      
            //console.log(d);
      //set_date(c.date.getFullYear(), c.date.getMonth() + 1, c.date.getDate());
           // 取得固定格式的時間 -> 以利放入api的網址中
@@ -234,8 +236,9 @@ function search(a,b,c,d,e){
      to_id = changeID(to);         // 轉換中文成ID
      
      get_info(train_date_api, 1);  // 取得api中的資料（這裡會連鎖開始跑程式去篩選）
+	 loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,1);\"><span>台鐵</span></a>",1);
            jQuery("html,body").animate({
-                                             scrollTop:$("#showTrain").offset().top
+                                             scrollTop:$("#tabsC").offset().top
                                              },800);
 } // 按鈕按下後所跑的程式
 

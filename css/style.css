@@ -103,3 +103,10 @@ table#t tr:nth-child(odd) {
 margin-top: 70px;
 
 }
+
+#tabsF li
+	{
+	display:inline;
+	margin:0;
+	padding-left:8%;
+	}

@@ -484,7 +484,22 @@
 			</section>
 			<div class="step" id="step-three">
 				<h2>3.請勾選想要的行程：<span><br></span>
-
+				<div id="tabsF" >
+				<ul id = "select_tp">
+					<li id="current"><a href="javascript://" onclick="loadTab(this,1);"><img src="img/t1.png" width="100" height="100"></a></li>
+					<li><a href="javascript://" onclick="loadTab(this,2);"><img src="img/t2.png" width="100" height="100"></a></li>
+					<li><a href="javascript://" onclick="loadTab(this,3);"><img src="img/t3.png" width="100" height="100"></a></li>
+					<li><a href="javascript://" onclick="loadTab(this,4);"><img src="img/t4.png" width="100" height="100"></a></li>
+					
+				</ul>
+				</div>
+				<div id="tabsC" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;">
+					<div id="S1" class="grid clearfix" style="display:inline;margin:1% 18% 1% -5%; opacity:0.95;"></div>
+					<div id="S2" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;"></div>
+					<div id="S3" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;"></div>
+					<div id="S4"  class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;"></div>
+					
+				</div>
 				<div id="showTrain" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>
 				<div id="showThsr" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>				
 				<div id="showCoach" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>
@@ -1114,6 +1129,78 @@ document.getElementById("train_to").selectedIndex=a;
 				//bus_time();
 			
 			}
+			
+			function loadTab(obj,n){
+
+				var layer;
+				eval('layer=\'S'+n+'\'');
+
+				//將 Tab 標籤樣式設成 Blur 型態
+				var tabsF=document.getElementById('tabsF').getElementsByTagName('li');
+				for (var i=0;i<tabsF.length;i++){
+				tabsF[i].setAttribute('id',null);
+				eval('document.getElementById(\'S'+(i+1)+'\').style.display=\'none\'')
+				}
+
+				//變更分頁標題樣式
+				//obj.parentNode.setAttribute('id','current');
+				document.getElementById(layer).style.display='inline';
+
+			}
+
+
+
+			// 當圖片載入後才執行
+			$(window).load(function(){
+				// 先取得先關區塊及圖片的寬高
+				// 並設定每張圖片的邊距、縮放倍數及動畫速度
+				var $block = $('#select_tp'), 
+				$li = $block.find('li'), 
+				$img = $li.find('img'),
+				_width = $img.width(), 
+				_height = $img.height(), 
+				_margin = 10, 
+				_ratio = 1.3, 
+				_speed = 300;
+ 
+			// 把每一個 li 橫向排列好
+				$li.each(function(i) {
+				var $this = $(this), 
+				_left = i * (_width + _margin);
+ 
+			// 先把排列後的位置記錄在 .data('position') 中
+				$this.css('left', _left).data('position', {
+				left: _left,
+				top: parseInt($this.css('top'), 10) || 0
+				});
+				}).hover(function(){	// 當滑鼠移入 $li 時
+				var $this = $(this), 
+				positionData = $this.data('position');
+ 
+			// 改變 z-index 以免被遮到, 並移動 left 及 top
+			// 同時找到 img 縮放寬高為原來的 _ratio 倍
+				$this.css('z-index', 1).stop().animate({
+				left: positionData.left - (_width * _ratio - _width) / 2,
+				top: positionData.top - (_height * _ratio - _height) / 2
+				}, _speed).find('img').stop().animate({
+				width: _width * _ratio, 
+				height: _height * _ratio
+				}, _speed);
+				}, function(){	// 當滑鼠移出 $li 時
+				var $this = $(this), 
+				positionData = $this.data('position');
+ 
+			// 還原 z-index 並移回原來的 left 及 top
+			// 同時找到 img 還原寬高
+				$this.css('z-index', 0).stop().animate({
+				left: positionData.left,
+				top: positionData.top
+				}, _speed).find('img').stop().animate({
+				width: _width, 
+				height: _height
+				}, _speed);
+				});
+			});
 		</script>
 
 }

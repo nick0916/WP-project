@@ -95,9 +95,10 @@ function selectitem(a1,b1,c1,d1,e1){
                          }
                     }
                     test2 = title + test2 + tail;
-                    $("#showThsr").html(test2);
+                    $("#S2").html(test2);
+					loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,2);\"><span>高鐵</span></a>",3);
                     jQuery("html,body").animate({
-                      scrollTop:$("#showThsr").offset().top
+                      scrollTop:$("#tabsC").offset().top
                     },800);
                     //console.log(test2);
                     //test2 = '<p>' + '-為不停靠或不發車' + '<br>' + test2 + '</p>';
@@ -179,9 +180,10 @@ function selectitem(a1,b1,c1,d1,e1){
                // console.log(test);
                test = title + test + tail;
                
-               $("#showThsr").html(test);
+               $("#S2").html(test);
+			   loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,2);\"><span>高鐵</span></a>",2);
                jQuery("html,body").animate({
-                      scrollTop:$("#showThsr").offset().top
+                      scrollTop:$("#tabsC").offset().top
                },800);
                //alert(test);
                //$("#table").html('<p>-為不停靠或不發車</p>');

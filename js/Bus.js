@@ -1,5 +1,6 @@
 Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
 function bus_time(a,b,c){
+	
      var rid = a;
      var b_t = b;
      var bus_info;
@@ -43,10 +44,13 @@ function bus_time(a,b,c){
                }
                test = title + test + tail;
                
-               $("#showCoach").html(test);
+               $("#S3").html(test);
+			   
+			   loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,3);\"><span>客運</span></a>",3);
                jQuery("html,body").animate({
-                      scrollTop:$("#showCoach").offset().top
+                      scrollTop:$("#tabsC").offset().top
                },800);
+			   
           },
           error: function(error) {
                alert("Error: " + error.code + " " + error.message);
@@ -215,3 +219,4 @@ function busCheck(buffer){
           } 
      }
 } // 選取喜好的客運時段
+
