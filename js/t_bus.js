@@ -145,7 +145,7 @@ function t_busCheck(buffer){
      var cloneNode = buffer.parentNode.parentNode.cloneNode(true); // 複製一個新的node
      if(buffer.checked == true){
           if(Choose_tbus.children.length == 0){ 
-               Choose_tbus.innerHTML = "<table id=\"t8\"><tr><th>公車</th><th>Station</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
+               Choose_tbus.innerHTML = "<table id=\"t8\"><tr><th>公車</th>Direction<th></th><th>Station</th><th>Spend</th><th>Cost</th></tr>";
                t8.children[0].appendChild(cloneNode);               
 
           } // 建立首欄＆新增喜好時刻
