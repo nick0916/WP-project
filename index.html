@@ -201,10 +201,13 @@
 								<option value="..">四腳亭</option>
 								<option value="..">暖暖</option>
 								<option value="..">基隆</option>
+								<option value="..">三坑</option>
 								<option value="..">八堵</option>
 								<option value="..">七堵</option>
+								<option value="..">百福</option>
 								<option value="..">五堵</option>
 								<option value="..">汐止</option>
+								<option value="..">汐科</option>
 								<option value="..">南港</option>
 								<option value="..">松山</option>
 								<option value=".." selected>台北</option>
@@ -215,7 +218,7 @@
 								<option value="..">山佳</option>
 								<option value="..">鶯歌</option>
 							</select>
-							<input type ="button" id="exchange" onclick="change(); change2();" value="交換"></input>
+							<input type ="button" id="exchange" onclick="change(); " value="交換"></input>
 							<br>To<br>
 							<select name="major2" size="1" onChange="redirect(this.options.selectedIndex,1)" id="major2_train">								<option>台北</option>
 								<option>桃園</option>
@@ -248,10 +251,13 @@
 								<option value="..">四腳亭</option>
 								<option value="..">暖暖</option>
 								<option value="..">基隆</option>
+								<option value="..">三坑</option>
 								<option value="..">八堵</option>
 								<option value="..">七堵</option>
+								<option value="..">百福</option>
 								<option value="..">五堵</option>
 								<option value="..">汐止</option>
+								<option value="..">汐科</option>
 								<option value="..">南港</option>
 								<option value="..">松山</option>
 								<option value=".." selected>台北</option>
@@ -303,7 +309,7 @@
 								<option value="2">非對號</option>
 								
 							</select>
-							<input type ="button" id="exchange" onclick="change();" value="交換"></input>
+							
 							<br><br>
 							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val());return false">Submit</button>
 						</form>
@@ -511,7 +517,7 @@
 				<div id="Choose_Train" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>
 				<div id="Choose_Thsr" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>				
 				<div id="Choose_Bus" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>
-				<div id="Choose_Mtr" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>
+				<div id="Choose_tbus" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>
 				</h2>
 			</div>
 		</div>
@@ -717,9 +723,14 @@ var a=document.getElementById("train_from").selectedIndex;
 var b=document.getElementById("train_to").selectedIndex
 redirect(x,1);
 redirect(y,0);
+console.log(x);
+console.log(y);
+console.log(a);
+console.log(b);
 document.getElementById("major1_train").selectedIndex=y;
-document.getElementById("major2_train").selectedIndex=x;
 document.getElementById("train_from").selectedIndex=b;
+document.getElementById("major2_train").selectedIndex=x;
+
 document.getElementById("train_to").selectedIndex=a;
 }
 
@@ -764,7 +775,7 @@ document.getElementById("train_to").selectedIndex=a;
 			group[1][2]=new Option("中壢","..")
 			group[1][3]=new Option("埔心","..")
 			group[1][4]=new Option("楊梅","..")
-			group[1][6]=new Option("富岡","..")
+			group[1][5]=new Option("富岡","..")
 			group[2][0]=new Option("湖口","..")
 			group[2][1]=new Option("新豐","..")
 			group[2][2]=new Option("竹北","..")
