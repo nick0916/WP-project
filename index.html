@@ -314,7 +314,7 @@
 								
 							</select>
 							
-							<br><br>
+							
 							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val());return false">Submit</button>
 						</form>
 						</figcaption>
@@ -453,8 +453,9 @@
 						<figcaption>
 						<h2>公車</h2>
 						<p>Bus</p>
-						<br>To<br>
+						
 						<form name="bus_r">
+						<br>To<br>
 							<select name="major" size="1" onChange="redirect2(this.options.selectedIndex,1)">
 								<option>市區公車</option>
 								<option>觀光公車</option>
