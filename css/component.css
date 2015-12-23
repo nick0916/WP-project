@@ -104,6 +104,9 @@
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
+.grid figcaption form{
+	opacity: 0;
+}
 
 /* Style for SVG */
 .grid svg {
