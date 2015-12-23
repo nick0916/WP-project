@@ -218,7 +218,7 @@
 								<option value="..">山佳</option>
 								<option value="..">鶯歌</option>
 							</select>
-								<input type ="button" id="exchange" onclick="change();" value="交換"></input>
+							
 							<br>To<br>
 							<select name="major2" size="1" onChange="redirect(this.options.selectedIndex,1)" id="major2_train">								<option>台北</option>
 								<option>桃園</option>
@@ -268,6 +268,8 @@
 								<option value="..">山佳</option>
 								<option value="..">鶯歌</option>
 							</select>
+							<br>
+							<input type="image" src="img/exchange1.png" id="exchange" onclick="change();return false; "  ></input>
 							<br>At<br>
 							<select name="type" size="1" id = "train_time">
 								<option>00:00</option>
@@ -309,9 +311,7 @@
 								<option value="2">非對號</option>
 								
 							</select>
-
-						
-
+							
 							<br><br>
 							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val());return false">Submit</button>
 						</form>
@@ -348,6 +348,8 @@
 									<option value="7">台南</option>
 									<option value="8">左營</option>
 								</select>
+								<br>
+								<input type="image" src="img/exchange1.png" id="exchange" onclick="change2();return false; "  ></input>
 								<br>At<br>
 								<select name="time" size="1" id = "thsr_time">
 									<option value="0">00:00</option>
@@ -717,22 +719,29 @@
 			}		
 		</script>
 		<script>
-function change()
-{
-var x=document.getElementById("major1_train").selectedIndex;
-var y=document.getElementById("major2_train").selectedIndex;
-var a=document.getElementById("train_from").selectedIndex;
-var b=document.getElementById("train_to").selectedIndex
-redirect(x,1);
-redirect(y,0);
+		//火車上下車交換
+		function change()
+		{
+		var x=document.getElementById("major1_train").selectedIndex;
+		var y=document.getElementById("major2_train").selectedIndex;
+		var a=document.getElementById("train_from").selectedIndex;
+		var b=document.getElementById("train_to").selectedIndex
+		redirect(x,1);
+		redirect(y,0);
+		
+		document.getElementById("major1_train").selectedIndex=y;
+		document.getElementById("train_from").selectedIndex=b;
+		document.getElementById("major2_train").selectedIndex=x;
 
-document.getElementById("major1_train").selectedIndex=y;
-document.getElementById("major2_train").selectedIndex=x;
-document.getElementById("train_from").selectedIndex=b;
-document.getElementById("train_to").selectedIndex=a;
-}
-
-
+		document.getElementById("train_to").selectedIndex=a;
+		}
+		//高鐵上下車交換
+		function change2()
+		{
+		var temp =  document.getElementById("thsr_from").selectedIndex;
+		document.getElementById("thsr_from").selectedIndex = document.getElementById("thsr_to").selectedIndex;
+		document.getElementById("thsr_to").selectedIndex = temp;
+		}
 
 
 		</script>
@@ -1154,7 +1163,9 @@ document.getElementById("train_to").selectedIndex=a;
 				//變更分頁標題樣式
 				//obj.parentNode.setAttribute('id','current');
 				document.getElementById(layer).style.display='inline';
-
+				
+				
+			
 			}
 
 
