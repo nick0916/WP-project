@@ -31,10 +31,10 @@ document.getElementById("date").value = date;
 
 
 
-var station_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/Station?%24format=json";
+var station_api = "http://210.59.250.227:80/MOTC/v1/Rail/TRA/Station?%24format=json";
 get_info(station_api, 0);
-var train_info_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/TrainInfo/" + date + "?%24format=json";
-var train_date_api = "http://210.59.250.227:80/MOTC/v2/Rail/TRA/StopTimes/" + date + "?%24format=json";
+var train_info_api = "http://210.59.250.227:80/MOTC/v1/Rail/TRA/TrainInfo/" + date + "?%24format=json";
+var train_date_api = "http://210.59.250.227:80/MOTC/v1/Rail/TRA/DailyTimetable/" + date + "?%24format=json";
                   
 var cost_1;
 var cost_2;
