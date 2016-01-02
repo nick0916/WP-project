@@ -497,7 +497,12 @@
 		
 		var order="http://railway.hinet.net/ctno1.htm?from_station=";
 		var x1=document.getElementById("train_from").value;
-		alert(x1);		
+		var x2=document.getElementById("train_to").value;
+		order=order+x1;
+		order=order+"&to_station=";
+		order=order+x2;
+		order=order+"&getin_date=";
+		alert(order);		
 		</script>
 
 
