@@ -126,9 +126,12 @@ function bus_station(a,b){
 	
 						$("#S4").html(test);
 						loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,4);\"><span>公車</span></a>",4);
-						jQuery("html,body").animate({
+						
+						$('#tabsC').modal();
+						/*jQuery("html,body").animate({
 						scrollTop:$("#tabsC").offset().top
-						},800);
+						},800);*/
+						
 						break;
 					}
 					}

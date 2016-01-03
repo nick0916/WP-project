@@ -1,5 +1,4 @@
-Parse.initialize("eXa6XCYsez7lkZpf2ytbtRinq0STc1w9NvJkkf4p", "H4gpX9rYLfaYccdgjxP6OH48bPfK2jHeM8e1dr8Z");
-function selectitem(a1,b1,c1,d1,e1){
+function selectitem(a1,b1,c1,d1,e1,f1){
      /*var check1=$('#boardstation').val();
      check1 = check1.substr(1,1);
      check1 = parseInt(check1);
@@ -90,16 +89,22 @@ function selectitem(a1,b1,c1,d1,e1){
                          temp2 = temp2.substr(0,2);
                          temp2 = parseInt(temp2);
                          if(temp2>=j&&check_d2!="-"){
-                              test2 = test2 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\" onclick= \"thsrCheck(this)\" id =THSR_" + i + " ></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +  "</td></tr>";
+                              test2 = test2 + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +  "</td></tr>";
                               //test2 =  test2 + '     ' + object.get('train') + '        ' +object.get(b)+ '      ' +object.get(d)+ '      ' +'<br>';
                          }
                     }
                     test2 = title + test2 + tail;
-                    $("#S2").html(test2);
-					loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,2);\"><span>高鐵</span></a>",3);
-                    jQuery("html,body").animate({
-                      scrollTop:$("#tabsC").offset().top
-                    },800);
+                    
+					$("#S2").html(test2);
+					if(f1==0)
+					{
+					loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,2,0);\"><span>客運</span></a>",2,0);
+					
+					$('#tabsC').modal();
+					}
+                    /*jQuery("html,body").animate({
+                      scrollTop:$("#showThsr").offset().top
+                    },800);*/
                     //console.log(test2);
                     //test2 = '<p>' + '-為不停靠或不發車' + '<br>' + test2 + '</p>';
                     //alert(test);
@@ -172,19 +177,25 @@ function selectitem(a1,b1,c1,d1,e1){
                     temp = temp.substr(0,2);
                     temp = parseInt(temp);
                     if(temp>=k&&check_d!="-"){
-                         test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\" onclick= \"thsrCheck(this)\" id =THSR_" + i + " ></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +    "</td></tr>";
+                         test = test + "<tr><td><input type=\"checkbox\" value=\"Travel\" name=\"Interest\"></td><td>" + object.get(b) +" -> "+object.get(d) + "</td><td>" + object.get('train') + "</td><td>" + take +"</td><td>" + money +    "</td></tr>";
                          //test =  test + '  ' + object.get('train') + '        ' +object.get(b)+ '      ' +object.get(d)+ '      ' +'<br>';
                     }
                }
              
                // console.log(test);
                test = title + test + tail;
-               
                $("#S2").html(test);
-			   loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,2);\"><span>高鐵</span></a>",2);
-               jQuery("html,body").animate({
-                      scrollTop:$("#tabsC").offset().top
-               },800);
+			   
+               if(f1==0)
+			   {
+			   loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,2,0);\"><span>高鐵</span></a>",2,0);
+			   $('#tabsC').modal();
+			   
+			   }
+			   
+              /* jQuery("html,body").animate({
+                      scrollTop:$("#showThsr").offset().top
+               },800);*/
                //alert(test);
                //$("#table").html('<p>-為不停靠或不發車</p>');
                //$("#table").html(test);
@@ -206,31 +217,3 @@ function cal_during(a,b){
      var minute = during - hour*60;
      return (hour + "小時" + minute + "分");
 } 
-
-function thsrCheck(buffer){
-     var cloneNode = buffer.parentNode.parentNode.cloneNode(true);
-     if(buffer.checked == true){
-          if(Choose_Thsr.children.length == 0){
-               Choose_Thsr.innerHTML = "<table id=\"t6\"><tr><th>高鐵</th><th>" + t2.childNodes[0].childNodes[0].childNodes[1].textContent +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
-               t6.children[0].appendChild(cloneNode);               
-
-          }
-          else{
-               t6.children[0].appendChild(cloneNode);               
-          }
-     }
-     else{
-          for (var i = 1; i < t6.childNodes[0].children.length; i++){
-               var node = t6.childNodes[0].childNodes[i];
-               var id = node.childNodes[0].childNodes[0].id;
-               if (id == buffer.id){
-                    document.getElementById(id).checked = false;
-                    t6.childNodes[0].removeChild(t6.childNodes[0].childNodes[i]);
-               }
-               if(t6.childNodes[0].children.length == 1){
-                    Choose_Thsr.removeChild(Choose_Thsr.firstChild);
-                    break;
-               }
-          } 
-     }
-} // 選取喜好的高鐵時段

@@ -203,7 +203,7 @@ function cal_during_t(train){
 } // 計算車程所耗費的時間
 
 
-function search(a,b,c,d,e){
+function search(a,b,c,d,e,f){
           
      from = a;
      to = b;
@@ -236,10 +236,16 @@ function search(a,b,c,d,e){
      to_id = changeID(to);         // 轉換中文成ID
      
      get_info(train_date_api, 1);  // 取得api中的資料（這裡會連鎖開始跑程式去篩選）
-	 loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,1);\"><span>台鐵</span></a>",1);
-           jQuery("html,body").animate({
+	 
+	 if(f==0)
+	 {
+	 loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,1,0);\"><span>台鐵</span></a>",1,0);
+	 $('#tabsC').modal();
+	 }
+	 
+          /* jQuery("html,body").animate({
                                              scrollTop:$("#tabsC").offset().top
-                                             },800);
+                                             },800);*/
 } // 按鈕按下後所跑的程式
 
 function get_cost(from,to){

@@ -12,19 +12,26 @@
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="css/animate.css">
+		
 		<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+		
 
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/calendar.js" type="text/javascript"></script>
 		<script src="js/snap.svg-min.js"></script>
 		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
-
+		<script src="js/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/shake.js" type="text/javascript" charset="utf-8" async defer></script>
 		<!-- 各種交通工具.js -->
 		<script src="js/train.js" type="text/javascript" charset="utf-8" async defer></script>
 		<script src="js/THSR.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="js/Bus.js" type="text/javascript" charset="utf-8" async defer></script>   	 <script src="js/t_bus.js" type="text/javascript" charset="utf-8" async defer></script>		
-
+		<script src="js/Bus.js" type="text/javascript" charset="utf-8" async defer></script>   	
+		<script src="js/t_bus.js" type="text/javascript" charset="utf-8" async defer></script>		
+		
 
 		<script type="text/javascript">
 			var c = new Calendar("c");
@@ -54,12 +61,16 @@
 			<header class="codrops-header">
 <!-- 				<h1>Transportation.<span>Let's Chain up. </span></h1>
  -->			</header>
+			
 			<div class="step">
 
 				<h2>1.請選擇出發日期: <input type="text" id = "date" name="txt2" onfocus="c.showMoreDay = false;c.show(this);"/></h2>	
-
+				<label><input type="checkbox" id="ios" class="ios-switch"  onclick="divide(this)" /></label>
 			</div>
-			<div class="step">
+			<div id="inner">
+			
+			<div id="divide1" class="step" style="display:block;">
+			
 			<h2>快速搜尋</h2>
 			<br>From
 								<select name="from"size="1" id = "all_from">
@@ -113,10 +124,11 @@
 								<input type="button" value="start" onclick="metasearch()">
 			</div>
 			
-			<div class="step">
-				<h2>2.請選擇交通工具：<span></span></h2>
-			</div>
+			<div class="step" id="divide2" style="display:none;">
+				<h2>請選擇交通工具：<span></span></h2>
+			
 			<section id="grid" class="grid clearfix">
+			
 				<a id="train" class="visible" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="img/train.png" />
@@ -125,8 +137,9 @@
 
 						<h2>火車</h2>
 						<p>Train</p>
+						
 						<form name="train">
-							<br>From<br>
+						<br>From<br>
 							<select name="major" size="1" onChange="redirect(this.options.selectedIndex,0)" id="major1_train">
 								<option>台北</option>
 								<option>桃園</option>
@@ -271,7 +284,7 @@
 							</select>
 							
 							
-							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val());return false">Submit</button>
+							<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val(),0);return false">Submit</button>
 						</form>
 						</figcaption>
 
@@ -338,7 +351,7 @@
 									<option value="23">23:00</option>
 								</select>
 															
-								<button onclick="selectitem($('#thsr_from').val(),$('#thsr_to').val(),$('#thsr_time').val(),$('#thsr_from :selected').text(),$('#thsr_to :selected').text());return false">Submit</button>             
+								<button onclick="selectitem($('#thsr_from').val(),$('#thsr_to').val(),$('#thsr_time').val(),$('#thsr_from :selected').text(),$('#thsr_to :selected').text(),0);return false">Submit</button>             
 							</form>
 
 						</figcaption>
@@ -457,22 +470,24 @@
 					</figure>
 				</a>
 			</section>
+			</div>
+			</div>
 			<div class="step" id="step-three">
-				<h2>3.請勾選想要的行程：<span><br></span>
+				<h2>行程：<span><br></span>
 				<div id="tabsF" >
 				<ul id = "select_tp">
-					<li id="current"><a href="javascript://" onclick="loadTab(this,1);"><img src="img/t1.png" width="100" height="100"></a></li>
-					<li><a href="javascript://" onclick="loadTab(this,2);"><img src="img/t2.png" width="100" height="100"></a></li>
-					<li><a href="javascript://" onclick="loadTab(this,3);"><img src="img/t3.png" width="100" height="100"></a></li>
-					<li><a href="javascript://" onclick="loadTab(this,4);"><img src="img/t4.png" width="100" height="100"></a></li>
+					<li id="current" class="img1"><a href="javascript://" onclick="loadTab(this,1,1);"><img id="img1" src="img/t1.png" width="100" height="100"></a></li>
+					<li class="img2"><a href="javascript://" onclick="loadTab(this,2,1);"><img id="img2" src="img/t2.png" width="100" height="100"></a></li>
+					<li class="img3"><a href="javascript://" onclick="loadTab(this,3,1);"><img id="img3" src="img/t3.png" width="100" height="100"></a></li>
+					<li class="img4"><a href="javascript://" onclick="loadTab(this,4,1);"><img id="img4" src="img/t4.png" width="100" height="100"></a></li>
 					
 				</ul>
 				</div>
-				<div id="tabsC" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;">
-					<div id="S1" class="grid clearfix" style="display:inline;margin:1% 18% 1% -5%; opacity:0.95;"></div>
-					<div id="S2" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;"></div>
-					<div id="S3" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;"></div>
-					<div id="S4"  class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;"></div>
+				<div id="tabsC" class="grid clearfix" style="  opacity:0.95;">
+					<div id="S1" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
+					<div id="S2" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
+					<div id="S3" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
+					<div id="S4"  class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
 					
 				</div>
 				<div id="showTrain" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>
@@ -481,18 +496,14 @@
 				<div id="showBus" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>				
 				</h2>
 			</div>
-			<div class="step" id="step-four">
-				<h2>4.Let's Chain up：<span><br></span>
-				<div id="Choose_Train" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>
-				<div id="Choose_Thsr" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>				
-				<div id="Choose_Bus" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>
-				<div id="Choose_tbus" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>
-				</h2>
-			</div>
-		</div>
+			
+			
+		
 		<!-- /container -->
+		 
 
-
+		
+		
 		<script>
 		
 		var order="http://railway.hinet.net/ctno1.htm?from_station=";
@@ -505,9 +516,7 @@
 		var x3=document.getElementById("date").value
 		document.write(x3);
 		</script>
-
-
-
+		
 		<script>
 			(function() {
 		
@@ -1077,13 +1086,17 @@
 			
 		<script type="text/javascript">
 			function metasearch(){
-				search($('#all_from :selected').text(),$('#all_to :selected').text(),0,$('#all_time :selected').text(),0);
-				selectitem($('#all_from').val(),$('#all_to').val(),$('#all_time').val(),$('#all_from :selected').text(),$('#all_to :selected').text());
-				//bus_time();
-			
+				search($('#all_from :selected').text(),$('#all_to :selected').text(),0,$('#all_time :selected').text(),0,1);
+				selectitem($('#all_from').val(),$('#all_to').val(),$('#all_time').val(),$('#all_from :selected').text(),$('#all_to :selected').text(),1);
+				
+				jQuery("html,body").animate({
+                      scrollTop:$("#tabsF").offset().top
+				},800);
+				setTimeout(function(){$('#img1').wiggle('start');},800);
+				setTimeout(function(){$('#img2').wiggle('start');},800);
 			}
 			
-			function loadTab(obj,n){
+			function loadTab(obj,n,k){
 
 				var layer;
 				eval('layer=\'S'+n+'\'');
@@ -1098,9 +1111,18 @@
 				//變更分頁標題樣式
 				//obj.parentNode.setAttribute('id','current');
 				document.getElementById(layer).style.display='inline';
-				
-				
-			
+				if(k==1)
+				{
+				$('#tabsC').modal();
+				}
+				if ($('#img1').wiggle('isWiggling')&&n==1)
+				{
+					$('#img1').wiggle('stop');
+				}
+				if ($('#img2').wiggle('isWiggling')&&n==2)
+				{
+					$('#img2').wiggle('stop');
+				}
 			}
 
 
@@ -1156,8 +1178,47 @@
 				}, _speed);
 				});
 			});
+			
+			
+			//分頁
+			
+			
+			var switches = document.querySelectorAll('input[type="checkbox"].ios-switch');
+
+			for (var i=0, sw; sw = switches[i++]; ) {
+			var div = document.createElement('div');
+			div.className = 'switch';
+			sw.parentNode.insertBefore(div, sw.nextSibling);
+			
+			}
+			//滑動效果
+			function divide(check)
+			{
+			if(check.checked == true)
+			{
+			
+			$('#divide1').addClass('animated fadeOutLeft');
+			$('#divide2').removeClass('animated fadeOutLeft').addClass('animated fadeInRight');
+			document.getElementById("divide2").style.display='block';
+			$('#divide1').css({position: 'absolute'});
+			$('#divide2').css({ position: 'absolute'});
+    
+			
+			
+			}
+			else
+			{
+			
+			$('#divide2').addClass('animated fadeOutLeft');
+			$('#divide1').removeClass('animated fadeOutLeft').addClass('animated fadeInRight');
+			
+			document.getElementById("divide1").style.display='block';
+			
+			}
+			}
+			
 		</script>
 
-}
+
 	</body>
 </html>

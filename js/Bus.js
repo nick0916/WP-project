@@ -47,9 +47,11 @@ function bus_time(a,b,c){
                $("#S3").html(test);
 			   
 			   loadTab("<a href=\"javascript://\" onclick=\"loadTab(this,3);\"><span>客運</span></a>",3);
-               jQuery("html,body").animate({
+			   $('#tabsC').modal();
+               /*jQuery("html,body").animate({
                       scrollTop:$("#tabsC").offset().top
-               },800);
+               },800);*/
+			   
 			   
           },
           error: function(error) {
