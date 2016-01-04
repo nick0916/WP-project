@@ -52,22 +52,41 @@
 			      		$('#gotop').stop().fadeOut("fast");
 			      	}
 			     });
+
 			});
+			
 		</script>
 	</head>
 	<body>
+	
+	
+		
+	
 	<div id="gotop"><img src="http://1.bp.blogspot.com/-zMfrIkyhlVs/Uh7FePoKU8I/AAAAAAAAHnA/WA0H_vbWAWc/s1600/go-top.png"></div>
-		<div class="container">
-			<header class="codrops-header">
+				<div id="main">
+				<video autoplay poster="css/bg.png" id="bgvid" muted loop>
+				
+				<source src="v1.mp4" type="video/mp4">
+				</video>
+				<header class="codrops-header">
 <!-- 				<h1>Transportation.<span>Let's Chain up. </span></h1>
  -->			</header>
-			
-			<div class="step">
-
+				<br>
+				<input type="image" src="img/get-started.png" id="started"  onclick="go_started()" ></input>
+				
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+		<div class="container">
+			<div id="inner">
+			<div class="step" >
+				
 				<h2>1.請選擇出發日期: <input type="text" id = "date" name="txt2" onfocus="c.showMoreDay = false;c.show(this);"/></h2>	
 				<label><input type="checkbox" id="ios" class="ios-switch"  onclick="divide(this)" /></label>
 			</div>
-			<div id="inner">
+			
 			
 			<div id="divide1" class="step" style="display:block;">
 			
@@ -498,7 +517,7 @@
 			</div>
 			
 			
-		
+		</div>
 		<!-- /container -->
 		 
 
@@ -1215,6 +1234,14 @@
 			document.getElementById("divide1").style.display='block';
 			
 			}
+			}
+			
+			
+			function go_started()
+			{
+				jQuery("html,body").animate({
+                      scrollTop:$("#inner").offset().top
+				},800);
 			}
 			
 		</script>
