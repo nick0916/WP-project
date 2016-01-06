@@ -47,7 +47,8 @@ function set_date(y, m, d){
      month = m;
      day = d;
      date = (y + "-" + m + "-" + d);
-     data2= (y + "/" + m + "/" + d);
+     date2= (y + "/" + m + "/" + d);
+     
            document.getElementById("date").value = date;
 
      
@@ -345,7 +346,7 @@ buy=buy+station_num;
 buy=buy+"&to_station=";
 change_num(x2);
 buy=buy+station_num;
-buy=buy+"&getin_date="+data2+"&train_no="+x3;
+buy=buy+"&getin_date="+date2+"&train_no="+x3;
 }
 
 
@@ -385,6 +386,285 @@ else if(station_name=="板橋")
 station_num="102";
 else if(station_name=="樹林")
 station_num="103";
+else if(station_name=="山佳")
+station_num="104";
+else if(station_name=="鶯歌")
+station_num="105";
+else if(station_name=="桃園")
+station_num="106";
+else if(station_name=="內壢")
+station_num="107";
+else if(station_name=="中壢")
+station_num="108";
+else if(station_name=="埔心")
+station_num="109";
+else if(station_name=="楊梅")
+station_num="110";
+else if(station_name=="富岡")
+station_num="111";
+else if(station_name=="湖口")
+station_num="112";
+else if(station_name=="新豐")
+station_num="113";
+else if(station_name=="竹北")
+station_num="114";
+else if(station_name=="新竹")
+station_num="115";
+else if(station_name=="竹南")
+station_num="118";
+else if(station_name=="談文")
+station_num="119";
+else if(station_name=="大山")
+station_num="120";
+else if(station_name=="後龍")
+station_num="121";
+else if(station_name=="白沙屯")
+station_num="123";
+else if(station_name=="新埔")
+station_num="124";
+else if(station_name=="通霄")
+station_num="125";
+else if(station_name=="苑裡")
+station_num="126";
+else if(station_name=="造橋")
+station_num="135";
+else if(station_name=="苗栗")
+station_num="137";
+else if(station_name=="銅鑼")
+station_num="139";
+else if(station_name=="三義")
+station_num="140";
+else if(station_name=="日南")
+station_num="127";
+else if(station_name=="大甲")
+station_num="128";
+else if(station_name=="台中港")
+station_num="129";
+else if(station_name=="清水")
+station_num="130";
+else if(station_name=="沙鹿")
+station_num="131";
+else if(station_name=="龍井")
+station_num="132";
+else if(station_name=="大肚")
+station_num="133";
+else if(station_name=="追分")
+station_num="134";
+else if(station_name=="泰安")
+station_num="142";
+else if(station_name=="后里")
+station_num="143";
+else if(station_name=="豐原")
+station_num="144";
+else if(station_name=="潭子")
+station_num="145";
+else if(station_name=="台中")
+station_num="146";
+else if(station_name=="大慶")
+station_num="223";
+else if(station_name=="烏日")
+station_num="147";
+else if(station_name=="新烏日")
+station_num="280";
+else if(station_name=="成功")
+station_num="148";
+else if(station_name=="彰化")
+station_num="149";
+else if(station_name=="花壇")
+station_num="150";
+else if(station_name=="員林")
+station_num="151";
+else if(station_name=="社頭")
+station_num="153";
+else if(station_name=="田中")
+station_num="154";
+else if(station_name=="二水")
+station_num="155";
+else if(station_name=="林內")
+station_num="156";
+else if(station_name=="斗六")
+station_num="158";
+else if(station_name=="斗南")
+station_num="159";
+else if(station_name=="大林")
+station_num="161";
+else if(station_name=="民雄")
+station_num="162";
+else if(station_name=="嘉義")
+station_num="163";
+else if(station_name=="水上")
+station_num="164";
+else if(station_name=="後壁")
+station_num="166";
+else if(station_name=="新營")
+station_num="167";
+else if(station_name=="林鳳營")
+station_num="169";
+else if(station_name=="隆田")
+station_num="170";
+else if(station_name=="拔林")
+station_num="171";
+else if(station_name=="善化")
+station_num="172";
+else if(station_name=="南科")
+station_num="282";
+else if(station_name=="新市")
+station_num="173";
+else if(station_name=="永康")
+station_num="174";
+else if(station_name=="台南")
+station_num="175";
+else if(station_name=="保安")
+station_num="176";
+else if(station_name=="中洲")
+station_num="177";
+else if(station_name=="大湖")
+station_num="178";
+else if(station_name=="路竹")
+station_num="179";
+else if(station_name=="岡山")
+station_num="180";
+else if(station_name=="橋頭")
+station_num="181";
+else if(station_name=="楠梓")
+station_num="183";
+else if(station_name=="新左營")
+station_num="288";
+else if(station_name=="左營")
+station_num="184";
+else if(station_name=="高雄")
+station_num="185";
+else if(station_name=="鳳山")
+station_num="186";
+else if(station_name=="後庄")
+station_num="187";
+else if(station_name=="九曲堂")
+station_num="188";
+else if(station_name=="屏東")
+station_num="190";
+else if(station_name=="西勢")
+station_num="193";
+else if(station_name=="竹田")
+station_num="194";
+else if(station_name=="潮州")
+station_num="195";
+else if(station_name=="南州")
+station_num="197";
+else if(station_name=="林邊")
+station_num="199";
+else if(station_name=="佳冬")
+station_num="200";
+else if(station_name=="枋寮")
+station_num="203";
+else if(station_name=="加祿")
+station_num="204";																																																																																																																																																																																																																																																																	
+else if(station_name=="大武")
+station_num="211";
+else if(station_name=="瀧溪")		
+station_num="213";
+else if(station_name=="金崙")
+station_num="215";
+else if(station_name=="太麻里")
+station_num="217";
+else if(station_name=="知本")																																																																																																																																																																																																																																																																																
+station_num="219";
+else if(station_name=="康樂")			
+station_num="220";																																																																																																																																																																																																																																																																																				
+else if(station_name=="池上")
+station_num="015";
+else if(station_name=="關山")
+station_num="012";
+else if(station_name=="瑞源")
+station_num="009";
+else if(station_name=="鹿野")
+station_num="008";
+else if(station_name=="台東")
+station_num="004";
+else if(station_name=="和平")
+station_num="057";
+else if(station_name=="和仁")
+station_num="056";
+else if(station_name=="崇德")
+station_num="055";
+else if(station_name=="新城")
+station_num="054";
+else if(station_name=="北埔")
+station_num="052";
+else if(station_name=="花蓮")
+station_num="051";
+else if(station_name=="吉安")
+station_num="045";
+else if(station_name=="志學")
+station_num="043";
+else if(station_name=="壽豐")
+station_num="041";
+else if(station_name=="豐田")
+station_num="040";
+else if(station_name=="南平")
+station_num="037";
+else if(station_name=="鳳林")
+station_num="036";
+else if(station_name=="萬榮")
+station_num"035"=;
+else if(station_name=="光復")
+station_num="034";
+else if(station_name=="富源")
+station_num="031";
+else if(station_name=="瑞穗")
+station_num="029";
+else if(station_name=="玉里")
+station_num="025";
+else if(station_name=="東里")
+station_num="022";
+else if(station_name=="東竹")
+station_num="020";
+else if(station_name=="富里")
+station_num="018";
+else if(station_name=="大里")
+station_num="081";
+else if(station_name=="大溪")
+station_num="080";
+else if(station_name=="龜山")
+station_num="079";
+else if(station_name=="頭城")
+station_num="077";
+else if(station_name=="礁溪")
+station_num="075";
+else if(station_name=="四城")
+station_num="074";
+else if(station_name=="宜蘭")
+station_num="073";
+else if(station_name=="二結")
+station_num="072";
+else if(station_name=="羅東")
+station_num="070";
+else if(station_name=="冬山")
+station_num="069";
+else if(station_name=="蘇澳新")
+station_num="067";
+else if(station_name=="蘇澳")
+station_num="066";
+else if(station_name=="東澳")
+station_num="063";
+else if(station_name=="南澳")
+station_num="062";
+else if(station_name=="十分")
+station_num="232";
+else if(station_name=="平溪")
+station_num="235";
+else if(station_name=="內灣")
+station_num="248";
+else if(station_name=="車埕")
+station_num="256";
 }
+
+
+
+
+
+
+
+
+
 
 
