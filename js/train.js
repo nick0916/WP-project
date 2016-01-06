@@ -369,11 +369,11 @@ m1=0;
 m2=document.getElementById("date").value[5];
 if(date.length==8){
 d1=0;
-d2=document.getElementById("date").value[8];
+d2=document.getElementById("date").value[7];
 }
 else{
-d1=document.getElementById("date").value[8];
-d2=document.getElementById("date").value[9];
+d1=document.getElementById("date").value[7];
+d2=document.getElementById("date").value[8];
 }
 }
 else{
@@ -381,11 +381,11 @@ m1=document.getElementById("date").value[5];
 m2=document.getElementById("date").value[6];
 if(date.length==9){
 d1=0;
-d2=document.getElementById("date").value[9];	
+d2=document.getElementById("date").value[8];	
 }
 else{
-d1=document.getElementById("date").value[9];	
-d2=document.getElementById("date").value[10];	
+d1=document.getElementById("date").value[8];	
+d2=document.getElementById("date").value[9];	
 }
 }
 var mo=m1+m2;
