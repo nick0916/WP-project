@@ -605,7 +605,7 @@ station_num="037";
 else if(station_name=="鳳林")
 station_num="036";
 else if(station_name=="萬榮")
-station_num"035"=;
+station_num="035";
 else if(station_name=="光復")
 station_num="034";
 else if(station_name=="富源")
