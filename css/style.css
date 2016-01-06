@@ -89,7 +89,7 @@ table#t tr:nth-child(odd) {
 
 .codrops-header {
 	position: relative;
-    background-image: url('logo.jpeg');
+    background-image: url('logo.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 150px;
@@ -236,9 +236,12 @@ video {
 }
 
 #started {
-	position: relative;
-    border:none;
-    margin-left:38%;
-    
+     position: relative;
+     border:none;
+     margin-left: 40%;
+     margin-right: 40%;
+     width: 20%;
+     height: 20%;
+
 	top:200px;
 }  
