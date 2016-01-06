@@ -339,7 +339,7 @@ function buy_ticket(n){
 buy="http://railway.hinet.net/ctno1.htm?from_station=";
 var  x1=from;
 var x2=to;
-var x3=show_data[n].ID.
+var x3=show_data[n].ID;
 change_num(x1);
 buy=buy+station_num;
 buy=buy+"&to_station=";
