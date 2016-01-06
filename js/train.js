@@ -29,6 +29,7 @@ var from_id;
 var to_id;
 get_cost(from,to);
 document.getElementById("date").value = date;
+var station_num;
 
 
 
@@ -336,10 +337,54 @@ function trainCheck(buffer){
 
 function buy_ticket(n){
 buy="http://railway.hinet.net/ctno1.htm?from_station=";
-var  x1=from_id;
-var x2=to_id;
+var  x1=from;
+var x2=to;
 var x3=show_data[n].ID.
-buy=buy+x1+"&to_station="+x2+"&getin_date="+data2+"&train_no="+x3;
+change_num(x1);
+buy=buy+station_num;
+buy=buy+"&to_station=";
+change_num(x2);
+buy=buy+station_num;
+buy=buy+"&getin_date="+data2+"&train_no="+x3;
+}
+
+
+function change_num(station_name)
+{
+if(station_name=="貢寮")
+station_num="084";
+else if(station_name=="雙溪")
+station_num="085";
+else if(station_name=="牡丹")
+station_num="086";
+else if(station_name=="三貂嶺")
+station_num="087";
+else if(station_name=="猴硐")
+station_num="088";
+else if(station_name=="瑞芳")
+station_num="089";
+else if(station_name=="四腳亭")
+station_num="090";
+else if(station_name=="基隆")
+station_num="092";
+else if(station_name=="八堵")
+station_num="093";
+else if(station_name=="七堵")
+station_num="094";
+else if(station_name=="汐止")
+station_num="096";
+else if(station_name=="南港")
+station_num="097";
+else if(station_name=="松山")
+station_num="098";
+else if(station_name=="台北")
+station_num="100";
+else if(station_name=="萬華")
+station_num="101";
+else if(station_name=="板橋")
+station_num="102";
+else if(station_name=="樹林")
+station_num="103";
 }
 
 
