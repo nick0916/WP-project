@@ -96,7 +96,7 @@ function get_info(url,index){
                               var tail="</table>";
                               for(var n=0;n<show_data.length;n++){
 			      buy_ticket(n);
-                              test3 = test3 + "<tr><td><input type= checkbox value= Travel " + "id = train_" + n + " name=interest onclick=trainCheck(this) ></td><td>" + show_data[n].Arrival_t +" -> "+show_data[n].departure_t + "</td><td>" + show_data[n].Type + show_data[n].ID + "</td><td>" + show_data[n].during_t +"</td><td>" + show_data[n].cost +"<a target="+"_blank"+" href="+buy+">buy</a>"+"</td></tr>";
+                              test3 = test3 + "<tr><td><input type= checkbox value= Travel " + "id = train_" + n + " name=interest onclick=trainCheck(this) ></td><td>" + show_data[n].Arrival_t +" -> "+show_data[n].departure_t + "</td><td>" + show_data[n].Type + show_data[n].ID + "</td><td>" + show_data[n].during_t +"</td><td>" + show_data[n].cost +"<a target="+"_blank"+" href="+buy+" > buy</a>"+"</td></tr>";
                               }
                               test3 = title + test3 + tail;
                               
