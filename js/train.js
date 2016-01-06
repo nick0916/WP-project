@@ -17,6 +17,7 @@ var time = "00:00";
 time = cal_time(time);
 // 客人選擇預設為『出發時間』、『全部類型』
 
+var buy;
 var train_date = [];
 var train_info = [];
 var station = [];
@@ -45,6 +46,7 @@ function set_date(y, m, d){
      month = m;
      day = d;
      date = (y + "-" + m + "-" + d);
+     data2= (y + "/" + m + "/" + d);
            document.getElementById("date").value = date;
 
      
@@ -92,7 +94,8 @@ function get_info(url,index){
                               var title="<table id=\"t3\"><tr><th></th><th>" + from +" -> " + to +"</th><th>By</th><th>Spend</th><th>Cost</th></tr>";
                               var tail="</table>";
                               for(var n=0;n<show_data.length;n++){
-                              test3 = test3 + "<tr><td><input type= checkbox value= Travel " + "id = train_" + n + " name=interest onclick=trainCheck(this) ></td><td>" + show_data[n].Arrival_t +" -> "+show_data[n].departure_t + "</td><td>" + show_data[n].Type + show_data[n].ID + "</td><td>" + show_data[n].during_t +"</td><td>" + show_data[n].cost +"</td></tr>";
+			      buy_ticket(n);
+                              test3 = test3 + "<tr><td><input type= checkbox value= Travel " + "id = train_" + n + " name=interest onclick=trainCheck(this) ></td><td>" + show_data[n].Arrival_t +" -> "+show_data[n].departure_t + "</td><td>" + show_data[n].Type + show_data[n].ID + "</td><td>" + show_data[n].during_t +"</td><td>" + show_data[n].cost +"<a href="+buy+">buy</a>"+"</td></tr>";
                               }
                               test3 = title + test3 + tail;
                               
@@ -330,3 +333,13 @@ function trainCheck(buffer){
           } 
      }
 }// 選取喜好的火車時段
+
+function buy_ticket(n){
+buy="http://railway.hinet.net/ctno1.htm?from_station=";
+var  x1=from;
+var x2=to;
+var x3=show_data[n].ID.
+buy=buy+x1+"&to_station="+x2+"&getin_date="+data2+"&train_no="+x3;
+}
+
+
