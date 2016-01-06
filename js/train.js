@@ -30,7 +30,7 @@ var to_id;
 get_cost(from,to);
 document.getElementById("date").value = date;
 var station_num;
-
+var date2;
 
 
 var station_api = "http://210.59.250.227:80/MOTC/v1/Rail/TRA/Station?%24format=json";
@@ -47,7 +47,6 @@ function set_date(y, m, d){
      month = m;
      day = d;
      date = (y + "-" + m + "-" + d);
-     date2= (y + "/" + m + "/" + d);
      
            document.getElementById("date").value = date;
 	   
@@ -352,6 +351,47 @@ buy=buy+"&to_station=";
 change_num(x2);
 buy=buy+station_num;
 buy=buy+"&getin_date="+date2+"&train_no="+x3;
+}
+
+
+function set_date2(){
+var y1=document.getElementById("date").value[0];
+var y2=document.getElementById("date").value[1];
+var y3=document.getElementById("date").value[2];
+var y4=document.getElementById("date").value[3];
+var ye=y1+y2+y3+y4;
+var m1;
+var m2;
+var d1;
+var d2;
+if(document.getElementById("date").value[6]=="-"){
+m1=0;
+m2=getElementById("date").value[5];
+if(date.length==8){
+d1=0;
+d2=getElementById("date").value[8];
+}
+else{
+d1=getElementById("date").value[8];
+d2=getElementById("date").value[9];
+}
+}
+else{
+m1=getElementById("date").value[5];
+m2=getElementById("date").value[6];
+if(date.length==9){
+d1=0;
+d2=getElementById("date").value[9];	
+}
+else{
+d1=getElementById("date").value[9];	
+d2=getElementById("date").value[10];	
+}
+}
+var mo=m1+m2;
+var da=d1+d2;
+date2= (ye + "/" + mo + "/" + da);
+
 }
 
 
