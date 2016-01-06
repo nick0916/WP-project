@@ -50,6 +50,7 @@ function set_date(y, m, d){
      date2= (y + "/" + m + "/" + d);
      
            document.getElementById("date").value = date;
+	   
 
      
 } // 取得理想格式的時間
@@ -233,6 +234,7 @@ function search(a,b,c,d,e,f){
      
            //console.log(c.date);
      date =document.getElementById("date").value;
+     date2 =document.getElementById("date").value;
      get_cost(from,to);      
            //console.log(d);
      //set_date(c.date.getFullYear(), c.date.getMonth() + 1, c.date.getDate());
