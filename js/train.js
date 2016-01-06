@@ -336,8 +336,8 @@ function trainCheck(buffer){
 
 function buy_ticket(n){
 buy="http://railway.hinet.net/ctno1.htm?from_station=";
-var  x1=from;
-var x2=to;
+var  x1=from_id;
+var x2=to_id;
 var x3=show_data[n].ID.
 buy=buy+x1+"&to_station="+x2+"&getin_date="+data2+"&train_no="+x3;
 }
