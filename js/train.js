@@ -236,7 +236,7 @@ function search(a,b,c,d,e,f){
      
            //console.log(c.date);
      date =document.getElementById("date").value;
-     date2 =document.getElementById("date").value;
+     set_date2();
      get_cost(from,to);      
            //console.log(d);
      //set_date(c.date.getFullYear(), c.date.getMonth() + 1, c.date.getDate());
