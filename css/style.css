@@ -147,7 +147,7 @@ table#t tr:nth-child(odd) {
 
 :root input[type="checkbox"].ios-switch + div:before {
 
-	content: '多重搜尋';
+	content: '';
 
 	float: left;
 	width: 1.65em; height: 1.65em;
@@ -181,7 +181,7 @@ table#t tr:nth-child(odd) {
 
 :root input[type="checkbox"].ios-switch + div:after {
 
-	content: '快速搜尋';
+	content: '';
 
 
 	float: left;
@@ -259,10 +259,10 @@ video {
      top: 40vh;
      z-index: 1;
 }  
-<<<<<<< HEAD
+
 #t3 a{
 float:none;
-=======
+}
 
 
 .container {
@@ -306,5 +306,4 @@ float:none;
 
 #level_1 input{
     order:2;
->>>>>>> video
 }
