@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Transportation.</title>
+		<title>Taiwan Transportation</title>
 		<meta name="description" content="Hover Effects with animated SVG Shapes using Snap.svg" />
 		<meta name="keywords" content="animated svg, hover effect, grid, svg shape html, " />
 		<meta name="author" content="Codrops" />
@@ -60,31 +60,39 @@
 	<body>
 	
 	
-		
-	
-	<div id="gotop"><img src="http://1.bp.blogspot.com/-zMfrIkyhlVs/Uh7FePoKU8I/AAAAAAAAHnA/WA0H_vbWAWc/s1600/go-top.png"></div>
-				<div id="main">
-				<video autoplay poster="css/bg.png" id="bgvid" muted loop>
-				
-				<source src="v1.mp4" type="video/mp4">
-				</video>
-				<header class="codrops-header">
+		<div id="gotop"><img src="http://1.bp.blogspot.com/-zMfrIkyhlVs/Uh7FePoKU8I/AAAAAAAAHnA/WA0H_vbWAWc/s1600/go-top.png"></div>
+
+		<div id="main">
+			<video autoplay poster="css/bg.jpg" id="bgvid" muted loop>
+				<source id="video" src="v1.mp4" type="video/mp4">
+			</video>
+			<header class="codrops-header">
 <!-- 				<h1>Transportation.<span>Let's Chain up. </span></h1>
  -->			</header>
-				<br>
-				<input type="image" src="img/get-started.png" id="started"  onclick="go_started()" ></input>
+			<br>
+			<input type="image" src="img/get-started.png" id="started"  onclick="go_started()" ></input>
 				
-			</div>
+		</div>
 			<br>
 			<br>
 			<br>
 			<br>
 		<div class="container">
 			<div id="inner">
-			<div class="step" >
+			<div class="step" id="level_1" >
 				
-				<h2>1.請選擇出發日期: <input type="text" id = "date" name="txt2" onfocus="c.showMoreDay = false;c.show(this);"/></h2>	
-				<label><input type="checkbox" id="ios" class="ios-switch"  onclick="divide(this)" /></label>
+
+				<img src="img/選擇日期.png" alt="">
+
+				<input type="text" id = "date" name="txt2" onfocus="c.showMoreDay = false;c.show(this);"/>
+				<img id="pic_2" src="img/查詢方式.png" alt="">	
+				<div id="choose_search">
+				<label style="display:block;">
+					快速搜尋
+					<input type="checkbox" id="ios" class="ios-switch"  onclick="divide(this)" />
+					單一搜尋
+				</label>
+				</div>
 			</div>
 			
 			
