@@ -64,8 +64,8 @@ a:hover, a:focus {
 }
 .step{
 	margin: 0 auto;
-	margin-left: 200px;
-	padding: 2em;
+/*	margin-left: 200px;*/
+/*	padding: 2em;*/
 	text-align: left;
 	width: 90%;
 }
