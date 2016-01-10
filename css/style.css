@@ -291,6 +291,8 @@ float:none;
     align-items: center;
     display: flex;
     flex-direction: column-reverse;
+    background: url('middle2.jpg') no-repeat; 
+    background-size: auto;
 }
 
 #level_1 img{
