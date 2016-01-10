@@ -200,8 +200,8 @@ label {
 	padding: .8em;
 	width: 20%;
 	
-	
-	
+	color: white;
+	margin-bottom: 100px;
 }
 
 label:first-of-type {
@@ -288,24 +288,36 @@ float:none;
 
 
 #level_1{
+
     align-items: center;
     display: flex;
     flex-direction: column-reverse;
-    background: url('middle2.jpg') no-repeat; 
-    background-size: auto;
+    background: url('middle3.jpeg') no-repeat; 
+    background-size: cover;
+    padding-bottom: 210px;
+
 }
 
 #level_1 img{
+    margin-top: 30px;
+
     width: 30%;
     order:3;
     margin-bottom: 30px;
 }
 
 #level_1 #pic_2{
-    margin-top: 30px;
     order:1;
 }
 
 #level_1 input{
     order:2;
+}
+
+.container{
+    background: url('road.png');
+}
+
+#divide1{
+    order:0;
 }
