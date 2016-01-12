@@ -201,7 +201,7 @@ label {
 	width: 20%;
 	
 	color: white;
-	margin-bottom: 100px;
+/*	margin-bottom: 100px;*/
 }
 
 label:first-of-type {
@@ -215,7 +215,7 @@ label:last-of-type {
 	
 }
 #inner {height: 30px}
-#step-three{padding-top:700px;}
+/*#step-three{padding-top:700px;}*/
 #tabsC{color:#000000;}
 #main {
     min-width: 100%;
@@ -270,7 +270,8 @@ float:none;
 }/*字體顏色調整*/
 
 #mtr, #bus, #thsr, #train{
-     border: 1px black solid;
+     /*border: 1px black solid;*/
+     height: auto;
 }
 
 
@@ -284,6 +285,7 @@ float:none;
      margin-right: auto;
      margin-left: auto;
      text-align: center;
+
 }
 
 
@@ -291,33 +293,67 @@ float:none;
 
     align-items: center;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     background: url('middle3.jpeg') no-repeat; 
-    background-size: cover;
-    padding-bottom: 210px;
+    background-size:100vw;
 
 }
 
-#level_1 img{
+#level_1 .title{
     margin-top: 30px;
 
     width: 30%;
-    order:3;
     margin-bottom: 30px;
 }
 
 #level_1 #pic_2{
-    order:1;
-}
+/*    order:1;
+*/}
 
 #level_1 input{
-    order:2;
-}
+/*    order:2;
+*/}
 
 .container{
     background: url('road.png');
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
+#inner{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+}
+
+body{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
 #divide1{
+    height: auto;
+}
+
+#divide2{
+    height:auto;
+}
+
+
+/* 順序區 */
+/* L1 */
+#main{
     order:0;
 }
+
+.container{
+    order:1;
+}
+/* L2 */
+#inner{
+    order:0;
+}
+/*
+
