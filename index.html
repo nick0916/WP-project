@@ -72,26 +72,27 @@
 			<input type="image" src="img/get-started.png" id="started"  onclick="go_started()" ></input>
 				
 		</div>
-		<div class="container">
-			<div id="inner">
-				<div id="level_1" >
-					
-
-					<img class="title" src="img/選擇日期.png" alt="">
-
-					<input type="text" id = "date" name="txt2" onfocus="c.showMoreDay = false;c.show(this);"/>
-					<img class="title" id="pic_2" src="img/查詢方式.png" alt="">	
-					<div id="choose_search">
-						<label style="display:block;">
-							快速搜尋
-							<input type="checkbox" id="ios" class="ios-switch"  onclick="divide(this)" />
-							單一搜尋
-						</label>
-					</div>
-					
-					<div id="divide">
+		<div id="road">
+			<div class="container">
+				<div id="inner">
+					<div id="level_1" >
 						
-					
+
+						<img class="title" id="pic_1" src="img/選擇日期.png" alt="">
+
+						<input type="text" id = "date" name="txt2" onfocus="c.showMoreDay = false;c.show(this);"/>
+						<img class="title" id="pic_2" src="img/查詢方式.png" alt="">	
+						<div id="choose_search">
+							<label style="display:block;">
+								快速搜尋
+								<input type="checkbox" id="ios" class="ios-switch"  onclick="divide(this)" />
+								單一搜尋
+							</label>
+						</div>
+					</div>
+				</div>
+				<div id="divide">
+					<div id="black_back">			
 						<div id="divide1"style="display:block;">
 						
 							<h2>快速搜尋</h2>
@@ -496,437 +497,31 @@
 						</div>
 					</div>
 				</div>
-				
-				
-<!-- 				<div id="divide1"style="display:block;">
-				
-					<h2>快速搜尋</h2>
-					<br>
-					From
-					<select name="from"size="1" id = "all_from">
-						<option value="1">台北</option>
-						<option value="2">板橋</option>
-						<option value="3">桃園</option>
-						<option value="4">新竹</option>
-						<option value="5">台中</option>
-						<option value="6">嘉義</option>
-						<option value="7">台南</option>
-						<option value="8">高雄</option>
-					</select>
-					To
-					<select name="to" size="1" id = "all_to">
-						<option value="1">台北</option>
-						<option value="2">板橋</option>
-						<option value="3">桃園</option>
-						<option value="4">新竹</option>
-						<option value="5">台中</option>
-						<option value="6">嘉義</option>
-						<option value="7">台南</option>
-						<option value="8">高雄</option>
-					</select>
-					At
-					<select name="time" size="1" id = "all_time">
-						<option value="0">00:00</option>
-						<option value="1">01:00</option>
-						<option value="2">02:00</option>
-						<option value="3">03:00</option>
-						<option value="4">04:00</option>
-						<option value="5">05:00</option>
-						<option value="6">06:00</option>
-						<option value="7">07:00</option>
-						<option value="8">08:00</option>
-						<option value="9">09:00</option>
-						<option value="10">10:00</option>
-						<option value="11">11:00</option>
-						<option value="12">12:00</option>
-						<option value="13">13:00</option>
-						<option value="14">14:00</option>
-						<option value="15">15:00</option>
-						<option value="16">16:00</option>
-						<option value="17">17:00</option>
-						<option value="18">18:00</option>
-						<option value="19">19:00</option>
-						<option value="20">20:00</option>
-						<option value="21">21:00</option>
-						<option value="22">22:00</option>
-						<option value="23">23:00</option>
-					</select>
-					<input type="button" value="start" onclick="metasearch()">
+				<div id="step-three">
+					<h2>行程：<span><br></span>
+					<div id="tabsF" >
+					<ul id = "select_tp">
+						<li id="current" class="img1"><a href="javascript://" onclick="loadTab(this,1,1);"><img id="img1" src="img/t1.png" width="100" height="100"></a></li>
+						<li class="img2"><a href="javascript://" onclick="loadTab(this,2,1);"><img id="img2" src="img/t2.png" width="100" height="100"></a></li>
+						<li class="img3"><a href="javascript://" onclick="loadTab(this,3,1);"><img id="img3" src="img/t3.png" width="100" height="100"></a></li>
+						<li class="img4"><a href="javascript://" onclick="loadTab(this,4,1);"><img id="img4" src="img/t4.png" width="100" height="100"></a></li>
+						
+					</ul>
+					</div>
+					<div id="tabsC" class="grid clearfix" style="  opacity:0.95;">
+						<div id="S1" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
+						<div id="S2" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
+						<div id="S3" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
+						<div id="S4"  class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
+						
+					</div>
+					<div id="showTrain" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>
+					<div id="showThsr" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>				
+					<div id="showCoach" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>
+					<div id="showBus" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>				
+					</h2>
 				</div>
-				
-				<div id="divide2" style="display:none;">
-					<h2>請選擇交通工具：<span></span></h2>	
-					<section id="grid" class="grid clearfix">
-					
-						<a id="train" class="visible" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-							<figure>
-								<img src="img/train.png" />
-								<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-								<figcaption>
-
-								<h2>火車</h2>
-								<p>Train</p>
-								
-								<form name="train">
-								<br>From<br>
-									<select name="major" size="1" onChange="redirect(this.options.selectedIndex,0)" id="major1_train">
-										<option>台北</option>
-										<option>桃園</option>
-										<option>新竹</option>
-										<option>苗栗</option>
-										<option>台中</option>
-										<option>彰化</option>
-										<option>雲林</option>
-										<option>嘉義</option>
-										<option>台南</option>
-										<option>高雄</option>
-										<option>屏東</option>
-										<option>台東</option>
-										<option>花蓮</option>
-										<option>宜蘭</option>
-										<option>平溪線</option>
-										<option>內灣線</option>
-										<option>集集線</option>
-										<option>沙崙線</option>
-										<option>深奧線</option>
-									</select>
-									<select name="sub1" size="1" id = "train_from">
-										<option value="083">福隆</option>
-										<option value="084">貢寮</option>
-										<option value="085">雙溪</option>
-										<option value="086">牡丹</option>
-										<option value="087">三貂嶺</option>
-										<option value="088">侯硐</option>
-										<option value="089">瑞芳</option>
-										<option value="090">四腳亭</option>
-										<option value="..">暖暖</option>
-										<option value="092">基隆</option>
-										<option value="..">三坑</option>
-										<option value="093">八堵</option>
-										<option value="094">七堵</option>
-										<option value="..">百福</option>
-										<option value="..">五堵</option>
-										<option value="096">汐止</option>
-										<option value="..">汐科</option>
-										<option value="097">南港</option>
-										<option value="098">松山</option>
-										<option value="100" selected>台北</option>
-										<option value="101">萬華</option>
-										<option value="102">板橋</option>
-										<option value="..">浮洲</option>
-										<option value="103">樹林</option>
-										<option value="104">山佳</option>
-										<option value="105">鶯歌</option>
-									</select>
-									
-									<br>To<br>
-									<select name="major2" size="1" onChange="redirect(this.options.selectedIndex,1)" id="major2_train">								<option>台北</option>
-										<option>桃園</option>
-										<option>新竹</option>
-										<option>苗栗</option>
-										<option>台中</option>
-										<option>彰化</option>
-										<option>雲林</option>
-										<option>嘉義</option>
-										<option>台南</option>
-										<option>高雄</option>
-										<option>屏東</option>
-										<option>台東</option>
-										<option>花蓮</option>
-										<option>宜蘭</option>
-										<option>平溪線</option>
-										<option>內灣線</option>
-										<option>集集線</option>
-										<option>沙崙線</option>
-										<option>深奧線</option>
-									</select>
-									<select name="sub2" size="1" id = "train_to">
-										<option value="083">福隆</option>
-										<option value="084">貢寮</option>
-										<option value="085">雙溪</option>
-										<option value="086">牡丹</option>
-										<option value="087">三貂嶺</option>
-										<option value="088">侯硐</option>
-										<option value="089">瑞芳</option>
-										<option value="090">四腳亭</option>
-										<option value="..">暖暖</option>
-										<option value="092">基隆</option>
-										<option value="..">三坑</option>
-										<option value="093">八堵</option>
-										<option value="094">七堵</option>
-										<option value="..">百福</option>
-										<option value="..">五堵</option>
-										<option value="096">汐止</option>
-										<option value="..">汐科</option>
-										<option value="097">南港</option>
-										<option value="098">松山</option>
-										<option value="100" selected>台北</option>
-										<option value="101">萬華</option>
-										<option value="102">板橋</option>
-										<option value="..">浮洲</option>
-										<option value="103">樹林</option>
-										<option value="104">山佳</option>
-										<option value="105">鶯歌</option>
-									</select>
-									<br>
-									<input type="image" src="img/exchange1.png" id="exchange" onclick="change();return false; "  ></input>
-									<br>At<br>
-									<select name="type" size="1" id = "train_time">
-										<option>00:00</option>
-										<option>01:00</option>
-										<option>02:00</option>
-										<option>03:00</option>
-										<option>04:00</option>
-										<option>05:00</option>
-										<option>06:00</option>
-										<option>07:00</option>
-										<option>08:00</option>
-										<option>09:00</option>
-										<option>10:00</option>
-										<option>11:00</option>
-										<option>12:00</option>
-										<option>13:00</option>
-										<option>14:00</option>
-										<option>15:00</option>
-										<option>16:00</option>
-										<option>17:00</option>
-										<option>18:00</option>
-										<option>19:00</option>
-										<option>20:00</option>
-										<option>21:00</option>
-										<option>22:00</option>
-										<option>23:00</option>
-									</select>
-									
-									<select name="time_check" size="1" id = "time_check">
-										<option value="0">出發時間</option>
-										<option value="1">抵達時間</option>
-										
-										
-									</select>
-									<br>Type<br>
-									<select name="type" size="1" id = "train_type">
-										<option value="0">全部</option>
-										<option value="1">對號</option>
-										<option value="2">非對號</option>
-										
-									</select>
-									
-									
-									<button onclick="search($('#train_from :selected').text(),$('#train_to :selected').text(),$('#time_check').val(),$('#train_time').val(),$('#train_type').val(),0);return false">Submit</button>
-								</form>
-								</figcaption>
-
-							</figure>
-						</a>
-						<a  id="thsr" class="visible" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-							<figure>
-								<img src="img/thsr.png" />
-								<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-								<figcaption>
-
-									<h2>高鐵</h2>
-									<p>Taiwan High Speed Rail(THSR)</p>
-									<form name="thsr">                
-										<br>From<br>
-										<select name="from"size="1" id = "thsr_from">
-											<option value="1">台北</option>
-											<option value="2">板橋</option>
-											<option value="3">桃園</option>
-											<option value="4">新竹</option>
-											<option value="5">台中</option>
-											<option value="6">嘉義</option>
-											<option value="7">台南</option>
-											<option value="8">左營</option>
-										</select>
-										<br>To<br>
-										<select name="to" size="1" id = "thsr_to">
-											<option value="1">台北</option>
-											<option value="2">板橋</option>
-											<option value="3">桃園</option>
-											<option value="4">新竹</option>
-											<option value="5">台中</option>
-											<option value="6">嘉義</option>
-											<option value="7">台南</option>
-											<option value="8">左營</option>
-										</select>
-										<br>
-										<input type="image" src="img/exchange1.png" id="exchange" onclick="change2();return false; "  ></input>
-										<br>At<br>
-										<select name="time" size="1" id = "thsr_time">
-											<option value="0">00:00</option>
-											<option value="1">01:00</option>
-											<option value="2">02:00</option>
-											<option value="3">03:00</option>
-											<option value="4">04:00</option>
-											<option value="5">05:00</option>
-											<option value="6">06:00</option>
-											<option value="7">07:00</option>
-											<option value="8">08:00</option>
-											<option value="9">09:00</option>
-											<option value="10">10:00</option>
-											<option value="11">11:00</option>
-											<option value="12">12:00</option>
-											<option value="13">13:00</option>
-											<option value="14">14:00</option>
-											<option value="15">15:00</option>
-											<option value="16">16:00</option>
-											<option value="17">17:00</option>
-											<option value="18">18:00</option>
-											<option value="19">19:00</option>
-											<option value="20">20:00</option>
-											<option value="21">21:00</option>
-											<option value="22">22:00</option>
-											<option value="23">23:00</option>
-										</select>
-																	
-										<button onclick="selectitem($('#thsr_from').val(),$('#thsr_to').val(),$('#thsr_time').val(),$('#thsr_from :selected').text(),$('#thsr_to :selected').text(),0);return false">Submit</button>             
-									</form>
-
-								</figcaption>
-							</figure>
-						</a>
-						<a  id="bus" class="visible" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-							<figure>
-								<img src="img/coach.png"/>
-								<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-								<figcaption>
-								<h2>客運</h2>
-								<p>Coach</p>
-								<form name="bus">
-								<br>路線<br>
-								<select name="route"size="1" id = "bus_route">
-											<option value="1">台北→台南(兩排椅)</option>
-											<option value="2">台南→台北(兩排椅)</option>
-											<option value="3">台北→台南(三排椅)</option>
-											<option value="4">台南→台北(三排椅)</option>
-											<option value="5">台北→新營→高雄</option>
-											<option value="6">高雄→新營→台北</option>
-											<option value="7">台南→嘉義</option>
-											<option value="8">嘉義→台南</option>
-											<option value="9">台北→台中</option>
-											<option value="10">台中→台北</option>
-											<option value="11">台南→台中</option>
-											<option value="12">台中→台南</option>
-											
-										</select>
-								<br>At<br>
-									<select name="type" size="1" id = "b_time">
-										<option value="0">00:00</option>
-											<option value="1">01:00</option>
-											<option value="2">02:00</option>
-											<option value="3">03:00</option>
-											<option value="4">04:00</option>
-											<option value="5">05:00</option>
-											<option value="6">06:00</option>
-											<option value="7">07:00</option>
-											<option value="8">08:00</option>
-											<option value="9">09:00</option>
-											<option value="10">10:00</option>
-											<option value="11">11:00</option>
-											<option value="12">12:00</option>
-											<option value="13">13:00</option>
-											<option value="14">14:00</option>
-											<option value="15">15:00</option>
-											<option value="16">16:00</option>
-											<option value="17">17:00</option>
-											<option value="18">18:00</option>
-											<option value="19">19:00</option>
-											<option value="20">20:00</option>
-											<option value="21">21:00</option>
-											<option value="22">22:00</option>
-											<option value="23">23:00</option>
-									</select>
-								<p></p>
-								<button onclick="bus_time($('#bus_route').val(),$('#b_time').val(),$('#bus_route :selected').text());return false">Submit</button>
-								
-								</form>
-								</figcaption>
-							</figure>
-						</a>
-						<a  id="mtr" class="visible" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-							<figure>
-								<img src="img/bus.png" />
-								<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-								<figcaption>
-								<h2>公車</h2>
-								<p>Bus</p>
-								
-								<form name="bus_r">
-								<br>To<br>
-									<select name="major" size="1" onChange="redirect2(this.options.selectedIndex,1)">
-										<option>市區公車</option>
-										<option>觀光公車</option>
-										<option>高鐵接駁車</option>
-										<option>綠線</option>
-										<option>藍線</option>
-										<option>棕線</option>
-										<option>橘線</option>
-										<option>黃線</option>
-										<option>紅線</option>
-										
-									</select>
-									<select name="sub1" size="1" id = "bus_to">
-										<option value="..">0右</option>
-										<option value="..">0左</option>
-										<option value="..">1</option>
-										<option value="..">2</option>
-										<option value="..">3</option>
-										<option value="..">5</option>
-										<option value="..">6</option>
-										<option value="..">7</option>
-										<option value="..">9</option>
-										<option value="..">10</option>
-										<option value="..">11</option>
-										<option value="..">14</option>
-										<option value="..">15</option>
-										<option value="..">17</option>
-										<option value="..">18</option>
-										<option value="..">19</option>
-										<option value="..">20</option>
-										<option value="..">21</option>
-										
-									</select>
-									<br>去回程<br>
-									<select  size="1" id = "bus_direction">
-									<option value="0">去程</option>
-									<option value="1">返程</option>
-									</select>
-								<p></p>
-								<button onclick="bus_station($('#bus_to :selected').text(),$('#bus_direction :selected').text());return false">Submit</button>
-								</form>
-								</figcaption>
-							</figure>
-						</a>
-					</section>
-				</div> -->
 			</div>
-			<div id="step-three">
-				<h2>行程：<span><br></span>
-				<div id="tabsF" >
-				<ul id = "select_tp">
-					<li id="current" class="img1"><a href="javascript://" onclick="loadTab(this,1,1);"><img id="img1" src="img/t1.png" width="100" height="100"></a></li>
-					<li class="img2"><a href="javascript://" onclick="loadTab(this,2,1);"><img id="img2" src="img/t2.png" width="100" height="100"></a></li>
-					<li class="img3"><a href="javascript://" onclick="loadTab(this,3,1);"><img id="img3" src="img/t3.png" width="100" height="100"></a></li>
-					<li class="img4"><a href="javascript://" onclick="loadTab(this,4,1);"><img id="img4" src="img/t4.png" width="100" height="100"></a></li>
-					
-				</ul>
-				</div>
-				<div id="tabsC" class="grid clearfix" style="  opacity:0.95;">
-					<div id="S1" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
-					<div id="S2" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
-					<div id="S3" class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
-					<div id="S4"  class="grid clearfix" style="display:none;margin:1% 18% 1% -5%; opacity:0.95;">尚未查詢</div>
-					
-				</div>
-				<div id="showTrain" class="grid clearfix" style=" margin:1% 18% 1% -5%; opacity:0.95;"></div>
-				<div id="showThsr" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>				
-				<div id="showCoach" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>
-				<div id="showBus" class="grid clearfix" style=" margin:1% 18% 1% -5%;opacity:0.95;"></div>				
-				</h2>
-			</div>
-			
-			
 		</div>
 		<!-- /container -->
 		 
@@ -1623,29 +1218,41 @@
 			//滑動效果
 			function divide(check)
 			{
-			if(check.checked == true)
-			{
-			
-			$('#divide1').addClass('animated fadeOutLeft');
-			$('#divide2').removeClass('animated fadeOutLeft').addClass('animated fadeInRight');
-			document.getElementById("divide2").style.display='block';
-			document.getElementById("divide1").style.display='none';
-			$('#divide1').css({position: 'relative'});
-			$('#divide2').css({ position: 'relatvie'});
-    
-			
-			
-			}
-			else
-			{
-			
-			$('#divide2').addClass('animated fadeOutLeft');
-			$('#divide1').removeClass('animated fadeOutLeft').addClass('animated fadeInRight');
-			
-			document.getElementById("divide1").style.display='block';
-			document.getElementById("divide2").style.display='none';
-			
-			}
+				if(check.checked == true)
+				{
+					
+					$('#divide1').addClass('animated fadeOutLeft').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+						
+						document.getElementById("divide2").style.display='block';
+						document.getElementById("divide1").style.display='none';
+
+						$('#divide2').addClass('animated fadeInRight').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+								$('#divide1').removeClass();
+								$('#divide2').removeClass();
+						});
+						
+					});
+
+				}
+				else
+				{
+				
+					$('#divide2').addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+
+						document.getElementById("divide2").style.display='none';						
+						document.getElementById("divide1").style.display='block';
+
+						$('#divide1').addClass('animated fadeInLeft').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+								$('#divide1').removeClass();
+								$('#divide2').removeClass();
+						});
+						
+
+					});				
+				}
+				jQuery("html,body").animate({
+                      scrollTop:$("#pic_2").offset().top
+				},800);
 			}
 			
 			

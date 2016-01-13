@@ -201,7 +201,7 @@ label {
 	width: 20%;
 	
 	color: white;
-/*	margin-bottom: 100px;*/
+	margin-bottom: 10px;
 }
 
 label:first-of-type {
@@ -276,9 +276,6 @@ float:none;
 
 
 
-/*#choose_search {
-     width: 50vw;
-}*/
 
 #choose_search label{
      width: auto;
@@ -294,31 +291,38 @@ float:none;
     align-items: center;
     display: flex;
     flex-direction: column;
-    background: url('middle3.jpeg') no-repeat; 
-    background-size:100vw;
+/*    background: url('middle3.jpeg') no-repeat; 
+    background-size:100vw;*/
 
 }
 
-#level_1 .title{
-    margin-top: 30px;
 
+
+#pic_1{
     width: 30%;
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 
-#level_1 #pic_2{
-/*    order:1;
-*/}
+#pic_2{
+    width: 30%;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
 
-#level_1 input{
-/*    order:2;
-*/}
 
 .container{
-    background: url('road.png');
+    
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    background: url('middle3.jpeg') no-repeat; 
+    background-size:100vw;
+}
+
+#road{
+    background: url('road.png');
 }
 
 #inner{
@@ -326,6 +330,8 @@ float:none;
     align-items: center;
     flex-direction: column;
     height: auto;
+
+
 }
 
 body{
@@ -333,14 +339,29 @@ body{
     align-items: center;
     flex-direction: column;
 }
-#divide1{
-    height: auto;
+
+#step-three{
+    width: 100%;
 }
 
-#divide2{
-    height:auto;
+#tabsF{
+    display:flex;
+    align-items: center;
 }
 
+#black_back{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 97.5vw;
+    background: rgba(0%,0%,0%,0.35);
+
+    height: 550px;
+}
+
+#divide1, #divide2{
+    color: white;
+}
 
 /* 順序區 */
 /* L1 */
@@ -355,5 +376,5 @@ body{
 #inner{
     order:0;
 }
-/*
+
 

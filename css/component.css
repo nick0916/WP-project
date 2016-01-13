@@ -140,7 +140,8 @@
 /* Individual styles */
 .demo-1 body {
 /*	background: #3498db;*/
-	background-color: white;
+	background-color: black;
+	color: black;
 }
 
 
