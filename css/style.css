@@ -106,7 +106,7 @@ table#t tr:nth-child(odd) {
 	{
 	display:inline;
 	margin:0;
-	padding-left:8%;
+	padding:3%;
 	}
 /**
  * iOS 6 style switch checkboxes
@@ -347,6 +347,7 @@ body{
 #tabsF{
     display:flex;
     align-items: center;
+    flex-basic:auto;
 }
 
 #black_back{
@@ -377,10 +378,24 @@ body{
     order:0;
 }
 
+/**/
 
-
-#step-three{
-width:60%
+#step-three h2{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
 }
+
+#select_tp{
+    display:flex;
+    align-items: center;
+
+    background: rgba(90%,90%,90%,0.35);
+    padding: 0px;
+}
+
+
+
+
 
 
