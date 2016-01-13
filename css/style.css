@@ -384,6 +384,7 @@ body{
     display:flex;
     align-items: center;
     flex-direction: column;
+    color: white;
 }
 
 #select_tp{
