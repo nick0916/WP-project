@@ -344,12 +344,12 @@ body{
     width: 100%;
 }
 
-#tabsF{
+/*#tabsF{
     display:flex;
     align-items: center;
     flex-basic:auto;
 }
-
+*/
 #black_back{
     display: flex;
     flex-direction: column;
